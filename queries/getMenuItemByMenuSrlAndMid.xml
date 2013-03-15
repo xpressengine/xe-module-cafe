@@ -1,0 +1,12 @@
+<query id="getMenuItemByMenuSrlAndMid" action="select">
+	<tables>
+		<table name="menu_item" />
+	</tables>
+	<columns>
+		<column name="*" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="menu_srl" var="target_menu_srl" filter="number" notnull="notnull" />
+		<condition operation="equal" column="url" var="target_mid" notnull="notnull" pipe="and" />
+	</conditions>
+</query>

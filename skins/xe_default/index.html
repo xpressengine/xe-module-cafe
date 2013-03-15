@@ -1,0 +1,117 @@
+<!--%import("./style.css")-->
+
+<!--@if($module_info->title)-->
+<div class="cafeHeader">
+    <div class="cafeTitle">
+        <h2 class="cafeTitleText"><a href="{getFullUrl('','mid',$mid,'listStyle',$listStyle)}">{$module_info->title}<!--@if($module_info->sub_title)--> : <em>{$module_info->sub_title}</em><!--@end--></a></h2>
+    </div>
+
+    <!--@if($module_info->comment)-->
+    <p class="cafeDescription">{$module_info->comment}</p>
+    <!--@end-->
+</div>
+<!--@end-->
+
+<div class="cafeBody cafeCE">
+
+	<div class="cafeContent">
+
+        <!--@if($module_info->intro_title)-->
+        <div class="intro">
+            <h3>{$module_info->intro_title}</h3>
+            <img src="{$module_info->intro_image}" alt="" align="left" />
+            {nl2br($module_info->intro_description)}
+            <span class="url"><a href="{$module_info->intro_url}" onclick="window.open(this.href); return false;">{$module_info->intro_url}</a></span>
+        </div>
+        <!--@end-->
+
+		<div class="cafeList">
+
+			<div class="cafeListBody">
+                <!--@if(count($homepage_list))-->
+				<ul class="memberList">
+                    <!--@foreach($homepage_list as $val)-->
+					<li>
+						<h3 class="cafeTitle"><a href="{getFullSiteUrl($val->domain)}"><!--@if($val->cafe_banner)--><img src="{$val->cafe_banner}" width="100" height="100" alt="" class="thumb" /> <!--@end-->{htmlspecialchars($val->cafe_title)}</a></h3>
+						<p class="postSummary">{cut_str(htmlspecialchars($val->cafe_description),200)}</p>
+					</li>
+                    <!--@end-->
+				</ul>
+                <!--@end-->
+			</div>
+
+            <!--@if($page_navigation)-->
+            <div class="pagination">
+                <!--@if($page_navigation->cur_page-10>0)--><a href="{getUrl('page', $page_navigation->cur_page-10)}" class="nav prev10"><span>move prev 10 page</span></a><!--@end-->
+                <!--@if($page_navigation->cur_page>1)--><a href="{getUrl('page', $page_navigation->cur_page-1)}" class="nav prev1"><span>move prev page</span></a><!--@end-->
+                <!--@while($page_no = $page_navigation->getNextPage())-->
+                <!--@if($page_navigation->cur_page == $page_no)-->
+                    <strong>{$page_no}</strong> 
+                <!--@else-->
+                    <a href="{getUrl('page',$page_no)}">{$page_no}</a>
+                <!--@end-->
+                <!--@end-->
+                <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a href="{getUrl('page', $page_navigation->cur_page+1)}" class="nav next1"><span>move next page</span></a><!--@end-->
+                <!--@if($page_navigation->cur_page+10<$page_navigation->total_page)--><a href="{getUrl('page', $page_navigation->cur_page+10)}" class="nav next10"><span>move next 10 page</span></a><!--@end-->
+            </div>
+            <!--@end-->
+			
+		</div>
+		
+	</div>
+	
+	<hr />
+	
+	<div class="cafeExtension">
+	
+        <!--@if($is_logged)-->
+		<div class="userAccount">
+			<div class="userTop">
+				<h2>{sprintf($lang->msg_greeting, htmlspecialchars($logged_info->nick_name))}</h2>
+                <!--@if($logged_info->is_admin == 'Y')-->
+                <span class="tcb tcbSmall logOut"><a href="{getUrl('','module','admin','act','dispHomepageAdminContent')}">{$lang->cmd_management}</a></span>
+                <!--@end-->
+			</div>
+            <!--@if($my_cafes && count($my_cafes))-->
+			<ul class="cafeList">
+                <!--@foreach($my_cafes as $val)-->
+				<li><a href="{getFullSiteUrl($val->domain)}">{htmlspecialchars(cut_str($val->cafe_title,26))}</a></li>
+                <!--@end-->
+			</ul>
+            <!--@end-->
+            <!--@if($isEnableCreateCafe)-->
+			<span class="tcb tcbLarge strong"><a href="{getUrl('act','dispHomepageCreate')}">{$lang->cmd_make_cafe}</a></span>
+            <!--@end-->
+		</div>
+        <!--@end-->
+		
+		<div class="userUpdate">
+            <!--@if($newest_documents)-->
+            <div class="cafeSection cafeUpdate">
+                <h2>{$lang->cafe_latest_documents}</h2>
+                <ul>
+                    <!--@foreach($newest_documents as $val)-->
+                    <li><a href="{$val->getPermanentUrl()}" class="cafeTitle"><!--@if($val->thumbnailExists(39,39))--><img src="{$val->getThumbnail(39,39)}" width="39" height="39" alt="" class="userThumb" />{$val->getTitle(24)}<!--@else-->{$val->getTitle(36)}<!--@end--></a> <span class="cafeMeta"><a class="userName member_{$val->get('member_srl')}">{$val->getNickName()}</a> <span class="ymd">{$val->getRegdate("y.m.d")}</span> <span class="hm">{$val->getRegdate("H:i")}</span></span></li>
+                    <!--@end-->
+                </ul>
+            </div>
+            <!--@end-->
+		
+			<div class="cafeSection cafeUpdate">
+				<h2>{$lang->newest_comment}</h2>
+                <!--@if(count($newest_comments))-->
+				<ul>
+                    <!--@foreach($newest_comments as $val)-->
+					<li><a href="{getFullUrl('','document_srl',$val->document_srl)}">{$val->getSummary(36)}</a> <span class="cafeMeta"><a class="userName member_{$val->get('member_srl')}">{$val->getNickName()}</a> <span class="ymd">{$val->getRegdate("y.m.d")}</span> <span class="hm">{$val->getRegdate("H:i")}</span></span></li>
+                    <!--@end-->
+				</ul>
+                <!--@else-->
+                    {$lang->no_comments}
+                <!--@end-->
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>

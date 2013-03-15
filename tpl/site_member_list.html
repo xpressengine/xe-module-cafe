@@ -1,0 +1,108 @@
+<load target="filter/update_member_group.xml" />
+<include target="_header.html" />
+<form method="post" action="./" onsubmit="return procFilter(this,update_member_group);" id="siteMembers">
+	<table class="x_table x_table-striped x_table-hover">
+		<caption>
+			<strong class="x_pull-left" style="top:0">{$lang->about_cafe_act[$act]}</strong>
+			<span class="x_pull-right">
+				<label for="group_srl" class="x_inline" style="margin:0">{$lang->do_selected_member} </label>
+				<span class="x_input-append">
+					<select name="group_srl" id="group_srl" style="width:auto">
+						 <option loop="$group_list => $key,$val" value="{$val->group_srl}">{$val->title}</option>
+					</select>
+					<button class="x_btn x_btn-inverse" type="submit">{$lang->cmd_modify}</button>
+					<button class="x_btn" onclick="doRemoveMember('{$lang->confirm_delete}');return false;">{$lang->cmd_delete}</button>
+				</span>
+			</span>
+		</caption>
+		<thead>
+			<tr>
+				<th scope="col">{$lang->no}</th>
+				<th scope="col">{$lang->nick_name}</th>
+				<th scope="col">{$lang->user_id}</th>
+				<th scope="col">{$lang->user_name}</th>
+				<th scope="col">{$lang->group}</th>
+				<th scope="col">{$lang->cafe_signup_date}</th>
+				<th scope="col">{$lang->last_login}</th>
+				<th scope="col"><input type="checkbox" onclick="XE.checkboxToggleAll({ doClick:true })" /></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr loop="$member_list => $no,$val">
+				<td>{$no}</td>
+				<td><a href="#popup_menu_area" class="member_{$val->member_srl}">{htmlspecialchars($val->nick_name)}</span></td>
+				<td>{htmlspecialchars($val->user_id)}</td>
+				<td>{htmlspecialchars($val->user_name)}</td>
+				<td>
+					<!--@if($members_groups[$val->member_srl])-->
+						{implode(',',$members_groups[$val->member_srl])}
+					<!--@else-->
+						&nbsp;
+					<!--@end-->
+				</td>
+				<td>{zdate($val->regdate,"Y-m-d")}</td>
+				<td>{zdate($val->last_login,"Y-m-d")}</td>
+				<td><input type="checkbox" name="cart" value="{$val->member_srl}" /></td>
+			</tr>
+		</tbody>
+    </table>
+</form>
+<form cond="$page_navigation" action="./" class="x_pagination x_pagination-centered" no-error-return-url="true">
+	<input type="hidden" name="module" value="{$module}" />
+	<input type="hidden" name="act" value="{$act}" />
+	<input cond="$order_target" type="hidden" name="order_target" value="{$order_target}" />
+	<input cond="$order_type" type="hidden" name="order_type" value="{$order_type}" />
+	<input cond="$category_srl" type="hidden" name="category_srl" value="{$category_srl}" />
+	<input cond="$childrenList" type="hidden" name="childrenList" value="{$childrenList}" />
+	<input cond="$search_keyword" type="hidden" name="search_keyword" value="{$search_keyword}" />
+	<ul>
+		<li class="x_disabled"|cond="!$page || $page == 1"><a href="{getUrl('page', '')}">&laquo; {$lang->first_page}</a></li>
+
+		<block cond="$page_navigation->first_page != 1 && $page_navigation->first_page + $page_navigation->page_count > $page_navigation->last_page - 1 && $page_navigation->page_count != $page_navigation->total_page">
+			{@$isGoTo = true}
+			<li>
+				<a href="#goTo" data-toggle title="{$lang->cmd_go_to_page}">&hellip;</a>
+				<span cond="$isGoTo" id="goTo" class="x_input-append">
+					<input type="number" min="1" max="{$page_navigation->last_page}" required name="page" title="{$lang->cmd_go_to_page}" />
+					<button type="submit" class="x_add-on">Go</button>
+				</span>
+			</li>
+		</block>
+
+		<!--@while($page_no = $page_navigation->getNextPage())-->
+			{@$last_page = $page_no}
+			<li class="x_active"|cond="$page_no == $page"><a  href="{getUrl('page', $page_no)}">{$page_no}</a></li>
+		<!--@end-->
+
+		<block cond="$last_page != $page_navigation->last_page && $last_page + 1 != $page_navigation->last_page">
+			{@$isGoTo = true}
+			<li>
+				<a href="#goTo" data-toggle title="{$lang->cmd_go_to_page}">&hellip;</a>
+				<span cond="$isGoTo" id="goTo" class="x_input-append">
+					<input type="number" min="1" max="{$page_navigation->last_page}" required name="page" title="{$lang->cmd_go_to_page}" />
+					<button type="submit" class="x_add-on">Go</button>
+				</span>
+			</li>
+			
+		</block>
+
+		<li class="x_disabled"|cond="$page == $page_navigation->last_page"><a href="{getUrl('page', $page_navigation->last_page)}" title="{$page_navigation->last_page}">{$lang->last_page} &raquo;</a></li>
+	</ul>
+</form>
+<form action="./" method="get" class="search center" no-error-return-url="true">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="vid" value="{$vid}" />
+	<input type="hidden" name="act" value="{$act}" />
+	<select name="selected_group_srl">
+		<option value="0">{$lang->group}</option>
+		<option loop="$group_list => $key,$val" value="{$val->group_srl}" selected="selected"|cond="$selected_group_srl==$val->group_srl">{$val->title}</option>
+	</select>
+	<select name="search_target">
+		<option value="">{$lang->search_target}</option>
+		<option loop="$lang->search_target_list => $key,$val" value="{$key}" selected="selected"|cond="$search_target==$key">{$val}</option>
+	</select>
+	<span class="x_input-append">
+		<input type="search" name="search_keyword" value="{htmlspecialchars($search_keyword)}" style="width:120px" />
+		<button class="x_btn x_btn-inverse" type="submit">{$lang->cmd_search}</button>
+	</span>
+</form>

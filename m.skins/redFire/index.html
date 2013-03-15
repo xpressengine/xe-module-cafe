@@ -1,0 +1,61 @@
+<!--#include("_header.html")-->
+	<!-- all cafes -->
+			<!--@if(count($homepage_list))-->
+				<ul class="cafe_lst">
+				{@ $homepage_index = 1}
+				<!--@foreach($homepage_list as $val)-->
+				<li>
+					<div class="cafe_thumbnail">
+						<a href="{getUrl('act', 'dispMobileCafeSite','site_srl', $val->site_srl)}">
+						<!--@if($val->cafe_banner)-->
+						<img src="{$val->cafe_banner}" width="50" height="48" alt="{$val->domain}" />
+						<!--@else-->
+						<img src="img/thumbnail.gif" width="50" height="48" alt="{$val->domain}" />
+						<!--@end-->
+						</a>
+					</div>
+					<div class="cafe_info">
+						<dl>
+						<dt><a href="{getUrl('act', 'dispMobileCafeSite','site_srl', $val->site_srl)}">{cut_str(htmlspecialchars($val->cafe_title), 25)}</a></dt>
+						<dd>
+								<p class="desc_txt" cond="$val->cafe_description">{cut_str(htmlspecialchars($val->cafe_description),60)}</p>
+								<p class="desc_txt" cond="!$val->cafe_description">There is no description of this cafe.</p>
+						</dd>
+						<dd class="lst"><span><img src="img/post.gif" width="15" height="13" alt="post">{$val->memberCount}</span><span class="date">{zdate($val->regdate,'Y-m-d')}</span><span class="time">{zdate($val->regdate,'H:i')}</span></dd>
+						</dl>
+					</div>
+					<!--@if($is_logged)-->
+					<!--@if(in_array($val->site_srl,$my_cafes))-->
+					<a data="{$val->domain}" href="#" onclick="return false" class="btn_like"></a>
+					<!--@else-->
+					<a data="{$val->domain}" href="#" onclick="return false" class="btn_dislike"></a>
+					<!--@end-->
+					<!--@end-->
+				</li>
+				{@ $homepage_index++}
+				<!--@end-->
+				</ul>
+			<!--@end-->
+			
+		<!--@if($page_navigation->total_page > 1)-->
+			<div class="pagination">
+			<!--@if($page_navigation->cur_page>1)-->
+				<a href="{getUrl('page', $page_navigation->cur_page-1)}"  class="pre"><img src="img/btn_pre.gif" width="41" height="22" alt="previous page"/></a>
+			<!--@else-->
+			    <a href="#" onclick="return false;" class="pre"><img src="img/btn_pre.gif" width="41" height="22" alt="previous page"/></a>
+			<!--@end-->
+			<!--@while($page_no = $page_navigation->getNextPage())-->
+				<!--@if($page_navigation->cur_page == $page_no)-->
+				<strong class="page_num"><img src="img/current_page.gif" width="8" height="8" alt="{$page_no}" title="{$page_no}"></strong>
+				<!--@else-->
+				<a href="{getUrl('page',$page_no)}" class="page_num"><img src="img/non_current_page.gif" width="7" height="7" alt="{$page_no}" title="{$page_no}"></a>
+				<!--@end-->
+			<!--@end-->
+			<!--@if($page_navigation->cur_page<$page_navigation->total_page)-->
+				<a href="{getUrl('page', $page_navigation->cur_page+1)}" class="next"><img src="img/btn_next.gif" width="41" height="22" alt="next page"></a>
+			<!--@else-->
+			    <a href="#" onclick="return false;" class="next"><img src="img/btn_next.gif" width="41" height="22" alt="next page"></a>
+			<!--@end-->
+			</div>
+		<!--@end-->
+	

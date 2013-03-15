@@ -1,0 +1,179 @@
+<!--%import("./style.css")-->
+<script>
+	jQuery(function($){
+		$('#latestDocTab').click(function(){
+			$('#navTab').attr('class','tab m1');
+			$('#newCafeContent').hide();
+			$('#latestDocContent').show();
+			$('#doc_count').show();
+			$('.m1').blur();
+		});
+		$('#newCafeTab').click(function(){
+
+			$('#navTab').attr('class','tab m2');
+			$('#latestDocContent').hide();
+			$('#doc_count').hide();
+			$('#newCafeContent').show();
+			$('.m2').blur();
+		});
+
+		$("ul.cafe_list").children().first().attr('class','last');
+		$("ul.list").children().first().attr('class','last');
+		 
+		$('#viewAll').click(function(){
+			if($('#latestDocContent:visible').length > 0){
+				$('#latestDocContent ul li').slideDown('fast');
+			}
+			if($('#newCafeContent:visible').length > 0){
+				$('#newCafeContent ul li').slideDown('fast');
+			}
+		});
+
+	});
+
+
+</script>
+
+<!--@if($module_info->title)-->
+<h2 class="text_today"><span>TODAY&#39;S</span>CAFE</h2>
+<div class="cafeHeader">
+    <div class="cafeTitle">
+        <h2 class="cafeTitleText"><a href="{getFullUrl('','mid',$mid,'listStyle',$listStyle)}">{$module_info->title}<!--@if($module_info->sub_title)--> : <em>{$module_info->sub_title}</em><!--@end--></a></h2>
+    </div>
+
+    <!--@if($module_info->comment)-->
+    <p class="cafeDescription">{$module_info->comment}</p>
+    <!--@end-->
+	<!--@if($module_info->intro_title)-->
+	<div class="intro">
+		<dl class="intro_lst">
+		<dt>{$module_info->intro_title}</dt>
+		<dd class="thmb"><img src="{$module_info->intro_image}" alt="" align="left" /></dd>
+		<dd>{nl2br($module_info->intro_description)}</dd>
+		<dd><span class="url"><a href="{$module_info->intro_url}" onclick="window.open(this.href); return false;">{$module_info->intro_url}</a></span></dd>
+		</dl>
+	</div>
+	<!--@end-->
+</div>
+<!--@end-->
+<!-- cafeBody -->
+<div class="cafeBody">
+	<div id="navTab" class="tab m1">
+		<ul>
+		<li id="latestDocTab" class="m1"><a href="###"><span><b>CAFE&#39;S LATEST</b>&nbsp;DOCUMENTS<em id="doc_count">{count($newest_documents)}</em></span></a></li>
+		<li id="newCafeTab" class="m2"><a href="###"><span><b>NEW</b>&nbsp;CAFE</span></a></li>
+		<span class="view"><a href="###" id="viewAll"><img src="img/btn_view_all.gif" width="57" height="21" alt="view all"></a></span>
+		</ul>
+	</div>
+
+	<div id="latestDocContent" <!--@if($currentpage=='newCafeContent')-->style="display:none"<!--@end-->>
+		<!--@if($newest_documents)-->
+			{@ $document_index = 1}
+			<ul class="list">
+				<!--@foreach($newest_documents as $val)-->
+					<li>
+						<table cellpadding="0" cellspacing="0" class="cafe_tb">
+							<tr>
+								<th class="th_wid"><a href="{$val->getPermanentUrl()}" class="th_wid"><!--@if($val->thumbnailExists(39,39))--><img src="{$val->getThumbnail(39,39)}" width="39" height="39" alt="" class="userThumb" />{$val->getTitle(50)}<!--@else-->{$val->getTitle(56)}<!--@end--></a></th>
+								<td class="td_wid2 sum"><img src="img/ico_n.gif" width="10" height="10" alt="n">{$val->getCommentCount()}</td>
+								<td class="td_wid3 name">{zdate($val->get('regdate'),'Y-m-d, H:i')}</td>
+								<td class="td_wid4"><a href="###" id="dwlink_{$document_index}" class="btn_sub"><img src="img/btn_dw.gif" width="13" height="13" alt="up"></a></td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<div id="docComment_{$document_index}" style="display:none">
+										<!--@if($val->getComments())-->
+												<table cellpadding="0" cellspacing="0" class="cafe_tb2">
+													<tbody>
+														<!--@foreach($val->getComments() as $val2) -->
+															<!--@if($val2->parent_srl==0)-->
+																<tr>
+																	<td class="td_wid5"><a href="{getFullUrl('','document_srl',$val2->document_srl)}">{htmlspecialchars(strip_tags($val2->content))}</a>
+																	{@ $cModel = &getModel('comment');}
+																	<!--@if($cModel->getChildCommentCount($val2->comment_srl)>0)--><strong>[{$cModel->getChildCommentCount($val2->comment_srl)}]</strong><!--@end-->
+																	<span>{$val2->nick_name}</span></td>
+																	<td class="td_wid6 name">{zdate($val2->get('regdate'),'Y-m-d, H:i')} </td>
+																</tr>
+															<!--@end-->
+														<!--@end-->
+													</tbody>
+												</table>
+										<!--@end-->
+									</div>
+								</td>
+							</tr>
+							<script>
+								jQuery(function($){
+									$('#dwlink_{$document_index}').click(function(){
+										$('#docComment_{$document_index}').slideToggle('slow');
+										$imgsrc = $('#dwlink_{$document_index}').find('img').attr('src');
+										if($imgsrc.indexOf("btn_dw")>0){
+											$imgsrc = $imgsrc.replace("btn_dw","btn_up");
+											$('#dwlink_{$document_index}').find('img').attr('src',$imgsrc);
+										}
+										else if($imgsrc.indexOf("btn_up")>0){
+											$imgsrc = $imgsrc.replace("btn_up","btn_dw");
+											$('#dwlink_{$document_index}').find('img').attr('src',$imgsrc);
+										}
+									});
+								});
+							</script>
+						</table>
+					</li>
+					{@ $document_index++;}
+				<!--@end-->
+			</ul>
+		<!--@end-->
+		<a href="###" class="more" id="more_view">MORE</a>
+		<script>
+			jQuery(function($){
+				$view_rage = 3; 
+				$test = '#latestDocContent ul >:gt('+($view_rage-1)+')';
+				$($test).css('display','none');
+
+				$('#more_view').click(function(){
+					$view_rage +=3;
+					$test = '#latestDocContent ul >:lt('+($view_rage)+')';
+					//$($test).css('display','block');
+					$($test).slideDown('slow');
+				});
+			});
+		</script>
+	</div>
+
+	<!-- new_cafe -->
+	<div id="newCafeContent" class="new_cafe" <!--@if($currentpage=='newCafeContent')-->style="display:block"<!--@else-->style="display:none"<!--@end-->>
+		<!--@if(count($homepage_list))-->
+			<ul class="cafe_list">
+				<!--@foreach($homepage_list as $val)-->
+					<li>
+						<!--@if($val->cafe_banner)--><div class="thmb"><a href="{getFullSiteUrl($val->domain)}"><img src="{$val->cafe_banner}" width="84" height="84" alt="head"></a></div><!--@end-->
+						<div class="cloumn">
+							<h3 class="cafeTitle">{htmlspecialchars($val->cafe_title)}</h3>
+							<p class="info">{cut_str(htmlspecialchars($val->cafe_description),200)}</p>
+							<p class="url"><a href="{getFullSiteUrl($val->domain)}">{getFullSiteUrl($val->domain)}</a></p>
+						</div>
+					</li>
+				 <!--@end-->
+			</ul>
+		<!--@end-->
+
+		<a href="###" class="more" id="more_view2">MORE</a>
+		<script>
+			jQuery(function($){
+				$view_rage = 3; 
+				$test = '#newCafeContent ul >:gt('+($view_rage-1)+')';
+				$($test).css('display','none');
+
+				$('#more_view2').click(function(){
+					$view_rage +=3;
+					$test = '#newCafeContent ul >:lt('+($view_rage)+')';
+					$($test).slideDown('slow');
+				});
+			});
+		</script>
+
+	</div>	
+	<!--// new_cafe -->
+</div>
+<!--// cafeBody -->

@@ -1,0 +1,29 @@
+<!--#include("_header.html")-->
+
+
+<!-- Latest Docs -->
+
+	<ul class="doc_list" id="siteNewestDocsUl">
+		<li loop="$siteDocuments=>$key,$doc">
+			<dl class="cafe_info">
+				<dt><a href="{getUrl('','document_srl', $doc->document_srl)}">{cut_str($doc->title,30)}</a></dt>
+				<dd>
+					<p class="desc_txt">{cut_str(strip_tags($doc->content),35);}</p>
+					{@ 
+						$oDocumentModel = getModel('document');
+						$document = $oDocumentModel->getDocument($doc->document_srl);
+						$buff = $document ->getExtraImages();
+					}
+					<span class="desc_img"><img cond="in_array('file',$buff)" src="img/file_type_img.gif" width="12" height="12" alt="image" class="file_type"><img cond="in_array('new',$buff)" src="img/new.gif" width="12" height="12" alt="new document" class="new"></span>
+				</dd>
+				<dd><strong class="author">{$doc->nick_name}</strong><span class="date">{zdate($doc->regdate,"Y-m-d")}</span><span class="time">{zdate($doc->regdate,"H:i:s")}</span></dd>
+			</dl>
+			<div class="comment_num"><a href="#">{$doc->comment_count}</a></div>
+		</li>
+	</ul>
+	<div class="view_more">
+		<a href="###" id="getMore">more<span class="more"></span></a><a href="javascript:window.scroll(0,0)" class="top">Top</a>
+	</div>
+
+
+<!-- // Latest Docs -->

@@ -1,0 +1,84 @@
+<include target="header.html" />
+<div cond="$XE_VALIDATOR_MESSAGE" class="x_alert x_alert-{$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+<table class="x_table x_table-striped x_table-hover">
+	<caption>
+		<strong>Total {number_format($total_count)}, Page {number_format($page)}/{number_format($total_page)}</strong>
+	</caption>
+	<thead>
+		<tr>
+			<th scope="col">{$lang->no}</th>
+			<th scope="col">{$lang->title}</th>
+			<th scope="col">{$lang->domain} / Site ID</th>
+			<th scope="col">{$lang->regdate}</th>
+			<th scope="col">{$lang->cmd_edit}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr loop="$homepage_list => $no,$val">
+			<td>{$no}</td>
+			<td><a href="{getFullSiteUrl($val->domain,'module','','act','dispHomepageManage','site_srl',$val->site_srl)}">{htmlspecialchars($val->cafe_title)}</a></td>
+			<td><a href="{getFullSiteUrl($val->domain)}" target="_blank">{$val->domain}</a></td>
+			<td>{zdate($val->regdate,"Y-m-d")}</td>
+			<td>
+				<a href="{getUrl('act','dispHomepageAdminSetup','site_srl',$val->site_srl)}" class="x_icon-cog">{$lang->cmd_setup}</a>
+				<a href="{getUrl('act','dispHomepageAdminDelete','site_srl',$val->site_srl)}" class="x_icon-remove">{$lang->cmd_delete}</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<div class="x_clearfix">
+	<form cond="$page_navigation" action="./" class="x_pagination x_pull-left" no-error-return-url="true">
+		{@
+			$urlInfo = parse_url(getRequestUriByServerEnviroment());
+			parse_str($urlInfo['query'], $param);
+		}
+		<input loop="$param => $key, $val" cond="!in_array($key, array('mid', 'vid', 'act'))" type="hidden" name="{$key}" value="{$val}" />
+		<ul>
+			<li class="x_disabled"|cond="!$page || $page == 1"><a href="{getUrl('page', '')}">&laquo; {$lang->first_page}</a></li>
+			<block cond="$page_navigation->first_page != 1 && $page_navigation->first_page + $page_navigation->page_count > $page_navigation->last_page - 1 && $page_navigation->page_count != $page_navigation->total_page">
+			{@$isGoTo = true}
+			<li>
+				<a href="#goTo" data-toggle title="{$lang->cmd_go_to_page}">&hellip;</a>
+				<span cond="$isGoTo" id="goTo" class="x_input-append">
+					<input type="number" min="1" max="{$page_navigation->last_page}" required name="page" title="{$lang->cmd_go_to_page}" />
+					<button type="submit" class="x_add-on">Go</button>
+				</span>
+			</li>
+			</block>
+			<!--@while($page_no = $page_navigation->getNextPage())-->
+			{@$last_page = $page_no}
+			<li class="x_active"|cond="$page_no == $page"><a  href="{getUrl('page', $page_no)}">{$page_no}</a></li>
+			<!--@end-->
+			<block cond="$last_page != $page_navigation->last_page && $last_page + 1 != $page_navigation->last_page">
+			{@$isGoTo = true}
+			<li>
+				<a href="#goTo" data-toggle title="{$lang->cmd_go_to_page}">&hellip;</a>
+				<span cond="$isGoTo" id="goTo" class="x_input-append">
+					<input type="number" min="1" max="{$page_navigation->last_page}" required name="page" title="{$lang->cmd_go_to_page}" />
+					<button type="submit" class="x_add-on">Go</button>
+				</span>
+			</li>
+			</block>
+		<li class="x_disabled"|cond="$page == $page_navigation->last_page"><a href="{getUrl('page', $page_navigation->last_page)}" title="{$page_navigation->last_page}">{$lang->last_page} &raquo;</a></li>
+		</ul>
+	</form>
+
+	<form action="" class="search x_input-append x_pull-right" no-error-return-url="true">
+		<input loop="$param => $key, $val" cond="!in_array($key, array('mid', 'vid', 'act', 'page'))" type="hidden" name="{$key}" value="{$val}" />
+		<select cond="count($module_category)" name="module_category_srl" title="{$lang->module_category}" style="margin-right:4px">
+			<option value="0" selected="selected"|cond="$module_category_srl==='0'">{$lang->not_exists}</option>
+			<option value="{$key}" loop="$module_category => $key,$val"  selected="selected"|cond="$module_category==$key">{$val->title}</option>
+		</select>
+		<select name="search_target" title="{$lang->search_target}" style="margin-right:4px">
+			<option value="domain" selected="selected"|cond="$search_target=='mid'">{$lang->domain}</option>
+			<option value="title" selected="selected"|cond="$search_target=='browser_title'">{$lang->title}</option>
+		</select>
+		<input type="search" required name="search_keyword" value="{htmlspecialchars($search_keyword)}" />
+		<button class="x_btn x_btn-inverse" type="submit">{$lang->cmd_search}</button>
+		<a class="x_btn" href="{getUrl('', 'module', $module, 'act', $act)}">{$lang->cmd_cancel}</a>
+	</form>
+</div>
+
+

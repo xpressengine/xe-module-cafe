@@ -1,0 +1,22 @@
+<include target="_header.html" />
+<table class="x_table x_table-striped x_table-hover">
+	<caption>{$lang->about_cafe_act[$act]}</caption>
+	<thead>
+		<tr>
+			<th scope="col">{$lang->module}</th>
+			<th scope="col">{$lang->mid}</th>
+			<th scope="col">{$lang->browser_title}</th>
+			<th scope="col">{$lang->regdate}</th>
+			<th scope="col">{$lang->cmd_setup}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr loop="$mid_list => $no,$val">
+			<td>{Context::getLang($val->module)}</td>
+			<td>{htmlspecialchars($val->mid)}</td>
+			<td><a href="{getSiteUrl($site_module_info->domain,'','mid',$val->mid)}">{$val->browser_title}</a></td>
+			<td>{zdate($val->regdate,"Y-m-d")}</td>
+			<td><a href="{getUrl('','act',$val->setup_index_act,'mid',$val->mid)}" class="x_icon-cog">{$lang->cmd_setup}</a></td>
+		</tr>
+	</tbody>
+</table>

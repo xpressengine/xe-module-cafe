@@ -1,0 +1,17 @@
+<!--#include("_header.html")-->
+	<ul class="cafe_item" id="cafeItemsUl">
+		<li loop="$widget_info->arranged_menu => $key, $val">
+			<span class="c_reply" <!--@if($val->depth)--> style="display:block;float:left;height:20px;margin-right:5px;width:{($val->depth)*15}px; margin-top: 12px; margin-left: 5px;" <!--@end-->></span>
+			<a href="{$val->href}">{$val->title}</a>
+		</li>
+	</ul>
+	<div class="view_more">
+		<a href="#" id="getMore" onclick="return false;">more<span class="more"></span></a><a href="javascript:window.scroll(0,0)" class="top">Top</a>
+	</div>
+<script>
+jQuery(function($){
+	$('.cafe_item li').hover(function(){
+		$(this).toggleClass('hover');
+	});
+});
+</script>

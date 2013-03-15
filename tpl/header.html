@@ -1,0 +1,15 @@
+<load target="./js/homepage.js" />
+<load target="./filter/insert_config.xml" />
+<div class="x_page-header">
+	<h1>
+		{$lang->cafe_management}
+		<a href="#aboutModule" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+		<span class="path" cond="$homepage_info">&gt; <a href="{getFullSiteUrl($homepage_info->domain,'', 'act','dispHomepageManage')}" target="_blank">{$homepage_info->title}</a></span>
+	</h1>
+</div>
+<p class="x_alert x_alert-info" id="aboutModule" hidden>{nl2br($lang->about_cafe)}</p>
+<ul class="x_nav x_nav-tabs" cond="$module_info && $act != 'dispHomepageAdminDelete' && $act != 'dispHomepageAdminSetup'">
+	<li class="x_active"|cond="$act=='dispHomepageAdminContent'"><a href="{getUrl('act','dispHomepageAdminContent','module_srl','')}">{$lang->cafe_list}</a></li>
+	<li class="x_active"|cond="$act=='dispHomepageAdminInsert'"><a href="{getUrl('act','dispHomepageAdminInsert','module_srl')}">{$lang->cmd_make_cafe}</a></li>
+	<li class="x_active"|cond="$act=='dispHomepageAdminManage'"><a href="{getUrl('act','dispHomepageAdminManage','module_srl')}">{$lang->cmd_cafe_setup}</a></li>
+</ul>

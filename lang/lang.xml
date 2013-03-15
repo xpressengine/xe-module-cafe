@@ -1,0 +1,884 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<lang>
+	<item name="cafe_welcome_title">
+		<value xml:lang="ko"><![CDATA[CafeXE 설치를 환영합니다.]]></value>
+		<value xml:lang="en"><![CDATA[CafeXE has been installed successfully!]]></value>
+		<value xml:lang="tr"><![CDATA[CafeXE'ye hoşgeldiniz.]]></value>
+	</item>
+	<item name="cafe">
+		<value xml:lang="ko"><![CDATA[CafeXE]]></value>
+		<value xml:lang="en"><![CDATA[CafeXE]]></value>
+		<value xml:lang="zh-CN"><![CDATA[站点]]></value>
+		<value xml:lang="zh-TW"><![CDATA[虛擬網站]]></value>
+	</item>
+	<item name="cafe_management">
+		<value xml:lang="ko"><![CDATA[CafeXE 관리]]></value>
+		<value xml:lang="en"><![CDATA[CafeXE Management]]></value>
+		<value xml:lang="jp"><![CDATA[CafeXE管理]]></value>
+		<value xml:lang="tr"><![CDATA[CafeXE Yönetim]]></value>
+	</item>
+	<item name="cafe_id">
+		<value xml:lang="ko"><![CDATA[카페 접속 ID]]></value>
+		<value xml:lang="en"><![CDATA[Cafe ID]]></value>
+		<value xml:lang="jp"><![CDATA[CafeへのアクセスID]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站 ID]]></value>
+		<value xml:lang="tr"><![CDATA[Kafeye Giriş ID'si]]></value>
+	</item>
+	<item name="cafe_title">
+		<value xml:lang="ko"><![CDATA[Cafe 이름]]></value>
+		<value xml:lang="en"><![CDATA[Title of cafe]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe名]]></value>
+		<value xml:lang="zh-CN"><![CDATA[站点名称]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站名稱]]></value>
+		<value xml:lang="es"><![CDATA[Nombre de café]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe İsmi]]></value>
+		<value xml:lang="vi"><![CDATA[Tiêu đề Cafe]]></value>
+	</item>
+	<item name="cafe_description">
+		<value xml:lang="ko"><![CDATA[Cafe 설명]]></value>
+		<value xml:lang="en"><![CDATA[Description of cafe]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeの説明]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站說明]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe Açıklaması]]></value>
+		<value xml:lang="vi"><![CDATA[Mô tả]]></value>
+	</item>
+	<item name="cafe_banner">
+		<value xml:lang="ko"><![CDATA[Cafe 배너이미지]]></value>
+		<value xml:lang="en"><![CDATA[Banner of Cafe]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeのバナーイメージ]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站廣告]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe Küçük Resmi]]></value>
+		<value xml:lang="vi"><![CDATA[Banner]]></value>
+	</item>
+	<item name="cafe_list">
+		<value xml:lang="ko"><![CDATA[카페 목록]]></value>
+		<value xml:lang="en"><![CDATA[Cafe List]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeリスト]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Cafe 목록]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Cafe 목록]]></value>
+		<value xml:lang="es"><![CDATA[Cafe 목록]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe Listesi]]></value>
+		<value xml:lang="vi"><![CDATA[Danh sách Cafe]]></value>
+	</item>
+	<item name="cafe_hub_skin">
+		<value xml:lang="ko"><![CDATA[카페 허브 스킨]]></value>
+		<value xml:lang="en"><![CDATA[Cafe Hub Skin]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeメインスキン]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Cafe  스킨]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Cafe 허브 스킨]]></value>
+		<value xml:lang="es"><![CDATA[Cafe 허브 스킨]]></value>
+		<value xml:lang="tr"><![CDATA[Kafe Hub Yüzeyi]]></value>
+		<value xml:lang="vi"><![CDATA[Giao diện trang chủ]]></value>
+	</item>
+	<item name="module_type">
+		<value xml:lang="ko"><![CDATA[대상]]></value>
+		<value xml:lang="en"><![CDATA[Type of target module]]></value>
+		<value xml:lang="jp"><![CDATA[タイプ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[对象]]></value>
+		<value xml:lang="zh-TW"><![CDATA[目標]]></value>
+		<value xml:lang="es"><![CDATA[Meta]]></value>
+		<value xml:lang="tr"><![CDATA[Başlık]]></value>
+		<value xml:lang="vi"><![CDATA[Tên Module]]></value>
+	</item>
+	<item name="board">
+		<value xml:lang="ko"><![CDATA[게시판]]></value>
+		<value xml:lang="en"><![CDATA[Board]]></value>
+		<value xml:lang="jp"><![CDATA[掲示板]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版面]]></value>
+		<value xml:lang="zh-TW"><![CDATA[討論板]]></value>
+		<value xml:lang="es"><![CDATA[Boletines]]></value>
+		<value xml:lang="tr"><![CDATA[Pano]]></value>
+	</item>
+	<item name="page">
+		<value xml:lang="ko"><![CDATA[페이지]]></value>
+		<value xml:lang="en"><![CDATA[Page]]></value>
+		<value xml:lang="jp"><![CDATA[ページ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[页面]]></value>
+		<value xml:lang="zh-TW"><![CDATA[頁面]]></value>
+		<value xml:lang="es"><![CDATA[Página]]></value>
+		<value xml:lang="tr"><![CDATA[Sayfa]]></value>
+		<value xml:lang="vi"><![CDATA[Trang]]></value>
+	</item>
+	<item name="module_id">
+		<value xml:lang="ko"><![CDATA[모듈 ID]]></value>
+		<value xml:lang="en"><![CDATA[module ID]]></value>
+		<value xml:lang="jp"><![CDATA[モジュール ID]]></value>
+		<value xml:lang="zh-CN"><![CDATA[模块ID]]></value>
+		<value xml:lang="zh-TW"><![CDATA[模組 ID]]></value>
+		<value xml:lang="es"><![CDATA[Módulo ID]]></value>
+		<value xml:lang="tr"><![CDATA[Modül ID'si]]></value>
+		<value xml:lang="vi"><![CDATA[Module ID]]></value>
+	</item>
+	<item name="item_group_grant">
+		<value xml:lang="ko"><![CDATA[보여줄 그룹]]></value>
+		<value xml:lang="en"><![CDATA[Accessible group]]></value>
+		<value xml:lang="jp"><![CDATA[メニューを公開するグループ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[用户组]]></value>
+		<value xml:lang="zh-TW"><![CDATA[顯示群組]]></value>
+		<value xml:lang="es"><![CDATA[Mostrar grupo]]></value>
+		<value xml:lang="tr"><![CDATA[Gösterilecek Grup]]></value>
+		<value xml:lang="vi"><![CDATA[Nhóm được phép]]></value>
+	</item>
+	<item name="cafe_info">
+		<value xml:lang="ko"><![CDATA[카페 정보]]></value>
+		<value xml:lang="en"><![CDATA[Cafe Infomation]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeの情報]]></value>
+		<value xml:lang="zh-CN"><![CDATA[站点信息]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站資訊]]></value>
+		<value xml:lang="es"><![CDATA[Cafe Información]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe Bilgisi]]></value>
+		<value xml:lang="vi"><![CDATA[Thông tin Cafe]]></value>
+	</item>
+	<item name="cafe_admin">
+		<value xml:lang="ko"><![CDATA[Cafe 관리자]]></value>
+		<value xml:lang="en"><![CDATA[CafeXE administrator]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe管理者]]></value>
+		<value xml:lang="zh-CN"><![CDATA[管理员]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站管理者]]></value>
+		<value xml:lang="es"><![CDATA[Gerente de café]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe Yöneticisi]]></value>
+		<value xml:lang="vi"><![CDATA[CafeXE Administrator]]></value>
+	</item>
+	<item name="do_selected_member">
+		<value xml:lang="ko"><![CDATA[선택된 회원을 : ]]></value>
+		<value xml:lang="en"><![CDATA[Change the selected members into : ]]></value>
+		<value xml:lang="jp"><![CDATA[選択した会員を : ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[把所选用户 : ]]></value>
+		<value xml:lang="zh-TW"><![CDATA[選擇會員 : ]]></value>
+		<value xml:lang="es"><![CDATA[Los miembros seleccionados: ]]></value>
+		<value xml:lang="tr"><![CDATA[Seçilen üyeyi : ]]></value>
+		<value xml:lang="vi"><![CDATA[Chuyển những thành viên đã chọn vào: ]]></value>
+	</item>
+	<item name="new_cafe">
+		<value xml:lang="ko"><![CDATA[생성된 카페]]></value>
+		<value xml:lang="en"><![CDATA[New Cafe]]></value>
+		<value xml:lang="tr"><![CDATA[Oluşturulan Cafe]]></value>
+	</item>
+	<item name="cafe_latest_documents">
+		<value xml:lang="ko"><![CDATA[카페 최신 글]]></value>
+		<value xml:lang="en"><![CDATA[Cafe's latest documents]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeの新規書き込み]]></value>
+		<value xml:lang="zh-TW"><![CDATA[最新主題]]></value>
+		<value xml:lang="tr"><![CDATA[Cafedeki En Yeni Yazı]]></value>
+		<value xml:lang="vi"><![CDATA[Bài viết mới nhất của Cafe]]></value>
+	</item>
+	<item name="cafe_latest_comments">
+		<value xml:lang="ko"><![CDATA[카페 최신 댓글]]></value>
+		<value xml:lang="en"><![CDATA[Cafe's latest comments]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeの新規コメント]]></value>
+		<value xml:lang="zh-TW"><![CDATA[最新評論]]></value>
+		<value xml:lang="tr"><![CDATA[Cafedeki En Son Yorum]]></value>
+		<value xml:lang="vi"><![CDATA[Bình luận mới nhất của Cafe]]></value>
+	</item>
+	<item name="cafe_signup_date">
+		<value xml:lang="ko"><![CDATA[카페 가입일]]></value>
+		<value xml:lang="en"><![CDATA[Cafe signup date]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe signup date]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe signup date]]></value>
+	</item>
+	<item name="mycafe_list">
+		<value xml:lang="ko"><![CDATA[가입한 카페]]></value>
+		<value xml:lang="en"><![CDATA[Joined Cafes]]></value>
+		<value xml:lang="jp"><![CDATA[登録したCafe]]></value>
+		<value xml:lang="zh-TW"><![CDATA[加入的網站]]></value>
+		<value xml:lang="tr"><![CDATA[Üye Olunan Cafe]]></value>
+		<value xml:lang="vi"><![CDATA[Những Cafe đã tạo]]></value>
+	</item>
+	<item name="cafe_creation_type">
+		<value xml:lang="ko"><![CDATA[카페 접속 방법]]></value>
+		<value xml:lang="en"><![CDATA[Type of Cafe]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeアクセス方法]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站類型]]></value>
+		<value xml:lang="tr"><![CDATA[Cafeye Giriş Yöntemi]]></value>
+		<value xml:lang="vi"><![CDATA[Phân loại]]></value>
+	</item>
+	<item name="about_cafe_creation_type">
+		<value xml:lang="ko"><![CDATA[사용자들이 카페를 생성할때 카페 접속 방법을 정해야 합니다. Site ID는 http://기본주소/ID 로 접속 가능하고 Domain 접속은 입력하신 도메인의 2차 도메인(http://domain.mydomain.net) 으로 카페가 생성됩니다]]></value>
+		<value xml:lang="en"><![CDATA[Please choose how users access the created cafe. If you choose Site ID, they would access via http://defaultAddr/SiteID, and in the case of Domain name, they would access via sub-domain of registered domain name, http://subdomain.defaultDomain]]></value>
+		<value xml:lang="jp"><![CDATA[作成するCafeへのユーザーからのアクセス方法を定めてください。Site IDとは「http://ドメイン/<b>ID</b>」へアクセスが可能になり、ドメインアクセスとは登録したサブドメイン（ http://domain.mydomain.net )にCafeが作成されます。]]></value>
+		<value xml:lang="tr"><![CDATA[Kullanıcılar bir café kurarken, öncelikle o cafeye hangi yöntemle giriş yapılacağına karar vermek zorundadırlar. Site ID' sine http://Temel Adres/ID şeklinde giriş mümkün olup, Domain girişinin, girmiş olduğunuz alan adının 2. Alan adı olan (http://domain.mydomain.net) şeklinde kafe oluşur.]]></value>
+		<value xml:lang="vi"><![CDATA[Xin hãy hướng dẫn người dùng tạo Cafe, Nếu chọn ID của Website thì khi tạo Cafe sẽ có dạng:  'http://defaultAddr/SiteID', Nếu chọn trường hợp của Domain, địa chỉ của Cafe sẽ có dạng một Subdomain 'http://subdomain.defaultDomain']]></value>
+	</item>
+	<item name="cafe_hub_layout">
+		<value xml:lang="ko"><![CDATA[카페 허브 레이아웃]]></value>
+		<value xml:lang="en"><![CDATA[Cafe's Hub layout]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeトップページのレイアウト]]></value>
+		<value xml:lang="zh-TW"><![CDATA[主要版面]]></value>
+		<value xml:lang="tr"><![CDATA[café Hub Düzeni]]></value>
+		<value xml:lang="vi"><![CDATA[Giao diện chính]]></value>
+	</item>
+	<item name="hub_skin">
+		<value xml:lang="ko"><![CDATA[카페 허브 스킨]]></value>
+		<value xml:lang="en"><![CDATA[Skin of Cafe Hub]]></value>
+		<value xml:lang="jp"><![CDATA[Skin of Cafe Hub]]></value>
+		<value xml:lang="tr"><![CDATA[Skin of Cafe Hub]]></value>
+	</item>
+	<item name="hub_mobile_skin">
+		<value xml:lang="ko"><![CDATA[카페 허브 모바일 스킨]]></value>
+		<value xml:lang="en"><![CDATA[Mobile Skin of Cafe Hub]]></value>
+		<value xml:lang="jp"><![CDATA[Mobile Skin of Cafe Hub]]></value>
+		<value xml:lang="tr"><![CDATA[Mobile Skin of Cafe Hub]]></value>
+	</item>
+	<item name="hub_mobile_layout">
+		<value xml:lang="ko"><![CDATA[카페 허브 모바일 레이아웃]]></value>
+		<value xml:lang="en"><![CDATA[The Mobile Layout of Cafe Hub]]></value>
+		<value xml:lang="jp"><![CDATA[The Mobile Layout of Cafe Hub]]></value>
+		<value xml:lang="tr"><![CDATA[The Mobile Layout of Cafe Hub]]></value>
+	</item>
+	<item name="default_layout">
+		<value xml:lang="ko"><![CDATA[기본 레이아웃]]></value>
+		<value xml:lang="en"><![CDATA[Default layout]]></value>
+		<value xml:lang="jp"><![CDATA[デフォルトレイアウト]]></value>
+		<value xml:lang="zh-TW"><![CDATA[預設版面]]></value>
+		<value xml:lang="tr"><![CDATA[Temel Düzen]]></value>
+		<value xml:lang="vi"><![CDATA[Giao diện mặc định]]></value>
+	</item>
+	<item name="mark">
+		<value xml:lang="ko"><![CDATA[마크]]></value>
+		<value xml:lang="en"><![CDATA[Mark]]></value>
+		<value xml:lang="tr"><![CDATA[Mark]]></value>
+	</item>
+	<item name="about_default_layout">
+		<value xml:lang="ko"><![CDATA[카페가 생성될때 설정될 기본 레이아웃을 지정할 수 있습니다]]></value>
+		<value xml:lang="en"><![CDATA[You may set the default layout will be applied to newly created cafes]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeを作成する時のデフォルトレイアウトを指定します。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[可指定建立網站時預設的版面。]]></value>
+		<value xml:lang="tr"><![CDATA[Yeni bir kafe oluşturduğunuzda, varolan temel düzeni ayarlamanız mümkündür.]]></value>
+		<value xml:lang="vi"><![CDATA[Bạn có thể đặt mặc định giao diện khi những Cafe mới được tạo.]]></value>
+	</item>
+	<item name="enable_change_layout">
+		<value xml:lang="ko"><![CDATA[레이아웃 변경]]></value>
+		<value xml:lang="en"><![CDATA[Allow change layout]]></value>
+		<value xml:lang="jp"><![CDATA[レイアウト変更]]></value>
+		<value xml:lang="zh-TW"><![CDATA[變更版面]]></value>
+		<value xml:lang="tr"><![CDATA[Düzen Değiştir]]></value>
+		<value xml:lang="vi"><![CDATA[Cho phép thay đổi giao diện]]></value>
+	</item>
+	<item name="about_change_layout">
+		<value xml:lang="ko"><![CDATA[선택하시면 개별 카페에서 레이아웃 변경을 허용할 수 있습니다]]></value>
+		<value xml:lang="en"><![CDATA[Allow each cafe to change its layout]]></value>
+		<value xml:lang="jp"><![CDATA[選択すると、個々のCafeにてレイアウト変更が可能になります。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[允許所有網站都能夠變更版面。]]></value>
+		<value xml:lang="tr"><![CDATA[Eğer seçerseniz, her kafe için ayrı ayrı düzen değişimi izni verebilirsiniz]]></value>
+		<value xml:lang="vi"><![CDATA[Cho phép thay đổi giao diện theo sở thích.]]></value>
+	</item>
+	<item name="allow_service">
+		<value xml:lang="ko"><![CDATA[허용 서비스]]></value>
+		<value xml:lang="en"><![CDATA[Allowed services]]></value>
+		<value xml:lang="jp"><![CDATA[許可サービス]]></value>
+		<value xml:lang="zh-TW"><![CDATA[允許服務]]></value>
+		<value xml:lang="tr"><![CDATA[İzin Hizmeti]]></value>
+		<value xml:lang="vi"><![CDATA[Những dịch vụ cho phép]]></value>
+	</item>
+	<item name="about_allow_service">
+		<value xml:lang="ko"><![CDATA[개별 카페에서 사용할 기본 서비스를 설정할 수 있습니다]]></value>
+		<value xml:lang="en"><![CDATA[You may configure default setting for the number and the type of services allowed in newly created cafes]]></value>
+		<value xml:lang="jp"><![CDATA[個々のCafeで利用する基本サービスを設定します。]]></value>
+		<value xml:lang="tr"><![CDATA[Her kafede ayrı ayrı kullanacağınız temel hizmetleri düzenleyebilirsiniz]]></value>
+		<value xml:lang="vi"><![CDATA[Bạn có thể thiếp lập các dịch vụ mặc định khi người dùng tạo Cafe mới.]]></value>
+	</item>
+	<item name="cmd_more">
+		<value xml:lang="ko"><![CDATA[더 보기]]></value>
+		<value xml:lang="en"><![CDATA[More]]></value>
+		<value xml:lang="tr"><![CDATA[Daha fazla]]></value>
+	</item>
+	<item name="cmd_make_cafe">
+		<value xml:lang="ko"><![CDATA[카페 생성]]></value>
+		<value xml:lang="en"><![CDATA[Create Cafe]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe作成]]></value>
+		<value xml:lang="zh-TW"><![CDATA[建立網站]]></value>
+		<value xml:lang="es"><![CDATA[Café creación]]></value>
+		<value xml:lang="tr"><![CDATA[café Oluştur]]></value>
+		<value xml:lang="vi"><![CDATA[Tạo Cafe]]></value>
+	</item>
+	<item name="cmd_import">
+		<value xml:lang="ko"><![CDATA[가져오기]]></value>
+		<value xml:lang="en"><![CDATA[Import]]></value>
+		<value xml:lang="jp"><![CDATA[インポート]]></value>
+		<value xml:lang="zh-TW"><![CDATA[匯入]]></value>
+		<value xml:lang="tr"><![CDATA[İçeri Aktarım]]></value>
+		<value xml:lang="vi"><![CDATA[Nhập vào]]></value>
+	</item>
+	<item name="cmd_export">
+		<value xml:lang="ko"><![CDATA[내보내기]]></value>
+		<value xml:lang="en"><![CDATA[Export]]></value>
+		<value xml:lang="jp"><![CDATA[エクスポート]]></value>
+		<value xml:lang="zh-TW"><![CDATA[匯出]]></value>
+		<value xml:lang="tr"><![CDATA[Dışarı Aktarım]]></value>
+		<value xml:lang="vi"><![CDATA[Xuất ra]]></value>
+	</item>
+	<item name="cafe_creation_privilege">
+		<value xml:lang="ko"><![CDATA[카페 생성 권한]]></value>
+		<value xml:lang="en"><![CDATA[Cafe creation privilege]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeの作成権限]]></value>
+		<value xml:lang="zh-CN"><![CDATA[咖啡厅建立特权]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站建立權限]]></value>
+		<value xml:lang="es"><![CDATA[Café creación privilegio]]></value>
+		<value xml:lang="tr"><![CDATA[café Oluşturma Hakkı]]></value>
+		<value xml:lang="vi"><![CDATA[Quyền tạo Cafe]]></value>
+	</item>
+	<item name="cafe_main_mid">
+		<value xml:lang="ko"><![CDATA[카페 허브 ID]]></value>
+		<value xml:lang="en"><![CDATA[Cafe Hub ID]]></value>
+		<value xml:lang="jp"><![CDATA[CafeメインID]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站 ID]]></value>
+		<value xml:lang="tr"><![CDATA[café Hub Id'si]]></value>
+		<value xml:lang="vi"><![CDATA[Cafe ID]]></value>
+	</item>
+	<item name="about_cafe_main_mid">
+		<value xml:lang="ko"><![CDATA[카페 허브 페이지를 http://주소/ID 값으로 접속하기 위한 ID값을 입력해주세요.]]></value>
+		<value xml:lang="en"><![CDATA[Input an Hub ID of cafe's hub page address, http://addr/cafeID]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeのトップページを「http://ドメイン/<b>ID</b>」のように設定するためのID値を入力して下さい。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[虛擬網站的網址為「http://網址/<b>ID</b>」，請輸入想要的 ID 值。]]></value>
+		<value xml:lang="tr"><![CDATA[café Hub Sayfasına http://Adres/ID şeklinde giriş için, ID'yi giriniz.]]></value>
+		<value xml:lang="vi"><![CDATA[Nhập ID của Cafe, sẽ được hiển thị dạng: http://addr/<b>cafeID</b>]]></value>
+	</item>
+	<item name="default_menus" type="array">
+		<item name="home">
+			<value xml:lang="ko"><![CDATA[홈]]></value>
+			<value xml:lang="en"><![CDATA[Home]]></value>
+			<value xml:lang="jp"><![CDATA[ホーム]]></value>
+			<value xml:lang="zh-CN"><![CDATA[首页]]></value>
+			<value xml:lang="zh-TW"><![CDATA[首頁]]></value>
+			<value xml:lang="es"><![CDATA[Inicio]]></value>
+			<value xml:lang="tr"><![CDATA[Anasayfa]]></value>
+			<value xml:lang="vi"><![CDATA[Trang chủ]]></value>
+		</item>
+		<item name="notice">
+			<value xml:lang="ko"><![CDATA[공지사항]]></value>
+			<value xml:lang="en"><![CDATA[Notice]]></value>
+			<value xml:lang="jp"><![CDATA[お知らせ]]></value>
+			<value xml:lang="zh-CN"><![CDATA[站点公告]]></value>
+			<value xml:lang="zh-TW"><![CDATA[公告事項]]></value>
+			<value xml:lang="es"><![CDATA[Anuncios]]></value>
+			<value xml:lang="tr"><![CDATA[Duyurular]]></value>
+			<value xml:lang="vi"><![CDATA[Thông báo]]></value>
+		</item>
+		<item name="freeboard">
+			<value xml:lang="ko"><![CDATA[자유게시판]]></value>
+			<value xml:lang="en"><![CDATA[Off-topics]]></value>
+			<value xml:lang="jp"><![CDATA[自由掲示板]]></value>
+			<value xml:lang="zh-CN"><![CDATA[自由交流区]]></value>
+			<value xml:lang="zh-TW"><![CDATA[自由討論]]></value>
+			<value xml:lang="es"><![CDATA[Tablón de anuncios]]></value>
+			<value xml:lang="tr"><![CDATA[Serbest Pano]]></value>
+		</item>
+		<item name="view_total">
+			<value xml:lang="ko"><![CDATA[전체 글 보기]]></value>
+			<value xml:lang="en"><![CDATA[View full text]]></value>
+			<value xml:lang="jp"><![CDATA[最新書き込み]]></value>
+			<value xml:lang="zh-CN"><![CDATA[查看全文]]></value>
+			<value xml:lang="zh-TW"><![CDATA[所有主題]]></value>
+			<value xml:lang="es"><![CDATA[Ver el artículo completo]]></value>
+			<value xml:lang="tr"><![CDATA[Bütün Yazıları Gör]]></value>
+			<value xml:lang="vi"><![CDATA[Xem tất cả]]></value>
+		</item>
+		<item name="view_comment">
+			<value xml:lang="ko"><![CDATA[한줄 이야기]]></value>
+			<value xml:lang="en"><![CDATA[Story line]]></value>
+			<value xml:lang="jp"><![CDATA[最新コメント]]></value>
+			<value xml:lang="zh-CN"><![CDATA[问候一句]]></value>
+			<value xml:lang="zh-TW"><![CDATA[所有評論]]></value>
+			<value xml:lang="es"><![CDATA[Historia]]></value>
+			<value xml:lang="tr"><![CDATA[Yorum Gör]]></value>
+		</item>
+		<item name="cafe_album">
+			<value xml:lang="ko"><![CDATA[카페 앨범]]></value>
+			<value xml:lang="en"><![CDATA[Cafe album]]></value>
+			<value xml:lang="jp"><![CDATA[最新フォト]]></value>
+			<value xml:lang="zh-CN"><![CDATA[站点相册]]></value>
+			<value xml:lang="zh-TW"><![CDATA[網站相簿]]></value>
+			<value xml:lang="es"><![CDATA[Café álbum]]></value>
+			<value xml:lang="tr"><![CDATA[café Albümğ]]></value>
+			<value xml:lang="vi"><![CDATA[Cafe Album]]></value>
+		</item>
+		<item name="menu">
+			<value xml:lang="ko"><![CDATA[메뉴]]></value>
+			<value xml:lang="en"><![CDATA[menu]]></value>
+			<value xml:lang="jp"><![CDATA[メニュー]]></value>
+			<value xml:lang="zh-CN"><![CDATA[菜单]]></value>
+			<value xml:lang="zh-TW"><![CDATA[選單]]></value>
+			<value xml:lang="es"><![CDATA[Menú]]></value>
+			<value xml:lang="tr"><![CDATA[Menü]]></value>
+			<value xml:lang="vi"><![CDATA[Menu]]></value>
+		</item>
+		<item name="default_group1">
+			<value xml:lang="ko"><![CDATA[대기회원]]></value>
+			<value xml:lang="en"><![CDATA[Pending members ]]></value>
+			<value xml:lang="jp"><![CDATA[承認待ち会員]]></value>
+			<value xml:lang="zh-CN"><![CDATA[待审批会员]]></value>
+			<value xml:lang="zh-TW"><![CDATA[待審會員]]></value>
+			<value xml:lang="es"><![CDATA[Miembro de espera]]></value>
+			<value xml:lang="tr"><![CDATA[Beklemedeki Üye]]></value>
+			<value xml:lang="vi"><![CDATA[Thành viên đang chờ duyệt]]></value>
+		</item>
+		<item name="default_group2">
+			<value xml:lang="ko"><![CDATA[준회원]]></value>
+			<value xml:lang="en"><![CDATA[Associate]]></value>
+			<value xml:lang="jp"><![CDATA[準会員]]></value>
+			<value xml:lang="zh-CN"><![CDATA[准会员]]></value>
+			<value xml:lang="zh-TW"><![CDATA[準會員]]></value>
+			<value xml:lang="es"><![CDATA[Asociado]]></value>
+			<value xml:lang="tr"><![CDATA[Kısmi Üye]]></value>
+		</item>
+		<item name="default_group3">
+			<value xml:lang="ko"><![CDATA[정회원]]></value>
+			<value xml:lang="en"><![CDATA[Member]]></value>
+			<value xml:lang="jp"><![CDATA[正会員]]></value>
+			<value xml:lang="zh-CN"><![CDATA[正会员]]></value>
+			<value xml:lang="zh-TW"><![CDATA[正會員]]></value>
+			<value xml:lang="es"><![CDATA[Miembro]]></value>
+			<value xml:lang="tr"><![CDATA[Daimi Üye]]></value>
+		</item>
+	</item>
+	<item name="cmd_admin_menus" type="array">
+		<item name="dispHomepageAdminSiteManage">
+			<value xml:lang="ko"><![CDATA[Cafe 설정]]></value>
+			<value xml:lang="en"><![CDATA[Configuration]]></value>
+			<value xml:lang="jp"><![CDATA[Cafe設定]]></value>
+			<value xml:lang="zh-CN"><![CDATA[站点设置]]></value>
+			<value xml:lang="zh-TW"><![CDATA[網站設定]]></value>
+			<value xml:lang="es"><![CDATA[Café Conjunto]]></value>
+			<value xml:lang="tr"><![CDATA[Cafe Düzenle]]></value>
+			<value xml:lang="vi"><![CDATA[Cấu hình]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteMemberGroupManage">
+			<value xml:lang="ko"><![CDATA[회원그룹관리]]></value>
+			<value xml:lang="en"><![CDATA[Manage groups]]></value>
+			<value xml:lang="jp"><![CDATA[会員のグループ管理]]></value>
+			<value xml:lang="zh-CN"><![CDATA[用户组管理]]></value>
+			<value xml:lang="zh-TW"><![CDATA[會員群組管理]]></value>
+			<value xml:lang="es"><![CDATA[Miembro Grupo de Gestión]]></value>
+			<value xml:lang="tr"><![CDATA[Üye Grubu Yönetimi]]></value>
+			<value xml:lang="vi"><![CDATA[Quản lý nhóm]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteMemberManage">
+			<value xml:lang="ko"><![CDATA[회원 목록]]></value>
+			<value xml:lang="en"><![CDATA[Member list]]></value>
+			<value xml:lang="jp"><![CDATA[会員リスト]]></value>
+			<value xml:lang="zh-CN"><![CDATA[用户列表]]></value>
+			<value xml:lang="zh-TW"><![CDATA[會員列表]]></value>
+			<value xml:lang="es"><![CDATA[Lista de miembros]]></value>
+			<value xml:lang="tr"><![CDATA[Üye Listesi]]></value>
+			<value xml:lang="vi"><![CDATA[Danh sách thành viên]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteTopMenu">
+			<value xml:lang="ko"><![CDATA[메뉴 관리]]></value>
+			<value xml:lang="en"><![CDATA[Manage menu]]></value>
+			<value xml:lang="jp"><![CDATA[基本メニュー 管理]]></value>
+			<value xml:lang="zh-CN"><![CDATA[菜单管理]]></value>
+			<value xml:lang="zh-TW"><![CDATA[主選單]]></value>
+			<value xml:lang="es"><![CDATA[Menú Principal de Gestión de]]></value>
+			<value xml:lang="tr"><![CDATA[Menü Yöneticisi]]></value>
+			<value xml:lang="vi"><![CDATA[Quản lý Menu]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteComponent">
+			<value xml:lang="ko"><![CDATA[기능 설정]]></value>
+			<value xml:lang="en"><![CDATA[Setting Skill]]></value>
+			<value xml:lang="jp"><![CDATA[機能設定]]></value>
+			<value xml:lang="zh-CN"><![CDATA[扩展管理]]></value>
+			<value xml:lang="zh-TW"><![CDATA[功能設定]]></value>
+			<value xml:lang="es"><![CDATA[Conjunto de características]]></value>
+			<value xml:lang="tr"><![CDATA[Fonksiyon Düzenle]]></value>
+			<value xml:lang="vi"><![CDATA[Thiết lập Thành phần]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteCounter">
+			<value xml:lang="ko"><![CDATA[접속 통계]]></value>
+			<value xml:lang="en"><![CDATA[connecting status]]></value>
+			<value xml:lang="jp"><![CDATA[アクセス集計]]></value>
+			<value xml:lang="zh-CN"><![CDATA[访问统计]]></value>
+			<value xml:lang="zh-TW"><![CDATA[訪問統計]]></value>
+			<value xml:lang="es"><![CDATA[Estadísticas de acceso]]></value>
+			<value xml:lang="tr"><![CDATA[Bağlantı İstatistikleri]]></value>
+			<value xml:lang="vi"><![CDATA[Trạng thái kết nối]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteMidSetup">
+			<value xml:lang="ko"><![CDATA[모듈 세부 설정]]></value>
+			<value xml:lang="en"><![CDATA[Module configuration]]></value>
+			<value xml:lang="jp"><![CDATA[モジュール詳細設定]]></value>
+			<value xml:lang="zh-CN"><![CDATA[模块设置]]></value>
+			<value xml:lang="zh-TW"><![CDATA[詳細設定]]></value>
+			<value xml:lang="es"><![CDATA[Módulo detalle establecido]]></value>
+			<value xml:lang="tr"><![CDATA[Modül Detayı Seçimi]]></value>
+			<value xml:lang="vi"><![CDATA[Cấu hình Module]]></value>
+		</item>
+	</item>
+	<item name="cmd_cafe_registration">
+		<value xml:lang="ko"><![CDATA[카페 생성]]></value>
+		<value xml:lang="en"><![CDATA[Create a cafe]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe作成]]></value>
+		<value xml:lang="zh-CN"><![CDATA[生成站点]]></value>
+		<value xml:lang="zh-TW"><![CDATA[建立網站]]></value>
+		<value xml:lang="es"><![CDATA[La creación de Cafe]]></value>
+		<value xml:lang="tr"><![CDATA[café Oluşturma]]></value>
+		<value xml:lang="vi"><![CDATA[Tạo Cafe]]></value>
+	</item>
+	<item name="cmd_cafe_setup">
+		<value xml:lang="ko"><![CDATA[카페 설정]]></value>
+		<value xml:lang="en"><![CDATA[Configure cafe]]></value>
+		<value xml:lang="tr"><![CDATA[café Seçimi]]></value>
+	</item>
+	<item name="cmd_cafe_hub">
+		<value xml:lang="ko"><![CDATA[카페 허브]]></value>
+		<value xml:lang="en"><![CDATA[Cafe Hub]]></value>
+		<value xml:lang="tr"><![CDATA[café Hub]]></value>
+	</item>
+	<item name="cmd_cafe_basic_setup">
+		<value xml:lang="ko"><![CDATA[카페 기본 설정]]></value>
+		<value xml:lang="en"><![CDATA[Configure cafe]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe設定]]></value>
+		<value xml:lang="zh-CN"><![CDATA[站点设置]]></value>
+		<value xml:lang="zh-TW"><![CDATA[網站設置]]></value>
+		<value xml:lang="es"><![CDATA[Café Conjunto]]></value>
+		<value xml:lang="tr"><![CDATA[café Seçimi]]></value>
+		<value xml:lang="vi"><![CDATA[Cài đặt Cafe]]></value>
+	</item>
+	<item name="cmd_cafe_delete">
+		<value xml:lang="ko"><![CDATA[Cafe 삭제]]></value>
+		<value xml:lang="en"><![CDATA[Delete ]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe削除]]></value>
+		<value xml:lang="zh-CN"><![CDATA[删除站点]]></value>
+		<value xml:lang="zh-TW"><![CDATA[刪除網站]]></value>
+		<value xml:lang="es"><![CDATA[Eliminar Cafe]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe Sil]]></value>
+		<value xml:lang="vi"><![CDATA[Xóa]]></value>
+	</item>
+	<item name="cmd_go_home">
+		<value xml:lang="ko"><![CDATA[홈으로 이동]]></value>
+		<value xml:lang="en"><![CDATA[Move to home]]></value>
+		<value xml:lang="jp"><![CDATA[ホームへ移動]]></value>
+		<value xml:lang="zh-CN"><![CDATA[查看主页]]></value>
+		<value xml:lang="zh-TW"><![CDATA[移至首頁]]></value>
+		<value xml:lang="es"><![CDATA[Ir a Portada]]></value>
+		<value xml:lang="tr"><![CDATA[Anasayfaya Geçiş Yap]]></value>
+		<value xml:lang="vi"><![CDATA[Chuyển tới trang chủ]]></value>
+	</item>
+	<item name="cmd_go_cafe_admin">
+		<value xml:lang="ko"><![CDATA[Cafe 전체 관리]]></value>
+		<value xml:lang="en"><![CDATA[CafeXE package]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe全体管理]]></value>
+		<value xml:lang="zh-CN"><![CDATA[站点管理]]></value>
+		<value xml:lang="zh-TW"><![CDATA[管理頁面]]></value>
+		<value xml:lang="es"><![CDATA[Cafe Todos Administrar]]></value>
+		<value xml:lang="tr"><![CDATA[Tüm Cafeyi Yönet]]></value>
+		<value xml:lang="vi"><![CDATA[Gói CafeXE]]></value>
+	</item>
+	<item name="cmd_change_layout">
+		<value xml:lang="ko"><![CDATA[변경]]></value>
+		<value xml:lang="en"><![CDATA[Change]]></value>
+		<value xml:lang="jp"><![CDATA[変更]]></value>
+		<value xml:lang="zh-CN"><![CDATA[修改]]></value>
+		<value xml:lang="zh-TW"><![CDATA[變更]]></value>
+		<value xml:lang="tr"><![CDATA[Değişim]]></value>
+		<value xml:lang="vi"><![CDATA[Thay đổi]]></value>
+	</item>
+	<item name="cmd_select_index">
+		<value xml:lang="ko"><![CDATA[초기화면 선택]]></value>
+		<value xml:lang="en"><![CDATA[Select the index page]]></value>
+		<value xml:lang="jp"><![CDATA[初期ページ選択]]></value>
+		<value xml:lang="zh-CN"><![CDATA[选择默认首页]]></value>
+		<value xml:lang="zh-TW"><![CDATA[選擇首頁]]></value>
+		<value xml:lang="tr"><![CDATA[Başlangıc Ekranı Seçimi]]></value>
+		<value xml:lang="vi"><![CDATA[Chọn trang chủ]]></value>
+	</item>
+	<item name="cmd_add_new_menu">
+		<value xml:lang="ko"><![CDATA[새로운 메뉴 추가]]></value>
+		<value xml:lang="en"><![CDATA[Add a new menu]]></value>
+		<value xml:lang="jp"><![CDATA[新しいメニュー追加]]></value>
+		<value xml:lang="zh-CN"><![CDATA[添加新菜单]]></value>
+		<value xml:lang="zh-TW"><![CDATA[新增選單]]></value>
+		<value xml:lang="tr"><![CDATA[Yeni Menü Ekle]]></value>
+		<value xml:lang="vi"><![CDATA[Thêm Menu]]></value>
+	</item>
+	<item name="default_language">
+		<value xml:lang="ko"><![CDATA[기본 언어]]></value>
+		<value xml:lang="en"><![CDATA[Default Language]]></value>
+		<value xml:lang="jp"><![CDATA[基本言語]]></value>
+		<value xml:lang="zh-CN"><![CDATA[默认语言]]></value>
+		<value xml:lang="zh-TW"><![CDATA[預設語言]]></value>
+		<value xml:lang="tr"><![CDATA[Temel Dil]]></value>
+		<value xml:lang="vi"><![CDATA[Ngôn ngữ mặc định]]></value>
+	</item>
+	<item name="about_default_language">
+		<value xml:lang="ko"><![CDATA[처음 접속하는 사용자의 언어 설정을 지정할 수 있습니다.]]></value>
+		<value xml:lang="en"><![CDATA[You may set the default language]]></value>
+		<value xml:lang="jp"><![CDATA[初めてアクセスするユーザーに見せるページの言語を指定します。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[可以设置显示给首次访问者的同一语言环境。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[可選擇用戶預設語言。]]></value>
+		<value xml:lang="tr"><![CDATA[İlk defa giriş yapan kullanıcının dil seçimini ayarlayabilirsiniz.]]></value>
+		<value xml:lang="vi"><![CDATA[Bạn có thể thiếp đặt ngôn ngữ mặc định.]]></value>
+	</item>
+	<item name="about_cafe_act" type="array">
+		<item name="dispHomepageAdminSiteManage">
+			<value xml:lang="ko"><![CDATA[Cafe의 모양을 꾸밀 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[You can decorate cafe's layout here.]]></value>
+			<value xml:lang="jp"><![CDATA[Cafeのレイアウトを変更します。]]></value>
+			<value xml:lang="zh-CN"><![CDATA[在此可以设置站点风格。]]></value>
+			<value xml:lang="zh-TW"><![CDATA[可設定網站風格]]></value>
+			<value xml:lang="tr"><![CDATA[Cafenin Tipini Dekore Edebilirsiniz]]></value>
+			<value xml:lang="vi"><![CDATA[Bạn có thể trình bày giao diện của Cafe tại đây.]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteMemberGroupManage">
+			<value xml:lang="ko"><![CDATA[Cafe 내에서 사용되는 그룹 관리를 할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[You can manage groups used in this cafe.]]></value>
+			<value xml:lang="jp"><![CDATA[Cafe内のグループを管理します。]]></value>
+			<value xml:lang="zh-CN"><![CDATA[在此可以管理站点内的用户组。]]></value>
+			<value xml:lang="zh-TW"><![CDATA[可管理網站內的用戶群組]]></value>
+			<value xml:lang="tr"><![CDATA[Cafe içinde kullanılan grup yönetimi yapabilirsiniz]]></value>
+			<value xml:lang="vi"><![CDATA[Bạn có thể quản lý nhóm sử dụng trong Cafe này.]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteMemberManage">
+			<value xml:lang="ko"><![CDATA[Cafe에 등록된 회원들을 보거나 관리할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[You can list up members registered and manage them.]]></value>
+			<value xml:lang="jp"><![CDATA[Cafeに登録されている会員を管理します。]]></value>
+			<value xml:lang="zh-CN"><![CDATA[在此可以查看或管理用户。]]></value>
+			<value xml:lang="zh-TW"><![CDATA[可以檢視和管理會員]]></value>
+			<value xml:lang="tr"><![CDATA[Cafeye kayıt yaptırmış üyeleri görebilir vey a yönetebilirsiniz]]></value>
+			<value xml:lang="vi"><![CDATA[Bạn có thể liệt kê và quản lý những thành viên đã đăng ký.]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteTopMenu">
+			<value xml:lang="ko"><![CDATA[Cafe의 상단이나 좌측등에 나타나는 일반적인 메뉴를 수정하거나 추가할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[You can manage the default menus]]></value>
+			<value xml:lang="jp"><![CDATA[Cafeのヘッダー（header、上段）や左側などのメニューを管理します。]]></value>
+			<value xml:lang="zh-CN"><![CDATA[在此可以设置主菜单及所属子菜单。]]></value>
+			<value xml:lang="zh-TW"><![CDATA[可建立或管理左側或上端的選單]]></value>
+			<value xml:lang="tr"><![CDATA[Cafenin en üstünde ortaya çıkan basit menüyü istediğiniz gibi düzeltebilir veya ekleme/çıkarma yapabilirsiniz.]]></value>
+			<value xml:lang="vi"><![CDATA[Bạn có thể quản lý những Menu mặc định.]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteComponent">
+			<value xml:lang="ko"><![CDATA[에디터 컴포넌트/ 애드온을 활성화 하거나 설정을 변경할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[You can enable editor components / addons and configure them.]]></value>
+			<value xml:lang="jp"><![CDATA[エディターのコンポーネント/アドオンをオンにしたら、設定を変更します。]]></value>
+			<value xml:lang="zh-CN"><![CDATA[可以激活及设置网页编辑器组件/插件。]]></value>
+			<value xml:lang="zh-TW"><![CDATA[可選擇是否啟用網頁編輯器組件/附加元件]]></value>
+			<value xml:lang="tr"><![CDATA[Editör Bileşenleri/ Eklentiyi aktif hale getirebilir veya yaptığınız bir önceki seçimi değiştirebilirsiniz.]]></value>
+			<value xml:lang="vi"><![CDATA[Bạn có thể mở soạn thảo thành phần / Addons và cấu hình chúng.]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteCounter">
+			<value xml:lang="ko"><![CDATA[Cafe의 접속 현황을 볼 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[You can see the connecting status of Cafe]]></value>
+			<value xml:lang="jp"><![CDATA[Cafeへのアクセス状況を確認できます。]]></value>
+			<value xml:lang="zh-CN"><![CDATA[可以查看站点的访问统计数据。]]></value>
+			<value xml:lang="zh-TW"><![CDATA[可以檢視虛擬網站的訪問統計資料。]]></value>
+			<value xml:lang="tr"><![CDATA[Cafeye erişim ile ilgili güncel bilgileri kontrol edebilirsiniz]]></value>
+			<value xml:lang="vi"><![CDATA[Bạn có thể thấy được trạng thái kết nối của Cafe.]]></value>
+		</item>
+		<item name="dispHomepageAdminSiteMidSetup">
+			<value xml:lang="ko"><![CDATA[Cafe에서 사용하는 게시판, 페이지등의 모듈 세부 설정을 할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[You can configure modules, such as pages and boards, used in the cafe.]]></value>
+			<value xml:lang="jp"><![CDATA[Cafeの掲示板、ページなどのモジュールを管理します。]]></value>
+			<value xml:lang="zh-CN"><![CDATA[在此可以设置站点内的版面，页面等模块的详细设置。]]></value>
+			<value xml:lang="zh-TW"><![CDATA[可詳細設定網站所使用的討論板，頁面等模組]]></value>
+			<value xml:lang="tr"><![CDATA[Cafede kullanılan pano, sayfa gibi modülleri detaylı bir şekilde ayarlayabilirsiniz.]]></value>
+			<value xml:lang="vi"><![CDATA[Bạn có thể cấu hình những Module, những trang và Board sử dụng trong Cafe.]]></value>
+		</item>
+	</item>
+	<item name="about_cafe">
+		<value xml:lang="ko"><![CDATA[Cafe 서비스 관리자는 다수의 Cafe를 만들 수 있고 또 각 Cafe를 편하게 설정할 수 있도록 합니다.]]></value>
+		<value xml:lang="en"><![CDATA[CafeXE package provides features to create cafes and to configure them conveniently]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeサービス管理者は複数のCafe作成、および各Cafeを簡単に管理が出来ます。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[站点工具不仅可以迅速建立多个站点，而且非常方便各项设置。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[虛擬網站模組可快速建立網站，且設定簡單。]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe hizmetleri yöneticisi, çokca café oluşturabilir ve ayrıca, her cafeyi çok rahat bir şekilde ayarlayabilir.]]></value>
+		<value xml:lang="vi"><![CDATA[Gói CafeXE cung cấp những đặc tính để tạo ra những tiệm Cafe và định hình chúng một cách thuận tiện.]]></value>
+	</item>
+	<item name="about_cafe_title">
+		<value xml:lang="ko"><![CDATA[Cafe 이름은 관리를 위해서만 사용될 뿐 서비스에는 나타나지 않습니다]]></value>
+		<value xml:lang="en"><![CDATA[The title is only used for management, it would not be displayed.]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe名は管理をするためだけに使われ、実サービスには表示されません。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建议使用一个即简洁又直观的名称。此名称不会显示到用户页面当中。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[只有在管理時才看的到此標題。]]></value>
+		<value xml:lang="tr"><![CDATA[Cafe isminin sadece yönetim için kullanılacaksa, hizmet içinde gözükmeyecektir.]]></value>
+		<value xml:lang="vi"><![CDATA[Tiêu đề chỉ sử dụng cho quản lý, nó sẽ không được hiển thị.]]></value>
+	</item>
+	<item name="about_menu_names">
+		<value xml:lang="ko"><![CDATA[Cafe에 나타날 메뉴 이름을 언어에 따라서 지정할 수 있습니다.<br/>하나만 입력하셔도 모두 같이 적용됩니다]]></value>
+		<value xml:lang="en"><![CDATA[You can set the title of the menu for each language displayed in the menus<br />If you input one of the titles, titles for other languages will be set as same.]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeに使うメニュー名を言語別に指定出来ます。<br/>一個だけ記入した場合、他言語に一括適用されます。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[在此可以指定多国语言菜单。<br/>如只输入一项，其他语言同时只应用此项语言。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[可指定語言。<br/>如果只輸入其中一項，其他語言將會顯示一樣。]]></value>
+		<value xml:lang="es"><![CDATA[Café en el nombre del idioma que aparezca en el menú para que usted pueda especificar. <br/> Puede entrar en un sólo aplica a todos ustedes ]]></value>
+		<value xml:lang="tr"><![CDATA[Cafede ortaya çıkan menünün ismini dile göre değişebilmektedir.<br/>Bir tane girdi yapsanız bile hepsi beraber uygulanmaktadır.]]></value>
+		<value xml:lang="vi"><![CDATA[Bạn có thể đặt tiêu đè của Menu cho mội dạng ngôn ngữ<br />Nếu bạn chỉ nhập vào một tiêu đề duy nhất, tiêu đề này sẽ hiển thị giống nhau trên mọi ngôn ngữ.]]></value>
+	</item>
+	<item name="about_menu_option">
+		<value xml:lang="ko"><![CDATA[메뉴를 선택시 새창으로 열지를 선택할 수 있습니다.<br />펼침 메뉴는 레이아웃에 따라 동작합니다]]></value>
+		<value xml:lang="en"><![CDATA[You can assign it to open a page in a new window when the menu clicked.<br />The option for menu expand may work depending on the layout.]]></value>
+		<value xml:lang="jp"><![CDATA[メニューを選択するとき新しいウィンドウズに開けるかを選択します。<br />拡張メニューはレイアウトによって動作します。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[可以设置点击菜单时是否要在新窗口中打开。<br />展开选项随布局。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[可設定按選單時，是否要以新視窗開啟。<br />選展開的話，是隨版面。]]></value>
+		<value xml:lang="es"><![CDATA[selección de menú puede elegir para abrir saechangeuro. <br /> Menús desplegables se comportarán de acuerdo con el diseño]]></value>
+		<value xml:lang="tr"><![CDATA[Menüyü seçerken, "yeni bir pencerede aç"ı seçebilirsiniz.<br />펼침 메뉴는 레이아웃에 따라 동작합니다]]></value>
+		<value xml:lang="vi"><![CDATA[Bạn có thể dặt mở ra trang mới khi bấm vào Menu.<br />Tùy chọn này hoạt động phụ thuộc vào cách trình bày giao diện.]]></value>
+	</item>
+	<item name="about_group_grant">
+		<value xml:lang="ko"><![CDATA[그룹을 선택하면 선택된 그룹만 메뉴가 보입니다.<br/>모두 해제하면 비회원도 볼 수 있습니다]]></value>
+		<value xml:lang="en"><![CDATA[If you select a group, only the group members can see the menu. (if xml file is directly opened, it will be shown.)]]></value>
+		<value xml:lang="jp"><![CDATA[選択グループのみ、メニューが見えます。<br/>全てを解除すると非会員にも見えます。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[如选择用户组，只有所属组用户才能看到此菜单。<br/>不选非用户也可以查看。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[有選擇用戶群組的話，只有被選擇的用戶群組才看的到。<br/>沒有選擇的話，非會員也能觀看。]]></value>
+		<value xml:lang="es"><![CDATA[Cuando aparezca el menú, seleccionar un grupo de grupos seleccionados. <br/> Miembros no pueden ver cuando se apaga todas las]]></value>
+		<value xml:lang="tr"><![CDATA[Bir grubu seçerseniz, sadece seçili olan grup menüde gözükecektir.<br/>Hepsini temizlerseniz, üye olmayanlarda görebilecektir.]]></value>
+		<value xml:lang="vi"><![CDATA[Nếu bạn chọn một nhóm thì chỉ nhóm này mới có thể thấy được Menu. (Nếu File XML được mở trực tiếp, nó sẽ được hiển thị.)]]></value>
+	</item>
+	<item name="about_module_type">
+		<value xml:lang="ko"><![CDATA[게시판,페이지는 모듈을 생성하고 URL은 링크만 합니다.<br/>생성후 수정할 수 없습니다]]></value>
+		<value xml:lang="en"><![CDATA[For boards and pages, it would create a module, and for URLs, it would make a link to the url.<br/> The type cannot be modified after creation.]]></value>
+		<value xml:lang="jp"><![CDATA[掲示板、ページはモジュールを生成し、URLはリンクの情報のみ要ります。<br/>一度作成した後、変更は出来ません。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版面，页面选项可直接生成该模块，URL就是链接。<br/>注意：生成后不能修改。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[討論板，頁面可直接建立該模組和連結網址。<br/>注意：建立後無法再修改]]></value>
+		<value xml:lang="es"><![CDATA[Tablones de anuncios, y el enlace URL de la página para crear un módulo. <br/> Saengseonghu no puede ser modificado]]></value>
+		<value xml:lang="tr"><![CDATA[Pano ve sayfa modülünü oluşturup URL'yi link olarak sunmaktayız.]]></value>
+		<value xml:lang="vi"><![CDATA[Nó sẽ tạo một Module cho những Board, Trangvà những URL, nó sẽ tạo một Link cho URL.<br/>Định dạng này sẽ không thể thay đổi khi đã tạo xong.]]></value>
+	</item>
+	<item name="about_browser_title">
+		<value xml:lang="ko"><![CDATA[메뉴에 접속시 브라우저의 제목으로 나타날 내용입니다]]></value>
+		<value xml:lang="en"><![CDATA[It will be displayed on the title of the web browser, when users connect to the menu.]]></value>
+		<value xml:lang="jp"><![CDATA[メニューにアクセスした時、ブラウザーのタイトルです。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[显示在浏览器顶端标题栏里的文档。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[連結選單後，顯示在瀏覽器視窗的標題。]]></value>
+		<value xml:lang="es"><![CDATA[Acceso a un menú de su navegador para que aparezca en el título se]]></value>
+		<value xml:lang="tr"><![CDATA[Menüyü kullanırken, tarayıcınızın başlığına göre karşınıza gelecek içeriklerdir.]]></value>
+		<value xml:lang="vi"><![CDATA[Nó sẽ hiển thị trên tiêu đề của trình duyệt khi người dùng truy cập.]]></value>
+	</item>
+	<item name="about_module_id">
+		<value xml:lang="ko"><![CDATA[게시판,페이지등 접속할때 사용될 주소입니다.<br/>예) http://도메인/[모듈ID], http://도메인/?mid=[모듈ID]]]></value>
+		<value xml:lang="en"><![CDATA[The module id will be used for accessing the board or page, <br /> ex) http://address/[moduleID]]]></value>
+		<value xml:lang="jp"><![CDATA[掲示板、ページなどにリンクさせるアドレスです。<br/>例) http://ドメイン/[モジュールID], http://ドメイン/?mid=[モジュールID]]]></value>
+		<value xml:lang="zh-CN"><![CDATA[访问版面，页面时使用的地址。<br/>例) http://域名/[模块ID], http://域名/?mid=[模块ID]]]></value>
+		<value xml:lang="zh-TW"><![CDATA[連結討論板，頁面等模組時，所要輸入的格式。<br/>例) http://域名/[模組 ID]，或 http://域名/?mid=[模組 ID]]]></value>
+		<value xml:lang="es"><![CDATA[Boletines, jeopsokhalttae jideung dirección de la página se utiliza. <br/> Sí) de dominio http:// Dominio/ [Módulo ID], dominio http:// Dominio/? Media = [Módulo ID]]]></value>
+		<value xml:lang="tr"><![CDATA[Pano, sayfa gibi şeyleri bağlandığınızda, kullanacağınız adrestir.<br/>Örn) http:// Alan Adı/[Modül ID], http://Alan Adı/?mid=[모듈ID]]]></value>
+		<value xml:lang="vi"><![CDATA[Module ID sẽ cho phép người truy cập qua ID này, <br /> Ví dụ: http://address/<b>[moduleID]</b>]]></value>
+	</item>
+	<item name="about_menu_item_url">
+		<value xml:lang="ko"><![CDATA[대상을 URL로 할때 연결할 링크주소입니다.<br/>http://는 빼고 입력해주세요]]></value>
+		<value xml:lang="en"><![CDATA[If the target is URL, input the address here <br />Do not include http://]]></value>
+		<value xml:lang="jp"><![CDATA[タイプをURLにした場合、リンク先を入れて下さい。<br/>http://は省いて入力して下さい。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[对象选择URL时，要链接的地址。<br/>输入的时候请不要输入http://头。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[目標是連結網址時，在此輸入網址。<br/>請勿輸入 http://]]></value>
+		<value xml:lang="es"><![CDATA[Cuando es la dirección de la URL como vínculo de conexión. <br/> Http:// excepto para las palabras]]></value>
+		<value xml:lang="tr"><![CDATA[URLile bağlanılırken kullanılacak olan link bilgisidir.<br/>http://'yi silip giriş yapınız.]]></value>
+		<value xml:lang="vi"><![CDATA[Nếu đích là URL, hãy nhập địa chỉ tại đây <br />không sử dụng http://. Ví dụ: <b>vietxe.net</b>]]></value>
+	</item>
+	<item name="about_menu_image_button">
+		<value xml:lang="ko"><![CDATA[메뉴명 대신 이미지로 메뉴를 사용할 수 있습니다.]]></value>
+		<value xml:lang="en"><![CDATA[Instead of the title, the menu image can be used.]]></value>
+		<value xml:lang="jp"><![CDATA[テキストのメニュー名の代わりに、イメージのメニューを使えます。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[可以用图片来代替菜单名。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[可用圖片代替選單名稱]]></value>
+		<value xml:lang="es"><![CDATA[Menyumyeong pueden usar un menú en lugar de la imagen.]]></value>
+		<value xml:lang="tr"><![CDATA[Menü isimlerinin yerine resimler vasıtasıyla menüyü kullanabilirsiniz.]]></value>
+		<value xml:lang="vi"><![CDATA[Có thể sử dụng hình ảnh để thay thế tiêu đề.]]></value>
+	</item>
+	<item name="about_cafe_delete">
+		<value xml:lang="ko"><![CDATA[Cafe를 삭제하게 되면 연결되어 있는 모든 모듈(게시판,페이지등)과 그에 따른 글들이 삭제됩니다.<br />주의가 필요합니다]]></value>
+		<value xml:lang="en"><![CDATA[Caution! If you delete the cafe, all the modules(boards, pages) linked to the cafe and all the documents will be removed.]]></value>
+		<value xml:lang="jp"><![CDATA[Cafeを削除すると、リンクされている全てのモジュール(掲示板、ページなど)とそれに付随する書き込みが削除されます。<br />ご注意下さい。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[删除站点：即删除所以所属模块(版面，页面等)及所属主题。<br />一定要慎重操作。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[刪除網站：即刪除所有相關的模組(討論板，頁面等)以及相關文章。請慎重使用。]]></value>
+		<value xml:lang="es"><![CDATA[Todos los módulos están conectados en caso de supresión de Café (Boletín, página jideung) y será suprimido en consecuencia geuldeulyi. <br /> ¿Necesita atención]]></value>
+		<value xml:lang="tr"><![CDATA[Bir Café'yi silerken, bağlantılı olan bütün modül(pano, sayfa vs.) ve bunlarla bağlantılı olan bütün yazılar silenecektir.<br />Dikkat gerekmektedir.]]></value>
+		<value xml:lang="vi"><![CDATA[Chú ý! Nếu xóa Cafe, tất cả những Module gồm Board, trang, bài viết và những địa chỉ tạo ra từ Cafe đó cũng sẽ bị xóa.]]></value>
+	</item>
+	<item name="about_cafe_admin">
+		<value xml:lang="ko"><![CDATA[를 입력후 추가 버튼을 누른뒤 저장하세요. 카페 관리자를 등록할 수 있습니다.<br/>Cafe 관리자는 http://주소/?act=dispHomepageAdminSiteManage 로 관리자 페이지로 접속할 수 있으며 존재하지 않는 사용자는 관리자로 등록되지 않습니다]]></value>
+		<value xml:lang="en"><![CDATA[You can set administrators of the cafe. <br />The administrators can access the administration page via http://address/?act=dispHomepageAdminSiteManage. Only existing IDs can be registered as administrator]]></value>
+		<value xml:lang="jp"><![CDATA[Cafe管理者の設定が出来ます。<br/>Cafe管理者は「http://ドメイン/?act=dispHomepageAdminSiteManage」にて管理者ページにアクセスが出来ます。<br />存在しない会員は管理者として登録出来ません。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[可以指定站点管理员。<br/>管理员登录口为http://域名/?act=dispHomepageAdminSiteManage。管理员只能在已有的用户中指定。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[可以建立網站管理員。<br/>管理員登入網址是 http://域名/?act=dispHomepageAdminSiteManage。只能在現有的會員中指定管理員。]]></value>
+		<value xml:lang="es"><![CDATA[Cafe Manager se puede configurar. <br/> Cafe Manager dirección es http:// /? = Ley dispHomepageAdminSiteManage el administrador puede conectarse a una página que no existe, el usuario no está registrado como administrador]]></value>
+		<value xml:lang="tr"><![CDATA[kişisini seçtikten sonra ekle düğmesine basıp kayıy ediyoruz. Café yöneticilerini ekleyebilirsiniz.<br/>Cafe yöneticisi, http://adres/?act=dispHomepageAdminSiteManage adlı adres üzerinden yönetici sayfasına giriş yapabiliyor olup, kayıtlı olmayan kullanıcılar, direkt olarak yönetici olamazlar.]]></value>
+		<value xml:lang="vi"><![CDATA[Bạn có thể đặt Administrator của Cafe. <br />Administrator của Cafe có thể truy cập trang quản lý qua địa chỉ <b>http://address/?act=dispHomepageAdminSiteManage</b>. Chỉ cho phép những ID đã được đặt là Administrator.]]></value>
+	</item>
+	<item name="confirm_change_layout">
+		<value xml:lang="ko"><![CDATA[레이아웃을 변경할 경우 레이아웃 정보들 중 일부가 사라질 수가 있습니다. 변경하시겠습니까?]]></value>
+		<value xml:lang="en"><![CDATA[If you change the layout, some information of the layout might be reset. Would you like to change it?]]></value>
+		<value xml:lang="jp"><![CDATA[レイアウトの変更時、一部のレイアウト情報が失われる可能性があります。 変更しますか?]]></value>
+		<value xml:lang="zh-CN"><![CDATA[切换布局可能一些原有的信息将无法显示。你确定要切换吗？]]></value>
+		<value xml:lang="zh-TW"><![CDATA[變換版面可能會使原來的資料無法顯示。確定要變換嗎？]]></value>
+		<value xml:lang="es"><![CDATA[Si cambia el diseño de algunas de la información relativa al diseño puede desaparecer. ¿Te gustaría cambiar?]]></value>
+		<value xml:lang="tr"><![CDATA[Düzeni değiştirmek istediğinizde, düzen bilgilerinin bir kısmını kaybedebilirsiniz. Değiştirmek istiyor musunuz? ]]></value>
+		<value xml:lang="vi"><![CDATA[Nếu thay đổi giao diện, nội dung và thông tin đã sửa đổi sẽ bị xóa. Bạn có muốn thay đổi không?]]></value>
+	</item>
+	<item name="confirm_delete_menu_item">
+		<value xml:lang="ko"><![CDATA[메뉴 항목 삭제시 연결되어 있는 게시판이나 페이지 모듈도 같이 삭제가 됩니다. 그래도 삭제하시겠습니까?]]></value>
+		<value xml:lang="en"><![CDATA[If you delete the menu item, the linked module(board or page) will be removed, too. Would you like to delete it?]]></value>
+		<value xml:lang="jp"><![CDATA[メニューの削除時、リンクされている掲示板やページモジュールも一緒に削除されます。削除しますか?]]></value>
+		<value xml:lang="zh-CN"><![CDATA[删除菜单：即同时删除链接到此菜单的版面或页面模块。你确定要删除吗？]]></value>
+		<value xml:lang="zh-TW"><![CDATA[刪除選單：刪除選單的同時，將會使連結到選單的討論板或頁面一起刪除。確定要刪除嗎？]]></value>
+		<value xml:lang="es"><![CDATA[Eliminación de un elemento de menú o de la página, el módulo está conectado con el boletín se eliminarán. Si desea eliminar?]]></value>
+		<value xml:lang="tr"><![CDATA[Bir menü öğesini silerken, bağlantılı olan pano ve sayfa modülüde beraber silinmektedir. Hala devam etmek istiyor musunuz?]]></value>
+		<value xml:lang="vi"><![CDATA[Nếu bạn xóa Menu, những địa chỉ Board và trang cũng sẽ bị xóa. Bạn có muốn xóa không?]]></value>
+	</item>
+	<item name="msg_default_mid_cannot_delete">
+		<value xml:lang="ko"><![CDATA[초기화면으로 설정된 메뉴는 삭제하실 수 없습니다. Cafe 설정에서 초기화면을 변경후 삭제하세요]]></value>
+		<value xml:lang="en"><![CDATA[The default module cannot be removed. Set another as default module first.]]></value>
+		<value xml:lang="jp"><![CDATA[初期画面に設定されたメニューは削除できません。Cafe設定にて初期画面を変更してから削除して下さい。]]></value>
+		<value xml:lang="tr"><![CDATA[Giriş menüsünde seçilen menüyü silinememektedir.]]></value>
+		<value xml:lang="vi"><![CDATA[Bạn không thể xóa Menu đã được thiết lập tại trang quản lý Cafe. Nếu muốn xóa, xin hãy trở lại trang quản lý và xóa tại đó.]]></value>
+	</item>
+	<item name="msg_module_count_exceed">
+		<value xml:lang="ko"><![CDATA[허용된 모듈의 개수를 초과하였기에 생성할 수 없습니다]]></value>
+		<value xml:lang="en"><![CDATA[The number of modules are limited, you cannot create more modules]]></value>
+		<value xml:lang="jp"><![CDATA[許可されたモジュール数を超過したため、作成が出来ません。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[模組數量已達到上限，無法再新建模組。]]></value>
+		<value xml:lang="tr"><![CDATA[İzin verilen modül sayısı sınırları aştığından yeni bir modül oluşturmanız mümkün değildir.]]></value>
+		<value xml:lang="vi"><![CDATA[Số Module đã bị giới hạn, bạn không thể tạo thêm được Module.]]></value>
+	</item>
+	<item name="msg_not_enabled_id">
+		<value xml:lang="ko"><![CDATA[사용할 수 없는 아이디입니다]]></value>
+		<value xml:lang="en"><![CDATA[The ID cannot be used]]></value>
+		<value xml:lang="jp"><![CDATA[利用出来ないIDです。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[無法使用的帳號]]></value>
+		<value xml:lang="tr"><![CDATA[Bu ID'yi kullanamazsınız.]]></value>
+		<value xml:lang="vi"><![CDATA[ID không thể sử dụng được.]]></value>
+	</item>
+	<item name="msg_same_site">
+		<value xml:lang="ko"><![CDATA[동일한 가상 사이트의 모듈은 이동할 수가 없습니다]]></value>
+		<value xml:lang="en"><![CDATA[Modules cannot be moved between virtual sites.]]></value>
+		<value xml:lang="jp"><![CDATA[同一バーチャル（Virtual）サイトのモジュールは移動出来ません。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[無法在虛擬網站間移動模組。]]></value>
+		<value xml:lang="tr"><![CDATA[Sanal site modülünün yerinin değiştirilmesi mümkün değildir.]]></value>
+		<value xml:lang="vi"><![CDATA[Module không thể di chuyển được trước Website ảo.]]></value>
+	</item>
+	<item name="about_move_module">
+		<value xml:lang="ko"><![CDATA[가상사이트와 기본사이트간의 모듈을 옮길 수 있습니다.<br/>다만 가상사이트끼리 모듈을 이동하거나 같은 이름의 mid가 있을 경우 예기치 않은 오류가 생길 수 있으니 꼭 가상 사이트와 기본 사이트간의 다른 이름을 가지는 모듈만 이동하세요]]></value>
+		<value xml:lang="en"><![CDATA[You may move modules between default site and virtual sites.<br />Moving modules among virtual sites is note allowed. Also, if there exists a module with same mid, there can be unexpected errors, thus move only modules which have unique mid.]]></value>
+		<value xml:lang="jp"><![CDATA[バーチャル（Virtual）サイトと基本サイト間でのモジュール移動が出来ます。<br/>ただし、他のバーチャル（Virtual）サイトへのモジュールを移動したり、同名のmidがある場合、予測が出来ない不具合が有り得るので、必ずバーチャル（Virtual）サイトと基本サイト間で異なる名前のモジュールを移動してください。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[可在預設網站與虛擬網站間移動模組。<br/>Moving modules among virtual sites is note allowed. Also, if there exists a module with same mid, there can be unexpected errors, thus move only modules which have unique mid.]]></value>
+		<value xml:lang="tr"><![CDATA[Sanal site ve temel site arasında modül değişimi yapabilirsiniz.<br/>Sadece sanal siteler arasında modül değişimi veya aynı ismin MİD'inin olduğu durumlarda beklenmedik hatalarla karşılaşabileceğinizden, sadece sanal site veya sadece temel sitedeki modüllerin isimlerine sahip olan şeylerin yerini değiştiriniz.]]></value>
+		<value xml:lang="vi"><![CDATA[Module có thể di chuyển thành Site ảo.<br />Những Module di chuyển, được phép đặt ghi chú. Đồng thời, nếu ở đó tồn tại một Module tương tự, nó sẽ hiển thị thông báo lỗi. Vì vậy chỉ di chuyển khi chưa có Module nào cùng tên tồn tại ở đó.]]></value>
+	</item>
+	<item name="msg_greeting">
+		<value xml:lang="ko"><![CDATA[<strong>%s</strong>님 안녕하세요.]]></value>
+		<value xml:lang="en"><![CDATA[<strong>%s</strong> Welcome to homepage]]></value>
+		<value xml:lang="tr"><![CDATA[<strong>%s</strong> üyemiz merhabalar.]]></value>
+		<value xml:lang="vi"><![CDATA[Xin chào <strong>%s</strong>!]]></value>
+	</item>
+	<item name="newest_comment">
+		<value xml:lang="ko"><![CDATA[최근 댓글]]></value>
+		<value xml:lang="en"><![CDATA[Recent Comments]]></value>
+		<value xml:lang="tr"><![CDATA[En Son Yorum]]></value>
+	</item>
+	<item name="addon_name">
+		<value xml:lang="ko"><![CDATA[애드온명]]></value>
+		<value xml:lang="en"><![CDATA[Addon name]]></value>
+		<value xml:lang="tr"><![CDATA[Eklenti İsimleri]]></value>
+	</item>
+	<item name="config_top_menu">
+		<value xml:lang="ko"><![CDATA[상단메뉴 설정]]></value>
+		<value xml:lang="en"><![CDATA[Config top menu]]></value>
+		<value xml:lang="tr"><![CDATA[ Yukarı Menü Ayarları]]></value>
+	</item>
+	<item name="about_config_top_menu">
+		<value xml:lang="ko"><![CDATA[상단메뉴(top_menu)를 선택합니다. 사용하는 레이아웃에서 상단메뉴 출력을 지원해야 합니다.]]></value>
+		<value xml:lang="en"><![CDATA[Select top menu.]]></value>
+		<value xml:lang="tr"><![CDATA[En yukarıdaki menü seçilir.]]></value>
+	</item>
+	<item name="msg_not_export_index_module">
+		<value xml:lang="ko"><![CDATA[카페의 초기화면 모듈은 내보낼 수 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[You can not export module that is index page of cafe.]]></value>
+		<value xml:lang="tr"><![CDATA[Cafenin giriş ekranındaki modülün değiştirilmesi mümkün değildir.]]></value>
+	</item>
+</lang>

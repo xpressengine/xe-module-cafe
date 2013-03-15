@@ -1,0 +1,189 @@
+<include target="./header.html" />
+<div cond="$XE_VALIDATOR_MESSAGE" class="x_alert x_alert-{$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+
+<form action="./" method="post" onsubmit="return procFilter(this, insert_config)" id="cafeSetup" class="x_form-horizontal">
+	<section class="section">
+		<h1>
+			{$lang->cmd_cafe_hub}
+			<span cond="$homepage_config->cafe_main_mid" style="font-size:14px;display:inline-block;">
+				&gt; <a href="{getUrl('','mid',$homepage_config->cafe_main_mid)}" target="_blank">View</a>
+			</span>
+		</h1>
+		<div class="x_control-group">
+			<label class="x_control-label" for="cafe_main_mid">{$lang->cafe_main_mid}</label>
+			<div class="x_controls">
+				<input type="text" name="cafe_main_mid" id="cafe_main_mid" value="{$homepage_config->cafe_main_mid}" />
+				<a href="#cafe_main_mid_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="cafe_main_mid_help" class="x_help-block" hidden>{$lang->about_cafe_main_mid}</p>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="browser_title">{$lang->browser_title}</label>
+			<div class="x_controls">
+				<input type="text" name="browser_title" id="browser_title" value="{$homepage_config->browser_title}" />
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="layout_srl">{$lang->layout}</label>
+			<div class="x_controls">
+				<select name="layout_srl" id="layout_srl">
+					<option loop="$hub_layout_list => $key,$val" value="{$val->layout_srl}" selected="selected"|cond="$homepage_config->layout_srl==$val->layout_srl">{$val->title} ({$val->layout})</option>
+				</select>
+				<a href="#mlayout_srl_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="mlayout_srl_help" class="x_help-block" hidden>{$lang->about_layout}</p>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="skin">{$lang->skin}</label>
+			<div class="x_controls">
+				<select name="skin" id="skin">
+					<option loop="$skins => $key,$val" value="{$key}" selected="selected"|cond="$homepage_config->skin== $key">{$val->title}</option>
+				</select>
+				<a cond="$homepage_config->module_srl" href="{getUrl('act','dispHomepageAdminSkinSetup','module_srl')}" target="_blank">{$lang->skin_default_info}</a>
+				<a href="#skin_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="skin_help" class="x_help-block" hidden>{$lang->about_skin}</p>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="mlayout_srl">{$lang->mobile_layout}</label>
+			<div class="x_controls">
+				<select name="mlayout_srl" id="mlayout_srl">
+					<option value="0">{$lang->notuse}</option>
+					<option loop="$hub_mlayout_list => $key, $val" value="{$val->layout_srl}" selected="selected"|cond="$homepage_config->mlayout_srl== $val->layout_srl">{$val->title} ({$val->layout})</option>
+				</select>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="mskin">{$lang->mobile_skin}</label>
+			<div class="x_controls">
+				<select name="mskin" id="mskin">
+					<option loop="$hub_mskin_list=> $key, $val" value="{$key}" selected="selected"|cond="$homepage_config->mskin== $key || ($homepage_config->skin && $key=='xe_faq')">{$val->title}</option>
+				</select>
+			</div>
+		</div>
+	</section>
+	<section class="section">
+		<h1>{$lang->cmd_cafe_basic_setup}</h1>
+		<div class="x_control-group">
+			<label class="x_control-label" for="use_mobile">{$lang->mobile_view}</label>
+			<div class="x_controls">
+				<label for="use_mobile" class="x_inline">
+					<input type="checkbox" name="use_mobile" id="use_mobile" value="Y" checked="checked"|cond="$homepage_config->use_mobile == 'Y'" /> 
+					{$lang->about_mobile_view}
+				</label>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label">{$lang->cafe_creation_type}</label>
+			<div class="x_controls">
+				<label for="chkCafeVid" class="x_inline">
+					<input type="radio" id="chkCafeVid" name="access_type" value="vid" onclick="toggleCafeAccessType('vid');" checked="checked"|cond="$homepage_config->access_type=='vid'" /> {$lang->access_vid}
+				</label>
+				<label for="chkCafeDomain" class="x_inline">
+					<input type="radio" id="chkCafeDomain" name="access_type" value="domain" onclick="toggleCafeAccessType('domain');" checked="checked"|cond="$homepage_config->access_type!='vid'" /> {$lang->access_domain}
+				</label>
+				<a href="#create_type_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<div id="accessCafeDomain" hidden|cond="$homepage_config->access_type=='vid'" style="margin:0 0 5px 0">
+					URL: <input type="text" name="default_domain" value="{$homepage_config->default_domain}" />
+				</div>
+				<p id="create_type_help" class="x_help-block" hidden>{$lang->about_cafe_creation_type}</p>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="creation_default">{$lang->cafe_creation_privilege}</label>
+			<div class="x_controls">
+				<select name="creation_default" class="grant_default" id="creation_default">
+					<option value="member" selected="selected"|cond="$homepage_config->creation_default=='member'">{$lang->grant_to_login_user}</option>
+					<option value="group" selected="selected"|cond="$homepage_config->creation_default=='group'">{$lang->grant_to_group}</option>
+					<option value="" selected="selected"|cond="!$homepage_config->creation_default">{$lang->cmd_show_super_admin_member}</option>
+				</select>
+				<div id="zone_cafe_grant" hidden>
+					<label loop="$groups => $key,$val" for="group_{$key}" class="x_inline"><input type="checkbox" id="group_{$key}" name="creation_group" checked="checked"|cond="in_array($val->group_srl, $homepage_config->creation_group)" value="{$val->group_srl}" /> {$val->title}</label>
+				</div>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="default_layout">{$lang->default_layout}</label>
+			<div class="x_controls">
+				<select name="default_layout" id="default_layout">
+					<option loop="$layout_list => $key,$val" value="{$val->layout}" selected="selected"|cond="$homepage_config->default_layout== $val->layout"><!--@if($val->title)-->{$val->title}({$val->layout})<!--@else-->{$val->layout}<!--@end--></option>
+				</select>
+				<a href="#default_layout_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="default_layout_help" class="x_help-block" hidden>{$lang->about_default_layout}</p>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="default_mlayout">{$lang->mobile_layout}</label>
+			<div class="x_controls">
+				<select name="default_mlayout" id="default_mlayout">
+					<option value="0" selected="selected"|cond="!$homepage_config->default_layout">{$lang->notuse}</option>
+					<option loop="$mlayout_list => $key,$val" value="{$val->layout}" selected="selected"|cond="$homepage_config->default_mlayout== $val->layout"><!--@if($val->title)-->{$val->title}({$val->layout})<!--@else-->{$val->layout}<!--@end--></option>
+				</select>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="enable_change_layout">{$lang->enable_change_layout}</label>
+			<div class="x_controls">
+				<label for="enable_change_layout" class="x_inline">
+					<input type="checkbox" id="enable_change_layout" name="enable_change_layout" value="Y" checked="checked"|cond="$homepage_config->enable_change_layout=='Y'" />
+					{$lang->about_change_layout}
+				</label>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label">
+				{$lang->allow_service}
+			</label>
+			<div class="x_controls">
+				<p style="padding:5px 0 0 0">{$lang->about_allow_service}</p>
+				<ul style="list-style:none;margin:0;padding:0">
+					<li loop="$service_modules => $k,$v" cond="$v->category == 'service' && $v->default_index_act">
+						<label for="{$v->module}" class="x_inline" style="min-width:100px">{$v->title}</label>
+						<input type="number" name="allow_service_{$v->module}" id="{$v->module}" value="{$homepage_config->allow_service[$v->module]}" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="use_rss">RSS</label>
+			<div class="x_controls">
+				<label for="use_rss" class="x_inline">
+					<input type="checkbox" name="use_rss" id="use_rss" value="Y" checked="checked"|cond="$homepage_config->use_rss=='Y'" />
+					RSS
+				</label>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="top_menu">{$lang->config_top_menu}</label>
+			<div class="x_controls">
+				<select name="top_menu" id="top_menu">
+					<option value="0">{$lang->notuse}</option>
+					<option loop="$menu_list => $key,$val" value="{$val->menu_srl}" selected="selected"|cond="$val->menu_srl == $homepage_config->top_menu">{$val->title}</option>
+				</select>
+				<a href="#_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="_help" class="x_help-block" hidden>{$lang->about_config_top_menu}</p>
+			</div>
+		</div>
+	</section>
+	<div class="x_clearfix btnArea">
+		<div class="x_pull-left">
+			<a href="{getUrl('act', 'dispHomepageAdminContent')}" type="button" class="x_btn">{$lang->cmd_cancel}</a>
+		</div>
+		<div class="x_pull-right">
+			<button class="x_btn x_btn-primary" type="submit">{$lang->cmd_registration}</button>
+		</div>
+	</div>
+</form>
+<script>
+function doShowGrantZone() {
+	jQuery(".grant_default").each( function() {
+		var id = "#zone_cafe_grant";
+		if(jQuery(this).val() == 'group') jQuery(id).css("display","block");
+		else jQuery(id).css("display","none");
+	});
+}
+jQuery( function() { jQuery('.grant_default').change( function(event) { doShowGrantZone(); } ); doShowGrantZone() } );
+</script>
+

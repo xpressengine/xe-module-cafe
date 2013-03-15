@@ -1,0 +1,205 @@
+@charset "utf-8";
+
+/* header */
+.cafeHeader *{ margin:0 0 30px 0; padding:0;}
+.cafeHeader .cafeTitle{ font-size:1em; letter-spacing:-.1em; margin-bottom:10px; border-bottom:3px solid; *zoom:1; background-repeat:no-repeat; background-position:left center;}
+.cafeHeader .cafeTitle:after{ content:""; display:block; clear:both;}
+.cafeHeader .cafeTitleText{ float:left; clear:both; margin-bottom:-3px; padding:5px 15px 5px 5px; border-bottom:3px solid; background-repeat:no-repeat; background-position:right bottom;}
+.cafeHeader .cafeTitleText a{ text-decoration:none;}
+.cafeHeader .cafeTitleText em{ font-style:normal; font-weight:normal;}
+.cafeHeader .cafeDescription{ padding:7px 15px; -moz-border-radius:3px; -webkit-border-radius:3px; position:relative;}
+.cafeHeader .cafeTitle{ border-color:#aaa; }
+.cafeHeader .cafeTitleText{ border-color:#666; background-image:url(./img/lineVr11.gif);}
+.cafeHeader .cafeTitleText a{ color:#000;}
+.cafeHeader .cafeTitleText em{ color:#666;}
+.cafeHeader .cafeDescription{ background:#efefef; border:1px solid #ccc;}
+
+/* cafeBody Layout */
+.cafeBody{ position:relative; padding-bottom:30px; *zoom:1; font-size:12px; font-family:Tahoma, AppleGothic, Sans-Serif;}
+.cafeBody:after{ content:""; display:block; clear:both;}
+.cafeBody.cafeCE{ padding-right:280px;}
+.cafeBody.cafeEC{ padding-left:280px;}
+
+.cafeBody hr{ display:none;}
+.cafeBody img{ border:0;}
+.cafeBody fieldset{ border:0; padding:0; margin:0;}
+.cafeBody legend{ position:absolute; width:0; height:0; overflow:hidden; visibility:hidden; font-size:0; line-height:0;}
+
+.cafeBody a{ text-decoration:none;}
+.cafeBody a:hover,
+.cafeBody a:active,
+.cafeBody a:focus{ text-decoration:underline;}
+
+.cafeContent{ position:relative; width:100%; margin:0;}
+.cafeCE .cafeContent{ float:left;}
+.cafeEC .cafeContent{ float:right;}
+
+.cafeExtension{ position:relative; width:245px;}
+.cafeCE .cafeExtension{ left:280px; float:right; margin-left:-245px;}
+.cafeEC .cafeExtension{ right:280px; float:left; margin-right:-245px;}
+
+/* cafeContent */
+.cafeContent .userDefine{ line-height:1.5; margin:0 0 40px 0; overflow:hidden; }
+.cafeContent .userDefine p.introText { margin:0; padding:0; }
+
+/* userAccount */
+.userAccount{ padding:35px 0 20px 0; margin:0 0 10px 0; border:1px solid #e2e2e2; background:#fafafa;}
+.userAccount .userTop{ padding:0 0 15px 0; margin:0 20px 11px 20px; background:url(./img/lineHrAccount.gif) repeat-x left bottom;}
+.userAccount .userTop h2{ margin:0 0 12px 0; font-size:12px; font-weight:normal; color:#333; vertical-align:top;}
+.userAccount .userTop .logOut{ position:absolute; top:33px; right:21px;}
+
+.userAccount .communityInfo{ position:relative; margin:0; padding:1px 0 2px 0; list-style:none; *zoom:1; overflow:hidden;}
+.userAccount .communityInfo:after{ content:""; display:block; clear:both;}
+.userAccount .communityInfo li{ position:relative; left:-5px; padding:0 4px; font-size:11px; height:9px; font-family:Dotum; float:left; border-left:1px solid #dedede; color:#555;}
+.userAccount .communityInfo li a{ color:#555;}
+.userAccount .communityInfo li em{ font-style:normal; color:#fd565e; font-size:9px; font-family:Tahoma;}
+
+.userAccount .cafeList{ position:relative; margin:0 20px; padding:0 0 15px 0; list-style:none; *zoom:1;}
+.userAccount .cafeList li{ padding:0 0 0 6px; margin:0 0 8px 0; position:relative; background:url(./img/iconList2.gif) no-repeat left center;}
+.userAccount .cafeList li a{ color:#666;}
+.userAccount .cafeList li .tcbSmall{ position:absolute; top:-2px; right:0;}
+
+.userAccount .tcbLarge{ left:20px; width:201px;}
+.userAccount .tcbLarge *{ padding:0; width:201px;}
+
+/* userUpdate */
+.userUpdate{ position:relative; padding:28px 0 1px 0; border:1px solid #e2e2e2; *zoom:1;}
+.userUpdate .cafeSection{ margin:0 20px 40px 20px; position:relative; *zoom:1;}
+.userUpdate .cafeSection h2{ font-size:12px; margin:0 0 15px 0; padding:0 0 6px 0; border-bottom:2px solid #e1e1e1;}
+.userUpdate .cafeSection .more{ position:absolute; top:0; right:0; padding:0 7px 0 0; color:#b4b4b4; background:url(./img/iconMore.gif) no-repeat right center;}
+.userUpdate .cafeSection ul{ list-style:none; margin:0; padding:0;}
+.userUpdate .cafeSection li{ padding:0 0 0 7px; margin:0 0 5px 0; background:url(./img/iconList3.gif) no-repeat left 6px;}
+.userUpdate .cafeSection li a{ color:#888;}
+
+/* cafeUpdate */
+.userUpdate .cafeUpdate li{ background:none; padding:0; margin:0 0 10px 0; clear:both; *zoom:1;}
+.userUpdate .cafeUpdate li:after{ content:""; display:block; clear:both;}
+.userUpdate .cafeUpdate .userThumb{ float:left; margin:0 8px 0 0;}
+.userUpdate .cafeUpdate .cafeTitle{ color:#3f3f3f;}
+.userUpdate .cafeUpdate .cafeMeta{ display:block; padding:5px 0 0 0;}
+.userUpdate .cafeUpdate .userName{ color:#979797; margin:0 3px 0 0; font-size:11px; font-family:Dotum; cursor:pointer;}
+.userUpdate .cafeUpdate .userName a { color:#979797; text-decoration:none; }
+.userUpdate .cafeUpdate .ymd{ display:inline-block; height:10px; font-size:9px; padding:0 0 0 7px; color:#979797; border-left:1px solid #d5d5d5;}
+.userUpdate .cafeUpdate .hm{ display:inline-block; height:10px; font-size:9px; color:#979797;}
+
+/* widgetTagCloud */
+.widgetTagCloud { text-align:justify; font-size:12px; line-height:1.5; margin:0; padding:0;}
+.widgetTagCloud li{ display:inline; list-style:none; margin:0 !important; padding:0 !important; background:none !important;}
+.widgetTagCloud li a{ white-space:nowrap; font-family:Dotum;}
+.widgetTagCloud li.level4 a{ font-size:12px; color:#999 !important;}
+.widgetTagCloud li.level3 a{ font-size:12px; color:#666 !important;}
+.widgetTagCloud li.level2 a{ font-size:12px; font-weight:bold; color:#444 !important;}
+.widgetTagCloud li.level1 a{ font-size:14px; font-weight:bold; color:#000 !important;}
+
+/* cafeList */
+.cafeListHeader{ position:relative; margin:0 0 10px 0;}
+.cafeListHeader h2.h2{ color:#333; font-size:12px; margin:0; padding:0; }
+.cafeListHeader h2.info{ color:#333; font-size:12px; margin:0; padding:3px 0 6px 9px; font-weight:normal;}
+.cafeListHeader h2.info strong{ color:#fd565e;}
+.cafeListHeader .postSearch{ margin:0; padding:0; position:absolute; top:0; right:10px; _text-align:right;}
+.cafeListHeader .postSearch .inputText{ padding:4px 0 0 4px; height:17px; width:139px; border:1px solid #d2d2d2; font-size:12px; line-height:normal; vertical-align:middle;}
+.cafeListHeader .postSearch select{ height:23px; font-size:12px; vertical-align:middle;}
+
+.cafeListBody{ position:relative; border-top:1px solid #e5e5e5;}
+.cafeListBody ul{ list-style:none; margin:0; padding:0;}
+.cafeListBody li{ position:relative; padding:15px 0; border-bottom:1px solid #e5e5e5; clear:both; *zoom:1;}
+.cafeListBody li:after{ content:""; display:block; clear:both;}
+.cafeListBody h3.cafeTitle{ font-size:12px; margin:0 0 5px 0;}
+.cafeListBody h3.cafeTitle a{ color:#333;}
+.cafeListBody h3.cafeTitle em{ font-size:9px; color:#fd565e; font-style:normal;}
+.cafeListBody .thumb{ float:left; margin:0 19px 0 0; border:1px solid #e3e3e3;}
+.cafeListBody .postMeta{ margin:0 0 8px 0;}
+.cafeListBody .userName{ color:#979797; margin:0 3px 0 0; font-size:11px; font-family:Dotum;}
+.cafeListBody .userName a { color:#979797; text-decoration:none; }
+.cafeListBody .ymd{ display:inline-block; height:10px; font-size:9px; padding:0 0 0 7px; color:#979797; border-left:1px solid #d5d5d5;}
+.cafeListBody .hm{ display:inline-block; height:10px; font-size:9px; color:#979797;}
+.cafeListBody .postSummary{ color:#666; line-height:1.5; margin:0 0 3px 0;}
+
+.cafeListBody .cafeList li{}
+.cafeListBody .cafeList h3.cafeTitle{ padding:10px 0 0 0;}
+.cafeListBody .cafeList .thumb{ position:relative; top:-10px; margin:0 19px -10px 0;}
+.cafeListBody .memberList{}
+
+.cafeListBody .cafeTags{ margin:0 0 12px 0; padding:0;}
+.cafeListBody .cafeTags *{ display:inline;}
+.cafeListBody .cafeTags dt{ color:#777;}
+.cafeListBody .cafeTags dd{ color:#b3b3b3; margin:0;}
+
+.cafeListBody .cafeMeta{ position:relative; margin:0; padding:10px 0; color:#9a9a9a; overflow:hidden; *zoom:1;}
+.cafeListBody .cafeMeta:after{ content:""; display:block; clear:both;}
+.cafeListBody .cafeMeta dt{ position:relative; left:-9px; float:left; height:9px; line-height:9px; *line-height:normal; border-left:1px solid #e5e5e5; padding:0 0 0 8px;}
+.cafeListBody .cafeMeta dd{ position:relative; left:-9px; float:left; height:9px; line-height:9px; *line-height:normal; margin:0; font-size:12px; padding:0 8px 0 8px;}
+
+/* tagListBody */
+.tagListBody{ padding:20px 0; border-top:1px solid #e5e5e5; line-height:1.2;}
+.tagListBody *{ margin:0; padding:0;}
+.tagListBody ul{ text-align:justify; list-style:none;}
+.tagListBody li{ display:inline; margin:0 3px; }
+.tagListBody li a{ color:#666; font-family:Dotum; white-space:nowrap;}
+.tagListBody li.rank1 a{ font-weight:bold; font-size:18px; color:#fff; background:#a2b9d5;}
+.tagListBody li.rank2 a{ font-weight:bold; font-size:18px; color:#4bcfd0;}
+.tagListBody li.rank3 a{ font-weight:bold; font-size:14px; color:#648ab9;}
+.tagListBody li.rank4 a{ font-size:12px;}
+
+/* contentHeader */
+.contentHeader{position:relative; margin:0 0 10px 0; border-bottom:1px solid #e5e5e5; *zoom:1;}
+.contentHeader h2.h2{color:#333; font-size:12px; margin:0; padding:3px 0 6px 9px;}
+
+/* cafeCreation */
+.cafeCreation{ margin:0; padding:0; text-align:center;}
+.cafeCreation fieldset{ margin:0 0 30px 0; padding:0;}
+.cafeCreation table{ border:0; width:100%; text-align:left;}
+.cafeCreation th,
+.cafeCreation td{ border:0; padding-top:15px; padding-bottom:15px; border-bottom:1px solid #e5e5e5; text-align:left; vertical-align:top;}
+.cafeCreation th{ color:#666; padding-left:15px; padding-right:30px; white-space:nowrap;}
+.cafeCreation td{ color:#666; width:100%;}
+.cafeCreation td p{ margin:0;}
+.cafeCreation td .error{ display:none; color:#fd565e; margin:3px 0;}
+.cafeCreation td .error.open{ display:block;}
+.cafeCreation td .inputText{ width:92%; *width:400px; border:1px solid #c6c6c6; padding:4px 9px 0 9px; height:17px; font-size:12px; vertical-align:middle;}
+.cafeCreation td .inputTextArea { width:92%; *width:400px; border:1px solid #c6c6c6; padding:4px 9px 0 9px; height:100px; font-size:12px; vertical-align:middle;}
+.cafeCreation td .inputText.cafeAddress{ width:100px; text-align:center;}
+.cafeCreation td .inputCheck{ width:13px; height:13px; margin:0; vertical-align:middle;}
+.cafeCreation td .userAgreement{ width:92%; *width:400px; border:1px solid #cacaca; line-height:1.5; padding:9px; height:120px; overflow:auto; *overflow-x:hidden;}
+.cafeCreation td .check{ font-weight:bold; margin:8px 0;}
+
+/* pagination */
+.pagination{ text-align:center; padding:30px 0;}
+.pagination a,
+.pagination strong{ position:relative; font-weight:bold; font-size:11px; display:inline-block; height:18px; line-height:18px; background-image:url(./img/linePagination.gif); background-repeat:no-repeat; background-position:left center; vertical-align:middle; padding:0 8px; margin:0 -4px 0 0;}
+.pagination a{ color:#333;} 
+.pagination strong{ color:#fd565e;}
+.pagination .nav{ display:inline-block; background-image:url(./img/buttonPagination.gif); background-repeat:no-repeat; border:0; padding:0; margin:0; width:20px; background-color:#fff;}
+.pagination .nav span{ position:absolute; width:0; height:0; overflow:hidden; visibility:hidden; font-size:0; line-height:0;}
+.pagination .prev10{ background-position:0 center;}
+.pagination .prev1{ background-position:-20px center; margin-right:-5px; z-index:2;}
+.pagination .next1{ background-position:-30px center;}
+.pagination .next10{ background-position:-50px center;}
+
+/* cafe content button */
+.tcb,
+.tcb a,
+.tcb button,
+.tcb input{ position:relative; display:inline-block; border:0; background-color:transparent; background-image:url(./img/buttonTC.gif); background-repeat:no-repeat; text-decoration:none !important; vertical-align:middle; cursor:pointer; overflow:visible; text-align:center;}
+
+.tcb{ margin-right:2px;}
+.tcb a,
+.tcb button,
+.tcb input{ *vertical-align:top; left:2px;}
+
+.tcbSmall,
+.tcbSmall *{ height:20px;}
+.tcbSmall{ background-position:left top;}
+.tcbSmall *{ font-size:11px; line-height:20px; font-family:Dotum; color:#555; background-position:right top; padding:0 5px 0 3px; letter-spacing:-1px;}
+
+.tcbMedium,
+.tcbMedium *{ height:24px;}
+.tcbMedium{ background-position:left -30px;}
+.tcbMedium *{ font-size:12px; line-height:24px; color:#000; background-position:right -30px; padding:0 10px 0 8px;}
+
+.tcbLarge,
+.tcbLarge *{ height:37px;}
+.tcbLarge{ background-position:left -60px;}
+.tcbLarge *{ font-size:12px; line-height:37px; color:#555; background-position:right -60px; padding:0 30px 0 28px;}
+
+.tcb.strong *{ font-weight:bold; color:#111;}

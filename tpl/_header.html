@@ -1,0 +1,7 @@
+<load target="./js/homepage.js" />
+<div class="x_page-header">
+	<h1>{$lang->cafe_admin}</h1>
+</div>
+<ul class="x_nav x_nav-tabs" cond="$module_info">
+	<li loop="$lang->cmd_admin_menus => $key,$val" class="x_active"|cond="$key==$act"><a href="{getUrl('','vid',$vid,'act', $key)}">{$val}</a></li>
+</ul>

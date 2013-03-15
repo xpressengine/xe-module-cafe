@@ -1,0 +1,97 @@
+<load target="./js/homepage.js" />
+<load target="./filter/update_homepage.xml" />
+<include target="./header.html" />
+<form action="./" method="post" onsubmit="return doUpdateHomepage(this, update_homepage)" id="cafeFo" class="section x_form-horizontal">
+	<h1>{$homepage_info->title}</h1>
+	<input type="hidden" name="site_srl" value="{$homepage_info->site_srl}" />
+	<input type="hidden" name="layout_srl" value="{$homepage_info->layout_srl}" />
+	<input type="hidden" name="homepage_admin" value="<!--@foreach($admin_list as $key=>$val)-->{$val->member_srl},<!--@end-->" />
+	<div class="x_control-group">
+		<label for="title" class="x_control-label">{$lang->cafe_title}</label>
+		<div class="x_controls">
+			<input type="text" name="title" id="title" value="{htmlspecialchars($homepage_info->title)}" /> 
+			<a href="{getFullSiteUrl($homepage_info->domain,'', 'act','dispHomepageManage')}" target="_blank">{$lang->cmd_management}</a>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label">{$lang->access_type}</label>
+		<div class="x_controls">
+			<label for="chkDomain" class="x_inline"><input type="radio" id="chkDomain" name="access_type" value="domain" onclick="toggleAccessType('domain');" checked="checked"|cond="!isSiteID($homepage_info->domain)" /> {$lang->access_domain}</label>
+			<label for="chkVid" class="x_inline"><input type="radio" id="chkVid" name="access_type" value="vid" onclick="toggleAccessType('vid');" checked="checked"|cond="isSiteID($homepage_info->domain)" /> {$lang->access_vid}</label>
+			<div id="accessDomain" hidden|cond="isSiteID($homepage_info->domain)">
+				http://<input type="text" name="domain" value="{$homepage_info->domain}"|cond="!isSiteID($homepage_info->domain)" />
+				<a href="#about_domain" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+				<p class="x_help-block" id="about_domain" hidden>{$lang->about_domain}</p>
+			</div>
+			<div id="accessVid" hidden|cond="!isSiteID($homepage_info->domain)">
+				<input type="text" name="vid" value="{$homepage_info->domain}"|cond="isSiteID($homepage_info->domain)" />
+				<a href="{getFullSiteUrl($homepage_info->domain, '')}" target="_blank">{$lang->cmd_move}</a>
+				<a href="#about_vid" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+				<p class="x_help-block" id="about_vid" hidden>{$lang->about_vid}</p>
+			</div>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label for="admin_list" class="x_control-label">{$lang->cafe_admin}</label>
+		<div class="x_controls">
+			{@ if($member_config->identifier == 'email_address') $inputType = $lang->email_address; else $inputType = $lang->user_id; }
+			<span class="x_input-append">
+				<select name="admin_list" id="admin_list" multiple="multiple" size="{count($admin_list)?count($admin_list):1}">
+					<option loop="$admin_list => $key,$val" value="{$val->user_id}">{$val->nick_name}(<!--@if($member_config->identifier == 'email_address')-->{$val->email_address}<!--@else-->{$val->user_id}<!--@end-->)</option>
+				</select>
+				<button type="button" onclick="doHomepageDeleteAdmin()" class="x_btn">{$lang->cmd_delete}</button>
+			</span>
+			<br>
+			<span class="x_input-append" style="margin:5px 0 0 0">
+				<input type="text"|cond="$member_config->identifier != 'email_address'" type="email"|cond="$member_config->identifier == 'email_address'" name="admin_id" title="{$lang->cafe_admin}" />
+				<button type="button" onclick="doHomepageInsertAdmin()" class="x_btn">{$lang->cmd_insert}</button>
+			</span>
+			<a href="#about_cafe_admin" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+			<p class="x_help-block" id="about_cafe_admin" hidden>{sprintf($lang->about_cafe_admin,$inputType)}</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label for="default_layout" class="x_control-label">{$lang->default_layout}</label>
+		<div class="x_controls">
+			<select name="default_layout" id="default_layout">
+				<option loop="$layout_list => $key,$val" value="{$val->layout}" selected="selected"|cond="$homepage_config->default_layout== $val->layout"> <!--@if($val->title)-->{$val->title}({$val->layout})<!--@else-->{$val->layout}<!--@end--></option>
+			</select>
+			<a href="#about_default_layout" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+			<p class="x_help-block" id="about_default_layout" hidden>{$lang->about_default_layout}</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label for="default_mlayout" class="x_control-label">{$lang->mobile_layout}</label>
+		<div class="x_controls">
+			<select name="default_mlayout" id="default_mlayout">
+				<option value="0" selected="selected"|cond="!$homepage_config->default_layout">{$lang->notuse}</option>
+				<option loop="$mlayout_list => $key,$val" value="{$val->layout}" selected="selected"|cond="$homepage_config->default_mlayout== $val->layout"> <!--@if($val->title)-->{$val->title}({$val->layout})<!--@else-->{$val->layout}<!--@end--></option>
+			</select>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label for="enable_change_layout" class="x_control-label">{$lang->enable_change_layout}</label>
+		<div class="x_controls">
+			<label for="enable_change_layout" class="x_inline">
+				<input type="checkbox" name="enable_change_layout" id="enable_change_layout" value="Y" checked="checked"|cond="$homepage_config->enable_change_layout=='Y'" />
+				{$lang->about_change_layout}
+			</label>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label">{$lang->allow_service}</label>
+		<div class="x_controls">
+			<p style="padding:5px 0 0 0">{$lang->about_allow_service}</p>
+			<ul style="list-style:none;margin:0;padding:0">
+				<li loop="$service_modules => $k,$v" cond="$v->category == 'service' && $v->default_index_act">
+					<label for="{$v->module}" class="x_inline" style="min-width:100px">{$v->title}</label>
+					<input type="number" name="allow_service_{$v->module}" id="{$v->module}" value="{$homepage_config->allow_service[$v->module]}" />
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="btnArea">
+		<a href="{getUrl('act','dispHomepageAdminContent','site_srl','')}" class="x_btn x_pull-left">{$lang->cmd_back}</a>
+	    <span class="x_pull-right"><input type="submit" value="{$lang->cmd_save}" class="x_btn x_btn-primary" /></span>
+	</div>
+</form>

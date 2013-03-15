@@ -1,0 +1,23 @@
+<!--#include("_header.html")-->
+<div class="content cafe_info_mod">
+	<h3 class="cafe_title">Cafe General</h3>
+	<div class="cafe_cont">
+		<ul>
+		<li>Cafe Administrator<strong class="normal">{$cafeSiteInfo->admin_name}</strong></li>
+		<li>Members<em class="num">{$cafeSiteInfo->member_count}</em>Create Date<strong class="normal">{$cafeSiteInfo->regdate}</strong></li>
+		<li class="last">Total Articles<em class="num2">{$cafeSiteInfo->total_articles_count}</em>Today Articles<em class="red">{$cafeSiteInfo->today_articles_count}</em></li>
+		</ul>
+	</div>
+	<h3 class="cafe_title" cond="$logged_info&&$cafeSiteInfo->member_join_date">Member info</h3>
+	<div class="cafe_cont" cond="$logged_info&&$cafeSiteInfo->member_join_date">
+		<ul>
+		<li>User Name<strong class="normal">{$cafeSiteInfo->user_name}</strong></li>
+		<li>My Articles<em class="num2">{$cafeSiteInfo->member_articles_count}</em>My Comments<em class="num3">{$cafeSiteInfo->member_comments_count}</em></li>
+		<li class="last">Join Date<strong class="normal">{$cafeSiteInfo->member_join_date}</strong>
+		</ul>
+	</div>
+	<div class="btn_area" cond="$logged_info">
+		<a data="{$cafeSiteInfo->domain}" cond="!$cafeSiteInfo->member_join_date" href="#" onclick="return false;"class="btn_sign_up">Sign Up</a>
+		<a data="{$cafeSiteInfo->domain}" cond="$cafeSiteInfo->member_join_date"  href="#" onclick="return false;" class="btn_leave">Leave</a>
+	</div>
+</div>

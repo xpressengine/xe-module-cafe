@@ -1,0 +1,17 @@
+<query id="getSiteMemberCommentsCount" action="select">
+    <tables>
+        <table name="homepages" />
+        <table name="comments" />
+        <table name="modules" />
+    </tables>
+    <columns>
+        <column name="count(comments.comment_srl)" alias="member_comment_count" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="homepages.site_srl" var="site_srl" notnull="notnull" />
+        <condition operation="equal" column="homepages.site_srl" default="modules.site_srl" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="comments.module_srl" default="modules.module_srl" notnull="notnull" pipe="and" />
+        <condition operation="notequal" column="modules.module" default="page" pipe="and" />
+		<condition operation="equal" column="comments.member_srl" var="member_srl" notnull="notnull" pipe="and" />
+    </conditions>
+</query>

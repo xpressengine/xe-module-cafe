@@ -1,0 +1,17 @@
+<query id="getSiteTodayDocumentsCount" action="select">
+    <tables>
+        <table name="homepages" />
+        <table name="documents" />
+        <table name="modules" />
+    </tables>
+    <columns>
+        <column name="count(documents.document_srl)" alias="today_doc_count" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="homepages.site_srl" var="site_srl" notnull="notnull" />
+        <condition operation="equal" column="homepages.site_srl" default="modules.site_srl" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="documents.module_srl" default="modules.module_srl" notnull="notnull" pipe="and" />
+        <condition operation="notequal" column="modules.module" default="page" pipe="and" />
+		<condition operation="like_prefix" column="documents.regdate" var="s_regdate" notnull="notnull" pipe="and" />
+    </conditions>
+</query>

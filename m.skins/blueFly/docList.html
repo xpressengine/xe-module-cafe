@@ -1,0 +1,12 @@
+<!--@if($newest_documents)-->
+	<!--@foreach($newest_documents as $val)-->
+	<li>
+		<dl class="cafe_info">
+		<dt><a href="{$val->getPermanentUrl()}">{$val->getTitle(30)}</a></dt>
+		<dd>{cut_str(strip_tags($val->get('content')),35)}</dd>
+		<dd>{zdate($val->get('regdate'),'Y-m-d | H:i')}</dd>
+		</dl>
+		<div class="comment_num"><a href="#">{$val->get('comment_count')}</a></div>
+	</li>
+	<!--@end-->
+<!--@end-->

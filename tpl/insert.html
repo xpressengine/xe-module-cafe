@@ -1,0 +1,46 @@
+<include target="./header.html" />
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+<form action="./" method="post" ruleset="insertHomepage" class="x_form-horizontal section">
+	<input type="hidden" name="act" value="procHomepageAdminInsertHomepage" />
+	<h1>{$lang->cmd_make_cafe}</h1>
+	<div class="x_control-group">
+		<label class="x_control-label" for="cafe_title">{$lang->cafe_title}</label>
+		<div class="x_controls">
+			<input type="text" name="cafe_title" id="cafe_title" />
+			<a href="#cafe_title_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+			<p id="cafe_title_help" class="x_help-block" hidden>{$lang->about_cafe_title}</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label" for="cafe_title">{$lang->access_type}</label>
+		<div class="x_controls">
+			<label for="chkDomain" class="x_inline">
+				<input type="radio" id="chkDomain" name="access_type" value="domain" onclick="toggleAccessType('domain');" /> {$lang->access_domain}
+			</label>
+			<label for="chkVid" class="x_inline">
+				<input type="radio" id="chkVid" name="access_type" value="vid" onclick="toggleAccessType('vid');" checked="checked" /> {$lang->access_vid}
+			</label>
+			<div id="accessDomain" hidden style="margin-top:5px">
+				http://<input type="text" name="domain" />
+				<a href="#chkDomain_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="chkDomain_help" class="x_help-block" hidden>{$lang->about_domain}</p>
+			</div>
+			<div id="accessVid" style="margin-top:5px">
+				<input type="text" name="cafe_vid" />
+				<a href="#chkVid_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="chkVid_help" class="x_help-block" hidden>{$lang->about_vid}</p>
+			</div>
+		</div>
+	</div>
+	<div class="btnArea">
+		<div class="x_pull-left">
+			<a href="{getUrl('act', 'dispHomepageAdminContent')}" type="button" class="x_btn">{$lang->cmd_cancel}</a>
+		</div>
+		<div class="x_pull-right">
+			<button class="x_btn x_btn-primary" type="submit">{$lang->cmd_registration}</button>
+		</div>
+	</div>
+</form>
+

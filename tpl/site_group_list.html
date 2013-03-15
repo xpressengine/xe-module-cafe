@@ -1,0 +1,65 @@
+<include target="_header.html" />
+<load target="filter/insert_group.xml" />
+<load target="filter/delete_group.xml" />
+<load target="js/member_admin_group.js" usecdn="true" />
+<script>
+	xe.lang.groupDeleteMessage = '{$lang->msg_group_delete}';
+	xe.lang.multilingual = '{$lang->cmd_set_multilingual}';
+	xe.lang.modify = '{$lang->cmd_modify}';
+	xe.lang.deleteMSG = '{$lang->cmd_delete}';
+</script>
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+<form action="" method="post">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="act" value="procHomepageInsertGroup" />
+	<table class="sortable x_table x_table-striped x_table-hover">
+		<thead>
+			<tr>
+				<th scope="col">{$lang->group_title}</th>
+				<th scope="col">{$lang->description}</th>
+				<th scope="col">{$lang->is_default}*</th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td><a href="#" class="_addGroup"><i class="x_icon-plus-sign"></i> {$lang->cmd_add_group}</a></td>
+			</tr>
+		</tfoot>
+		<tbody class="uDrag _groupList">
+			<tr loop="$group_list=>$group_srl,$group_info">
+				<td>
+					<div class="wrap">
+						<button type="button" class="dragBtn">Move to</button>
+						<input type="hidden" name="group_srls[]" value="{$group_info->group_srl}" />
+						<input type="text" name="group_titles[]" value="{htmlspecialchars($group_info->title)}" class="lang_code" title="{$lang->group_title}" />
+					</div>
+				</td>
+				<td><input type="text" name="descriptions[]" value="{$group_info->description}" title="{$lang->description}" /></td>
+				<td><input type="radio" name="defaultGroup" value="{$group_info->group_srl}" title="Default" checked="checked"|cond="$group_info->is_default=='Y'" /></td>
+				<td><div class="_deleteTD" style="display:none"|cond="$group_info->is_default == 'Y'"><a href="#{$group_srl}" class="_deleteGroup x_icon-remove">{$lang->cmd_delete}</a></div></td>
+			</tr>
+			<tr hidden class="_template">
+				<td>
+					<div class="wrap">
+						<button type="button" class="dragBtn">Move to</button>
+						<input type="hidden" name="group_srls[]" value="new" disabled="disabled"/>
+						<input type="text" name="group_titles[]" value=""  disabled="disabled" class="lang_code" />
+					</div>
+				</td>
+				<td><input type="text" name="descriptions[]" value="" disabled="disabled" /></td>
+				<td><input type="radio" name="defaultGroup" value="" title="Default" disabled="disabled" /></td>
+				<td class="_deleteTD"><a href="#new" class="_deleteGroup x_icon-remove">{$lang->cmd_delete}</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>* {$lang->is_default}: {$lang->about_member_default}</p>
+	<div class="x_clearfix">
+		<input class="x_btn x_btn-primary x_pull-right" type="submit" value="{$lang->cmd_save}" />
+	</div>
+</form>

@@ -1,0 +1,11 @@
+<query id="getSiteMemberCount" action="select">
+    <tables>
+        <table name="member_group_member" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias="member_count" />
+    </columns>
+    <conditions>
+		<condition operation="equal" column="member_group_member.site_srl" var="site_srl" notnull="notnull" />
+    </conditions>
+</query>

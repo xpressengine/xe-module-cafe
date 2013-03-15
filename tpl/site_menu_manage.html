@@ -1,0 +1,63 @@
+<include target="_header.html" />
+<load target="./filter/insert_menu_item.xml" />
+<load target="./filter/delete_menu_item.xml" />
+<!--%load_js_plugin("ui.tree")-->
+<load target="./js/homepage_tree.js" />
+<load target="./css/cafe_admin.css" />
+<div cond="$XE_VALIDATOR_MESSAGE" class="x_alert x_alert-{$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+<section class="section">
+	<h1>{$lang->cmd_admin_menus[$act]}</h1>
+	<p>{$lang->about_cafe_act[$act]}</p>
+	<form method="post" action="./" id="menu_form">
+		<div id="menu">
+			<input type="hidden" name="menu_srl" value="{$menu_info->menu_srl}" />
+			<ul class="simpleTree">
+				<li class="root" id='tree_0'><span>{$lang->category}</span></li>
+			</ul>
+		</div>
+	</form>
+	<div class="btnArea">
+		<button type="button" onclick="doReloadTreeMenu('{$menu_info->menu_srl}')" class="x_btn">{$lang->cmd_remake_cache}</button>
+	</div>
+</section>
+<form method="post" action="./" id="menu_item_form">
+    <input type="hidden" name="menu_item_srl" value="" />
+</form>
+<div class="x_modal x" id="__menu_info" hidden>
+	<form id="fo_menu" action="./" method="post" onsubmit="return procFilter(this, insert_menu_item)" class="x_form x_form-horizontal" style="margin:0" target="tmp_upload_iframe" enctype="multipart/form-data">
+		<input type="hidden" name="module" value="homepage" />
+		<input type="hidden" name="act" value="procHompageUpdateMenuItem" />
+		<input type="hidden" name="menu_srl" value="{$menu_info->menu_srl}" />
+		<div class="x_modal-header">
+			<h3>{$lang->menu}</h3>
+		</div>
+		<div class="x_modal-body" id="menu_zone_info">
+		</div>
+		<div class="x_modal-footer">
+			<button type="button" class="x_btn x_pull-left" data-hide="#__category_info">{$lang->cmd_close}</button>
+			<button type="submit" class="x_btn x_btn-primary x_pull-right">{$lang->cmd_save}</button>
+		</div>
+	</form>
+</div>
+<iframe id="tmp_upload_iframe" name="tmp_upload_iframe" hidden></iframe>
+<script>
+var max_menu_depth = 999; //{$menu_max_depth};
+var simpleTreeCollection;
+var alertImageOnly = "{$lang->alert_image_only}";
+var confirmMenuMove = "{$lang->confirm_move}";
+var lang_confirm_delete = "{$lang->confirm_delete}";
+var xml_url = "{$menu_info->xml_file}";
+(function($){
+$("[name^=menu_name_]").bind("blur",function(e){
+	if($("[name=ck_"+$(this).attr("name")+"]:checked").size()>0){
+		$("[name^=ck_menu_name_]:checked").each(function(i){
+			$("[name="+$(this).attr("name").substring(3)+"]").val(e.target.value);
+		});
+	}
+});
+})(jQuery);
+jQuery(window).load(function(){homepageLoadMenuInfo(xml_url)});
+</script>
+

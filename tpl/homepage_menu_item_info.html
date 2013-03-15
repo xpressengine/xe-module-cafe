@@ -1,0 +1,97 @@
+	<input type="hidden" name="mode" value="{$mode}" />
+	<input type="hidden" name="mtype" value="{$item_info->module_type}" />
+	<input type="hidden" name="module_id" value="{$item_info->module_id}" />
+	<input type="hidden" name="menu_item_srl" value="{$item_info->menu_item_srl}" />
+	<input type="hidden" name="parent_srl" value="{$item_info->parent_srl}" />
+	<input type="hidden" name="normal_btn" value="{$item_info->normal_btn}" />
+	<input type="hidden" name="hover_btn" value="{$item_info->hover_btn}" />
+	<input type="hidden" name="active_btn" value="{$item_info->active_btn}" />
+	<div class="x_control-group">
+		<label class="x_control-label" for="module_type">{$lang->module_type}</label>
+		<div class="x_controls">
+			{@$module_type_disabled = ($mode == 'update')?'disabled="disabled"':''}
+			<select name="module_type" id="module_type" onchange="changeMenuType(this)" {$module_type_disabled}>
+				<option value=""></option>
+				<!--@foreach($homepage_config->allow_service as $k => $v)-->
+				<option value="{$k}" <!--@if($k == $item_info->module_type)-->selected="selected"<!--@end-->>{$k}</option>
+				<!--@end-->
+				<option value="url" <!--@if($item_info->module_type == 'url')-->selected="selected"<!--@end-->>{$lang->url}</option>
+			</select>
+		</div>
+	</div>
+{@$url_form_hide = (!$item_info->module_type || $item_info->module_type != 'url')?'style="display:none"':''}
+	<div class="x_control-group" id="urlForm" {$url_form_hide}>
+		<label class="x_control-label" for="menu_url">{$lang->url}</label>
+		<div class="x_controls">
+			http://<input type="text" name="url" id="menu_url" value="{$item_info->url}" />
+			<p>{$lang->about_menu_item_url}</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label" for="menu_name">{$lang->menu_name}</label>
+		<div class="x_controls">
+			<input type="text" name="menu_name" id="menu_name" value="{htmlspecialchars($item_info->name)}" class="lang_code" />
+			<p>{$lang->about_langcode}</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label">{$lang->cmd_option}</label>
+		<div class="x_controls">
+			<label class="x_inline" for="menu_open_window">
+				<input type="checkbox" id="menu_open_window" name="menu_open_window" value="Y" <!--@if($item_info->open_window == 'Y')-->checked="checked"<!--@end--> />
+				{$lang->menu_open_window}
+			</label>
+			<label class="x_inline" for="menu_expand">
+				<input type="checkbox" id="menu_expand" name="menu_expand" value="Y" <!--@if($item_info->expend == 'Y')-->checked="checked"<!--@end--> />
+				{$lang->menu_expand}
+			</label>
+			<p>{$lang->about_menu_option}</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label" for="">{$lang->item_group_grant}</label>
+		<div class="x_controls">
+			<!--@foreach($group_list as $key=>$val)-->
+			<label class="x_inline" for="group_{$key}">
+				<input type="checkbox" name="group_srls" value="{$key}" id="group_{$key}" <!--@if(is_array($item_info->group_srls)&&in_array($key, $item_info->group_srls))-->checked="checked"<!--@end-->/>
+				{$val->title}
+			</label>
+			<!--@end-->
+			<p>{$lang->about_group_grant}</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label" for="">{$lang->menu_img_btn}</label>
+		<div class="x_controls">
+			<div>
+				<strong>{$lang->menu_normal_btn} : </strong>
+				<div id="menu_normal_btn_zone" <!--@if(!$item_info->normal_btn)-->style="display:none;"<!--@end-->>
+					<img src="" alt="" id="menu_normal_btn_img" /><br />
+					<a href="#" onclick="doDeleteButton('menu_normal_btn');return false;" class="button"><span>{$lang->cmd_delete}</span></a>
+				</div>
+				<input type="file" name="menu_normal_btn" value="" onchange="doHomepageMenuUploadButton(this); return false;"/>
+			</div>
+			<div>
+				<strong>{$lang->menu_hover_btn} : </strong>
+				<div id="menu_hover_btn_zone") <!--@if(!$item_info->hover_btn)-->style="display:none;"<!--@end-->>
+					<img src="" alt="" id="menu_hover_btn_img" /><br />
+					<a href="#" onclick="doDeleteButton('menu_hover_btn');return false;" class="button"><span>{$lang->cmd_delete}</span></a>
+				</div>
+				<input type="file" name="menu_hover_btn" value="" onchange="doHomepageMenuUploadButton(this); return false;"/>
+			</div>
+			<div>
+				<strong>{$lang->menu_active_btn}</strong>
+				<div id="menu_active_btn_zone" <!--@if(!$item_info->active_btn)-->style="display:none;"<!--@end-->>
+					<img src="" alt="" id="menu_active_btn_img" /><br />
+					<a href="#" onclick="doDeleteButton('menu_active_btn');return false;" class="button"><span>{$lang->cmd_delete}</span></a>
+				</div>
+				<input type="file" name="menu_active_btn" value="" onchange="doHomepageMenuUploadButton(this); return false;"/>
+			</div>
+			<p>{$lang->about_menu_image_button}</p>
+		</div>
+	</div>
+<script>
+	jQuery('.lang_code').xeApplyMultilingualUI();
+</script>
+
+

@@ -1,0 +1,29 @@
+<load target="css/cafe.css" />
+{@ Context::addJsFile("./common/js/xe.min.js", true, '', 100000) }
+<load target="js/cafe.js" />
+<div class="mod_head">
+    <h2 class="mod_title" cond="!$site_srl">XE Cafe Home</h2><h2 class="mod_title" cond="$site_srl">{cut_str($siteInfo->title,15)}</h2>
+    <a href="{getUrl().$mid}"|cond="$site_srl"  href="{getUrl()}"|cond="!$site_srl" class="btn_back_left" ><span class="btn_back_right" cond="!$site_srl">Back</span><span class="btn_back_right" cond="$site_srl">Hub</span></a>
+    <button class="btn_srch">search</button>
+    <form action="./" method="get" id="fo_search" class="srch">
+        <fieldset>
+        <legend>Search</legend>
+            <input cond="$vid" type="hidden" name="vid" value="{$vid}" />
+            <input type="hidden" name="mid" value="{$mid}" />
+            			<input type="hidden" name="act" value="dispHomepageDocs" />
+            <span><input class="searchkey" name="search_keyword" value="{htmlspecialchars($search_keyword)}" type="search" placeholder="Search..." title="{$lang->cmd_search}" autocomplete="true" /><a href="javascript:void();" onclick="return false;" class="btn_cancel">delete</a></span>
+        </fieldset>
+    </form>
+</div>
+<div class="ct">
+	<ul class="ct_tab" cond="!$site_srl">
+    	<li <!--@if($act == 'dispHomepageIndex' || !$act)-->class="first active"<!--@else-->class="first"<!--@end-->><a href="{getUrl('act', 'dispHomepageIndex')}">All Cafes</a></li>
+    	<li <!--@if($act == 'dispHomepageMyCafe')-->class="active"<!--@end-->><a href="{getUrl('act', 'dispHomepageMyCafe')}">My cafes</a></li>
+    	<li <!--@if($act == 'dispHomepageNewestDoc')-->class="active last"<!--@else-->class="last"<!--@end-->><a href="{getUrl('act', 'dispHomepageNewestDoc')}">Latest Docs</a></li>
+	</ul>
+	<ul class="ct_tab" cond="$site_srl">
+    	<li <!--@if($act == 'dispMobileCafeSite' || !$act)-->class="first active"<!--@else-->class="first"<!--@end-->><a href="{getUrl().'?mid='.$mid.'&act='.'dispMobileCafeSite'.'&site_srl='.$site_srl}">Latest Docs</a></li>
+    	<li <!--@if($act == 'dispSiteCafeItems')-->class="active"<!--@end-->><a href="{getUrl().'?mid='.$mid.'&act='.'dispSiteCafeItems'.'&site_srl='.$site_srl}">Cafe Items</a></li>
+    	<li <!--@if($act == 'dispCafeSiteInfo')-->class="active last"<!--@else-->class="last"<!--@end-->><a href="{getUrl().'?mid='.$mid.'&act='.'dispCafeSiteInfo'.'&site_srl='.$site_srl}">Cafe Info</a></li>
+	</ul>
+	

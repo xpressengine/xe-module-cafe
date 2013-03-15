@@ -1,0 +1,81 @@
+<include target="_header.html" />
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+<section class="section x_tabbable">
+	<ul class="x_nav x_nav-tabs" cond="$module_info">
+		<li class="x_active"><a href="#components">{$lang->editor}</a></li>
+		<li><a href="#addons">{$lang->addon}</a></li>
+	</ul>
+	<div class="x_tab-content">
+		<form action="./" method="post" ruleset="componentOrderAndUse" id="components" class="x_tab-pane x_active">
+			<p>{$lang->about_cafe_act[$act]}</p>
+			<input type="hidden" name="act" value="procEditorAdminCheckUseListOrder" />
+			<table class="sortable x_table x_table-striped x_table-hover">
+				<thead>
+					<tr>
+						<th scope="col" class="nowr">{$lang->cmd_move}</th>
+						<th scope="col" class="nowr">{$lang->component_name}</th>
+						<th scope="col" class="nowr">{$lang->author}</th>
+						<th scope="col" class="nowr">{$lang->use}</th>
+					</tr>
+				</thead>
+				<tbody class="uDrag">
+					<tr loop="$component_list => $component_name,$xml_info">
+						<td><div class="wrap" style="height:50px"><button type="button" class="dragBtn">Move to</button></div></td>
+						<td>
+							<input type="hidden" name="component_names[]" value="{$xml_info->component_name}" />
+							<p><b>{$xml_info->title} {$xml_info->version}</b></p>
+							<p>{nl2br($xml_info->description)}</p>
+						</td>
+						<td class="nowr">
+							<a loop="$xml_info->author => $author" href="{$author->homepage}" target="_blank">{$author->name}</a>
+						</td>
+						<td><input type="checkbox" name="enables[]" id="enable" value="{$xml_info->component_name}" title="Use this component " checked="checked"|cond="$xml_info->enabled=='Y'" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="x_clearfix">
+				<input class="x_btn x_btn-primary x_pull-right" type="submit" value="{$lang->cmd_save}" />
+			</div>
+		</form>
+	
+		<form action="./" method="post" id="addons" style="display:none;" class="x_tab-pane x_active">
+			<p>{$lang->about_installed_addon}</p>
+			<input type="hidden" name="module" value="addon" />
+			<input type="hidden" name="act" value="procAddonAdminSaveActivate" />
+			<input type="hidden" name="success_return_url" value="{getRequestUriByServerEnviroment()}" />
+			<table class="sortable x_table x_table-striped x_table-hover">
+				<thead>
+					<tr>
+						<th scope="col" class="nowr">{$lang->addon_name}</th>
+						<th scope="col" class="nowr">{$lang->author}</th>
+						<th scope="col" class="nowr">{$lang->cmd_setup}</th>
+						<th scope="col" class="nowr">PC</th>
+						<th scope="col" class="nowr">Mobile</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr loop="$addon_list => $addon">
+						<td class="title">
+							<p><strong>{$addon->title} {$addon->version}</strong></p>
+							<p>{$addon->description}</p>
+						</td>
+						<td class="nowr">
+							<block loop="$addon->author => $author">
+								<a cond="$author->homepage" href="{$author->homepage}" target="_blank">{$author->name}</a>
+								<block cond="!$author->homepage">{$author->name}</block>
+							</block>
+						</td>
+						<td><a href="{getUrl('act', 'dispAddonAdminSetup', 'selected_addon', $addon->addon)}" class="x_icon-cog">{$lang->cmd_setup}</a></td>
+						<td><input type="checkbox" name="pc_on[]" title="PC" value="{htmlspecialchars($addon->addon_name)}" checked="checked"|cond="$addon->activated" /></td>
+						<td><input type="checkbox" name="mobile_on[]" title="Mobile" value="{htmlspecialchars($addon->addon_name)}" checked="checked"|cond="$addon->mactivated" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="x_clearfix">
+				<input class="x_btn x_btn-primary x_pull-right" type="submit" value="{$lang->cmd_save}" />
+			</div>
+		</form>
+	</div>
+</section>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">CafeXE</title>
+    <title xml:lang="en">CafeXE</title>
+	<title xml:lang="vi">CafeXE</title>
+	<title xml:lang="es">CafeXE</title>
+    <title xml:lang="zh-CN">站点</title>
+    <title xml:lang="zh-TW">網站</title>
+    <title xml:lang="jp">CafeXE</title>
+    <description xml:lang="ko">XE 내에서 Cafe를 분양하고 관리할 수 있는 기능을 제공합니다</description>
+    <description xml:lang="en">Making and managing Cafes in XE is availabe via CafeXE</description>
+	<description xml:lang="vi">Tạo và quản lý Cafe trên XE với CafeXE</description>
+    <description xml:lang="es">XE 내에서 Cafe를 분양하고 관리할 수 있는 기능을 제공합니다</description>
+    <description xml:lang="zh-CN">提供一种在XE内迅速建立子站点的功能。</description>
+    <description xml:lang="zh-TW">使 XE 擁有建立及管理網站的功能。</description>
+    <description xml:lang="jp">XEソリューションでCafeを運営・管理する機能を提供します。</description>
+    <version>1.2.1</version>
+    <date>2012-12-04</date>
+    <category>package</category>
+
+    <author email_address="developers@xpressengine.com" link="http://xpressengine.com/">
+    <name xml:lang="ko">NHN</name>
+	<name xml:lang="en">NHN</name>
+	<name xml:lang="vi">NHN</name>
+	<name xml:lang="es">NHN</name>
+	<name xml:lang="zh-CN">NHN</name>
+	<name xml:lang="zh-TW">NHN</name>
+    <name xml:lang="jp">NHN</name>
+    </author>
+</module>

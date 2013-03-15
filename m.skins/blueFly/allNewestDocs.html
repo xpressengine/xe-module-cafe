@@ -1,0 +1,14 @@
+<!--#include("_header.html")-->
+<!-- latest docs -->
+	<div class="content">
+		<!--@if($newest_documents)-->
+		<ul class="doc_list" id="docListUl">
+			<!--#include("docList.html")-->
+		</ul>
+		<div class="view_more">
+			<a href="#" onclick="return false" id="getMore">more<span class="more"></span></a><a href="javascript:window.scroll(0,0)" class="top">Top</a>
+		</div>
+		<!--@end-->
+	</div>
+	<!-- //latest docs -->
+<!--#include("_footer.html")-->

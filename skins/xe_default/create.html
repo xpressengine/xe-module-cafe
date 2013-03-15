@@ -1,0 +1,48 @@
+<!--%import("./style.css")-->
+
+<!--@if($module_info->title)-->
+<div class="cafeHeader">
+    <div class="cafeTitle">
+        <h2 class="cafeTitleText"><a href="{getFullUrl('','mid',$mid,'listStyle',$listStyle)}">{$module_info->title}<!--@if($module_info->sub_title)--> : <em>{$module_info->sub_title}</em><!--@end--></a></h2>
+    </div>
+
+    <!--@if($module_info->comment)-->
+    <p class="cafeDescription">{$module_info->comment}</p>
+    <!--@end-->
+</div>
+<!--@end-->
+
+<div class="cafeBody cafe">
+
+	<div class="cafeContent">
+
+		<div class="cafeListHeader">
+			<h2 class="h2">{$lang->cmd_make_cafe}</h2>
+		</div>
+
+        <form action="./" method="post" onsubmit="return procFilter(this, cafe_creation);" class="cafeCreation">
+			<fieldset>
+				<table border="1" cellspacing="0">
+					<tr>
+						<th scope="row"><label for="cafeAddress">{$lang->cafe_id} (4~12)</label></th>
+						<td>
+							<p>{getFullUrl()}<input name="cafe_id" type="text" class="inputText cafeAddress" id="cafeAddress" /></p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="cafeTitle">{$lang->cafe_title} (4~20)</label></th>
+						<td><input name="cafe_title" type="text" value="{$logged_info->nick_name}`s Cafe" class="inputText" id="cafeTitle" /></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="cafeInfo">{$lang->cafe_description} (10~200)</label></th>
+						<td><textarea name="cafe_description" type="text" class="inputTextArea" id="cafeInfo"></textarea></td>
+					</tr>
+				</table>
+			</fieldset>
+			<span class="tcb tcbLarge strong"><input type="submit" value="{$lang->cmd_make_cafe}" /></span>
+			<span class="tcb tcbLarge"><button type="reset" onclick="location.href='{getUrl('act','')}';return false;">{$lang->cmd_cancel}</button></span>
+		</form>
+
+    </div>
+
+</div>

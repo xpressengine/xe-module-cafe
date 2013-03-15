@@ -1,0 +1,36 @@
+<query id="getHomepageDocuments" action="select">
+    <tables>
+        <table name="homepages" />
+        <table name="sites" />
+        <table name="documents" />
+        <table name="modules" />
+        <table name="module_grants" alias="module_grants" type="left join">
+            <conditions>
+                <condition operation="equal" column="module_grants.module_srl" default="modules.module_srl" />
+                <condition operation="equal" column="module_grants.name" default="access" pipe="and" />
+                <condition operation="notin" column="module_grants.group_srl" default="0,-1" pipe="and" />
+            </conditions>
+        </table>
+    </tables>
+    <columns>
+        <column name="sites.domain" alias="domain" />
+        <column name="documents.*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="homepages.site_srl" default="sites.site_srl" notnull="notnull" />
+        <condition operation="equal" column="homepages.site_srl" default="modules.site_srl" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="documents.module_srl" default="modules.module_srl" notnull="notnull" pipe="and" />
+        <condition operation="notequal" column="modules.module" default="page" pipe="and" />
+        <condition operation="null" column="module_grants.group_srl" pipe="and" />
+		<group pipe="and">
+            <condition operation="like" column="documents.title" var="search_keyword" />
+            <condition operation="like" column="documents.content" var="search_keyword" pipe="or" />
+            <condition operation="like" column="documents.user_name" var="search_keyword" pipe="or" />
+            <condition operation="like" column="documents.user_id" var="search_keyword" pipe="or" />
+            <condition operation="like" column="documents.nick_name" var="search_keyword" pipe="or" />
+		</group>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="documents.list_order" order="asc" />
+    </navigation>
+</query>
