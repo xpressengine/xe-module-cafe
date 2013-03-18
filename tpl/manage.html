@@ -31,6 +31,7 @@
 				<select name="layout_srl" id="layout_srl">
 					<option loop="$hub_layout_list => $key,$val" value="{$val->layout_srl}" selected="selected"|cond="$homepage_config->layout_srl==$val->layout_srl">{$val->title} ({$val->layout})</option>
 				</select>
+				<a cond="$homepage_config->layout_srl && $homepage_config->layout_srl != -1" href="{getUrl('act','dispLayoutAdminModify','layout_srl',$homepage_config->layout_srl)}" target="_blank">{$lang->cmd_setup}</a>
 				<a href="#mlayout_srl_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
 				<p id="mlayout_srl_help" class="x_help-block" hidden>{$lang->about_cafe_hub_layout}</p>
 			</div>
@@ -41,7 +42,7 @@
 				<select name="skin" id="skin">
 					<option loop="$skins => $key,$val" value="{$key}" selected="selected"|cond="$homepage_config->skin== $key">{$val->title}</option>
 				</select>
-				<a cond="$homepage_config->module_srl" href="{getUrl('act','dispHomepageAdminSkinSetup','module_srl')}" target="_blank">{$lang->cmd_manage_skin}</a>
+				<a cond="$homepage_config->module_srl" href="{getUrl('act','dispHomepageAdminSkinSetup','module_srl')}" target="_blank">{$lang->cmd_setup}</a>
 				<a href="#skin_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
 				<p id="skin_help" class="x_help-block" hidden>{$lang->about_skin}</p>
 			</div>
@@ -53,6 +54,7 @@
 					<option value="0">{$lang->notuse}</option>
 					<option loop="$hub_mlayout_list => $key, $val" value="{$val->layout_srl}" selected="selected"|cond="$homepage_config->mlayout_srl== $val->layout_srl">{$val->title} ({$val->layout})</option>
 				</select>
+				<a cond="$homepage_config->mlayout_srl && $homepage_config->mlayout_srl != -1" href="{getUrl('act','dispLayoutAdminModify','type','M','layout_srl',$homepage_config->mlayout_srl)}" target="_blank">{$lang->cmd_setup}</a>
 			</div>
 		</div>
 		<div class="x_control-group">
@@ -61,7 +63,7 @@
 				<select name="mskin" id="mskin">
 					<option loop="$hub_mskin_list=> $key, $val" value="{$key}" selected="selected"|cond="$homepage_config->mskin== $key || ($homepage_config->skin && $key=='xe_faq')">{$val->title}</option>
 				</select>
-				<a cond="$homepage_config->module_srl" href="{getUrl('act','dispHomepageAdminMobileSkinSetup','module_srl')}" target="_blank">{$lang->cmd_manage_mobile_skin}</a>
+				<a cond="$homepage_config->module_srl" href="{getUrl('act','dispHomepageAdminMobileSkinSetup','module_srl')}" target="_blank">{$lang->cmd_setup}</a>
 			</div>
 		</div>
 	</section>
