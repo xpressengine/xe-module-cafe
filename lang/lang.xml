@@ -326,12 +326,17 @@
 		<value xml:lang="vi"><![CDATA[Cafe ID]]></value>
 	</item>
 	<item name="about_cafe_main_mid">
-		<value xml:lang="ko"><![CDATA[카페 허브 페이지를 http://주소/ID 값으로 접속하기 위한 ID값을 입력해주세요.]]></value>
+		<value xml:lang="ko"><![CDATA[카페 허브 페이지를 http://주소/ID 값으로 접속하기 위한 ID값을 입력해주세요.<br /> 카페 허브 페이지에서는 생성된 카페 목록, 글목록 등을 조회할 수 있고 일반 사용자들의 카페 생성을 도와줍니다.]]></value>
 		<value xml:lang="en"><![CDATA[Input an Hub ID of cafe's hub page address, http://addr/cafeID]]></value>
 		<value xml:lang="jp"><![CDATA[Cafeのトップページを「http://ドメイン/<b>ID</b>」のように設定するためのID値を入力して下さい。]]></value>
 		<value xml:lang="zh-TW"><![CDATA[虛擬網站的網址為「http://網址/<b>ID</b>」，請輸入想要的 ID 值。]]></value>
 		<value xml:lang="tr"><![CDATA[café Hub Sayfasına http://Adres/ID şeklinde giriş için, ID'yi giriniz.]]></value>
 		<value xml:lang="vi"><![CDATA[Nhập ID của Cafe, sẽ được hiển thị dạng: http://addr/<b>cafeID</b>]]></value>
+	</item>
+	<item name="about_cafe_hub_layout">
+		<value xml:lang="ko"><![CDATA[카페 허브의 레이아웃을 지정합니다. <br />
+		XE Cafe 공식 레이아웃은 xe_cafe_hub, xe_cafe 입니다.
+		]]></value>
 	</item>
 	<item name="default_menus" type="array">
 		<item name="home">

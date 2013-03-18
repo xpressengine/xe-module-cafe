@@ -67,7 +67,7 @@
 								<block cond="!$author->homepage">{$author->name}</block>
 							</block>
 						</td>
-						<td><a href="{getUrl('act', 'dispAddonAdminSetup', 'selected_addon', $addon->addon)}" class="x_icon-cog">{$lang->cmd_setup}</a></td>
+						<td><a href="{getUrl('act', 'dispAddonAdminSetup', 'selected_addon', $addon->addon)}" onclick="popopen(this.href);return false;" class="x_icon-cog">{$lang->cmd_setup}</a></td>
 						<td><input type="checkbox" name="pc_on[]" title="PC" value="{htmlspecialchars($addon->addon_name)}" checked="checked"|cond="$addon->activated" /></td>
 						<td><input type="checkbox" name="mobile_on[]" title="Mobile" value="{htmlspecialchars($addon->addon_name)}" checked="checked"|cond="$addon->mactivated" /></td>
 					</tr>
