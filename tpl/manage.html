@@ -48,6 +48,17 @@
 			</div>
 		</div>
 		<div class="x_control-group">
+			<label class="x_control-label" for="use_mobile">{$lang->mobile_view}</label>
+			<div class="x_controls">
+				<select name="use_mobile" id="use_mobile">
+					<option value="N" selected="selected"|cond="$homepage_config->use_mobile != 'Y'">{$lang->notuse}</option>
+					<option value="Y" selected="selected"|cond="$homepage_config->use_mobile == 'Y'">{$lang->use}</option>
+				</select>
+				<a href="#mobile_view_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="mobile_view_help" class="x_help-block" hidden>{$lang->about_mobile_view}</p>
+			</div>
+		</div>
+		<div class="x_control-group mobile_view_child" style="display:none"|cond="$homepage_config->use_mobile != 'Y'">
 			<label class="x_control-label" for="mlayout_srl">{$lang->mobile_layout}</label>
 			<div class="x_controls">
 				<select name="mlayout_srl" id="mlayout_srl">
@@ -57,7 +68,7 @@
 				<a cond="$homepage_config->mlayout_srl && $homepage_config->mlayout_srl != -1" href="{getUrl('act','dispLayoutAdminModify','type','M','layout_srl',$homepage_config->mlayout_srl)}" target="_blank">{$lang->cmd_setup}</a>
 			</div>
 		</div>
-		<div class="x_control-group">
+		<div class="x_control-group mobile_view_child" style="display:none"|cond="$homepage_config->use_mobile != 'Y'">
 			<label class="x_control-label" for="mskin">{$lang->mobile_skin}</label>
 			<div class="x_controls">
 				<select name="mskin" id="mskin">
@@ -69,15 +80,6 @@
 	</section>
 	<section class="section">
 		<h1>{$lang->cmd_cafe_basic_setup}</h1>
-		<div class="x_control-group">
-			<label class="x_control-label" for="use_mobile">{$lang->mobile_view}</label>
-			<div class="x_controls">
-				<label for="use_mobile" class="x_inline">
-					<input type="checkbox" name="use_mobile" id="use_mobile" value="Y" checked="checked"|cond="$homepage_config->use_mobile == 'Y'" /> 
-					{$lang->about_mobile_view}
-				</label>
-			</div>
-		</div>
 		<div class="x_control-group">
 			<label class="x_control-label">{$lang->cafe_creation_type}</label>
 			<div class="x_controls">
@@ -187,6 +189,14 @@ function doShowGrantZone() {
 		else jQuery(id).css("display","none");
 	});
 }
+jQuery(function ($) {
+	$("#use_mobile").change( function(){
+		$(".mobile_view_child").css('display','none');
+		if($(this).val() == 'Y') $(".mobile_view_child").css('display',''); 
+	});
+
+});
+		
 jQuery( function() { jQuery('.grant_default').change( function(event) { doShowGrantZone(); } ); doShowGrantZone() } );
 </script>
 
