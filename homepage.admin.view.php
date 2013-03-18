@@ -184,6 +184,16 @@
 
             $this->setTemplateFile('skin_info');
         }
+        function dispHomepageAdminMobileSkinSetup() {
+            $oModuleAdminModel = &getAdminModel('module');
+            $oHomepageModel = &getModel('homepage');
+
+            $homepage_config = $oHomepageModel->getConfig(0);
+            $skin_content = $oModuleAdminModel->getModuleMobileSkinHTML($homepage_config->module_srl);
+            Context::set('skin_content', $skin_content);
+
+            $this->setTemplateFile('skin_info');
+        }
         /**
          * @brief 홈페이지 기본 관리
          **/

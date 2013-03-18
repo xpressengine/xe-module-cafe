@@ -32,45 +32,46 @@
         <permission action="procHomepageUpdateLayoutConfig" target="manager" />
     </permissions>
     <actions>
-        <action name="dispHomepageIndex" type="view" standalone="true" index="true" />
+        <action name="dispHomepageIndex" type="view" index="true" />
         <action name="dispHomepageManage" type="view" />
         <action name="dispHomepageCreate" type="view" />
         <action name="rss" type="view" />
 
-        <action name="dispHomepageAdminSiteManage" type="view" standalone="true" />
-        <action name="dispHomepageAdminSiteMemberGroupManage" type="view" standalone="true" />
-        <action name="dispHomepageAdminSiteMemberManage" type="view" standalone="true" />
-        <action name="dispHomepageAdminSiteTopMenu" type="view" standalone="true" />
-        <action name="dispHomepageAdminSiteComponent" type="view" standalone="true" />
-        <action name="dispHomepageAdminSiteCounter" type="view" standalone="true" />
-        <action name="dispHomepageAdminSiteMidSetup" type="view" standalone="true" />
+        <action name="dispHomepageAdminSiteManage" type="view" />
+        <action name="dispHomepageAdminSiteMemberGroupManage" type="view" />
+        <action name="dispHomepageAdminSiteMemberManage" type="view" />
+        <action name="dispHomepageAdminSiteTopMenu" type="view" />
+        <action name="dispHomepageAdminSiteComponent" type="view" />
+        <action name="dispHomepageAdminSiteCounter" type="view" />
+        <action name="dispHomepageAdminSiteMidSetup" type="view" />
 
-        <action name="getHomepageMenuItem" type="model" standalone="true" />
-        <action name="getHomepageMenuTplInfo" type="model" standalone="true" />
+        <action name="getHomepageMenuItem" type="model" />
+        <action name="getHomepageMenuTplInfo" type="model" />
 
-        <action name="procHomepageCafeCreation" type="controller" standalone="true" />
-        <action name="procHomepageChangeLayout" type="controller" standalone="true" />
-        <action name="procHomepageChangeLanguage" type="controller" standalone="true" />
-        <action name="procHomepageInsertMenuItem" type="controller" standalone="true" />
-        <action name="procHomepageDeleteMenuItem" type="controller" standalone="true" />
-        <action name="procHomepageMenuItemMove" type="controller" standalone="true" />
-        <action name="procHomepageMenuUploadButton" type="controller" standalone="true" />
-        <action name="procHomepageDeleteButton" type="controller" standalone="true" />
-        <action name="procHomepageDeleteGroup" type="controller" standalone="true" />
-        <action name="procHomepageInsertGroup" type="controller" standalone="true" />
-        <action name="procHomepageDeleteMember" type="controller" standalone="true" />
-        <action name="procHomepageUpdateMemberGroup" type="controller" standalone="true" />
-        <action name="procHomepageChangeIndex" type="controller" standalone="true" />
-        <action name="procHomepageInsertCafeBanner" type="controller" standalone="true" />
-        <action name="procHomepageUpdateSiteConfig" type="controller" standalone="true" ruleset="updateSiteConfig" />
-        <action name="procHomepageUpdateLayoutConfig" type="controller" standalone="true" ruleset="updateLayout" />
+        <action name="procHomepageCafeCreation" type="controller" />
+        <action name="procHomepageChangeLayout" type="controller" />
+        <action name="procHomepageChangeLanguage" type="controller" />
+        <action name="procHomepageInsertMenuItem" type="controller" />
+        <action name="procHomepageDeleteMenuItem" type="controller" />
+        <action name="procHomepageMenuItemMove" type="controller" />
+        <action name="procHomepageMenuUploadButton" type="controller" />
+        <action name="procHomepageDeleteButton" type="controller" />
+        <action name="procHomepageDeleteGroup" type="controller" />
+        <action name="procHomepageInsertGroup" type="controller" />
+        <action name="procHomepageDeleteMember" type="controller" />
+        <action name="procHomepageUpdateMemberGroup" type="controller" />
+        <action name="procHomepageChangeIndex" type="controller" />
+        <action name="procHomepageInsertCafeBanner" type="controller" />
+        <action name="procHomepageUpdateSiteConfig" type="controller" ruleset="updateSiteConfig" />
+        <action name="procHomepageUpdateLayoutConfig" type="controller" ruleset="updateLayout" />
 
-        <action name="dispHomepageAdminContent" type="view" standalone="true" admin_index="true" menu_name="cafexe" menu_index="true" />
-        <action name="dispHomepageAdminInsert" type="view" standalone="true" />
-        <action name="dispHomepageAdminManage" type="view" standalone="true" />
-        <action name="dispHomepageAdminSetup" type="view" standalone="true" />
-        <action name="dispHomepageAdminSkinSetup" type="view" standalone="true" />
-        <action name="dispHomepageAdminDelete" type="view" standalone="true" />
+        <action name="dispHomepageAdminContent" type="view" admin_index="true" menu_name="cafexe" menu_index="true" />
+        <action name="dispHomepageAdminInsert" type="view" />
+        <action name="dispHomepageAdminManage" type="view" />
+        <action name="dispHomepageAdminSetup" type="view" />
+        <action name="dispHomepageAdminSkinSetup" type="view" />
+        <action name="dispHomepageAdminMobileSkinSetup" type="view" />
+        <action name="dispHomepageAdminDelete" type="view" />
 
         <action name="procHomepageAdminInsertConfig" type="controller" />
         <action name="procHomepageAdminInsertHomepage" type="controller" ruleset="insertHomepage" />

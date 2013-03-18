@@ -41,7 +41,7 @@
 				<select name="skin" id="skin">
 					<option loop="$skins => $key,$val" value="{$key}" selected="selected"|cond="$homepage_config->skin== $key">{$val->title}</option>
 				</select>
-				<a cond="$homepage_config->module_srl" href="{getUrl('act','dispHomepageAdminSkinSetup','module_srl')}" target="_blank">{$lang->skin_default_info}</a>
+				<a cond="$homepage_config->module_srl" href="{getUrl('act','dispHomepageAdminSkinSetup','module_srl')}" target="_blank">{$lang->cmd_manage_skin}</a>
 				<a href="#skin_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
 				<p id="skin_help" class="x_help-block" hidden>{$lang->about_skin}</p>
 			</div>
@@ -61,6 +61,7 @@
 				<select name="mskin" id="mskin">
 					<option loop="$hub_mskin_list=> $key, $val" value="{$key}" selected="selected"|cond="$homepage_config->mskin== $key || ($homepage_config->skin && $key=='xe_faq')">{$val->title}</option>
 				</select>
+				<a cond="$homepage_config->module_srl" href="{getUrl('act','dispHomepageAdminMobileSkinSetup','module_srl')}" target="_blank">{$lang->cmd_manage_mobile_skin}</a>
 			</div>
 		</div>
 	</section>
