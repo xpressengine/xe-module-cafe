@@ -238,13 +238,19 @@
 		<value xml:lang="en"><![CDATA[Mark]]></value>
 		<value xml:lang="tr"><![CDATA[Mark]]></value>
 	</item>
+	<item name="about_site_individual_configure">
+		<value xml:lang="ko"><![CDATA[* 아래는 사이트 개별 설정 영역입니다. 이미 생성된 카페에는 반영되지 않습니다.]]></value>
+	</item>
 	<item name="about_default_layout">
-		<value xml:lang="ko"><![CDATA[카페가 생성될때 설정될 기본 레이아웃을 지정할 수 있습니다]]></value>
+		<value xml:lang="ko"><![CDATA[카페가 생성될때 설정될 기본 레이아웃을 지정할 수 있습니다.]]></value>
 		<value xml:lang="en"><![CDATA[You may set the default layout will be applied to newly created cafes]]></value>
 		<value xml:lang="jp"><![CDATA[Cafeを作成する時のデフォルトレイアウトを指定します。]]></value>
 		<value xml:lang="zh-TW"><![CDATA[可指定建立網站時預設的版面。]]></value>
 		<value xml:lang="tr"><![CDATA[Yeni bir kafe oluşturduğunuzda, varolan temel düzeni ayarlamanız mümkündür.]]></value>
 		<value xml:lang="vi"><![CDATA[Bạn có thể đặt mặc định giao diện khi những Cafe mới được tạo.]]></value>
+	</item>
+	<item name="about_default_mlayout">
+		<value xml:lang="ko"><![CDATA[카페가 생성될때 설정될 모바일 레이아웃을 지정할 수 있습니다.]]></value>
 	</item>
 	<item name="enable_change_layout">
 		<value xml:lang="ko"><![CDATA[레이아웃 변경]]></value>

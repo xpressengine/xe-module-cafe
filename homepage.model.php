@@ -42,6 +42,7 @@
                         if(substr($config->default_domain,-1)!='/') $config->default_domain .= '/';
                     }
                 }
+
                 if($site_srl) {
                     $part_config = $oModuleModel->getModulePartConfig('homepage', $site_srl);
                     if(!$part_config) $part_config = $config;

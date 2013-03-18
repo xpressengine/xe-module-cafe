@@ -388,6 +388,22 @@
             // 메뉴 XML 파일 생성
             $oMenuAdminController->makeXmlFile($info->menu_srl, $info->site_srl);
 
+			//설정 저장
+			$oModuleController = &getController('module');
+			unset($args);
+			$args->default_layout = $homepage_config->default_layout;
+			$args->default_mlayout = $homepage_config->default_mlayout;
+			$args->enable_change_layout = $homepage_config->enable_change_layout;
+			$args->use_rss = $homepage_config->use_rss;
+
+			$args->use_mobile = $homepage_config->use_mobile;
+			$args->mskin = $homepage_config->mskin;
+			$args->mlayout_srl = $homepage_config->mlayout_srl;
+			$args->allow_service = $homepage_config->allow_service;
+
+			$site_srl = $info->site_srl;
+			$oModuleController->insertModulePartConfig('homepage', $site_srl, $args);
+
             $this->add('site_srl', $info->site_srl);
             $this->add('url', getSiteUrl($info->domain, ''));
         }

@@ -110,6 +110,27 @@
 			</div>
 		</div>
 		<div class="x_control-group">
+			<label class="x_control-label" for="use_rss">RSS</label>
+			<div class="x_controls">
+				<label for="use_rss" class="x_inline">
+					<input type="checkbox" name="use_rss" id="use_rss" value="Y" checked="checked"|cond="$homepage_config->use_rss=='Y'" />
+					RSS
+				</label>
+			</div>
+		</div>
+		<div class="x_control-group">
+			<label class="x_control-label" for="top_menu">{$lang->config_top_menu}</label>
+			<div class="x_controls">
+				<select name="top_menu" id="top_menu">
+					<option value="0">{$lang->notuse}</option>
+					<option loop="$menu_list => $key,$val" value="{$val->menu_srl}" selected="selected"|cond="$val->menu_srl == $homepage_config->top_menu">{$val->title}</option>
+				</select>
+				<a href="#_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="_help" class="x_help-block" hidden>{$lang->about_config_top_menu}</p>
+			</div>
+		</div>
+		<div class="x_control-group"><em style="color:red">{$lang->about_site_individual_configure}</em></div>
+		<div class="x_control-group">
 			<label class="x_control-label" for="default_layout">{$lang->default_layout}</label>
 			<div class="x_controls">
 				<select name="default_layout" id="default_layout">
@@ -126,6 +147,8 @@
 					<option value="0" selected="selected"|cond="!$homepage_config->default_layout">{$lang->notuse}</option>
 					<option loop="$mlayout_list => $key,$val" value="{$val->layout}" selected="selected"|cond="$homepage_config->default_mlayout== $val->layout"><!--@if($val->title)-->{$val->title}({$val->layout})<!--@else-->{$val->layout}<!--@end--></option>
 				</select>
+				<a href="#default_mlayout_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
+				<p id="default_mlayout_help" class="x_help-block" hidden>{$lang->about_default_mlayout}</p>
 			</div>
 		</div>
 		<div class="x_control-group">
@@ -149,26 +172,6 @@
 						<input type="number" name="allow_service_{$v->module}" id="{$v->module}" value="{$homepage_config->allow_service[$v->module]}" />
 					</li>
 				</ul>
-			</div>
-		</div>
-		<div class="x_control-group">
-			<label class="x_control-label" for="use_rss">RSS</label>
-			<div class="x_controls">
-				<label for="use_rss" class="x_inline">
-					<input type="checkbox" name="use_rss" id="use_rss" value="Y" checked="checked"|cond="$homepage_config->use_rss=='Y'" />
-					RSS
-				</label>
-			</div>
-		</div>
-		<div class="x_control-group">
-			<label class="x_control-label" for="top_menu">{$lang->config_top_menu}</label>
-			<div class="x_controls">
-				<select name="top_menu" id="top_menu">
-					<option value="0">{$lang->notuse}</option>
-					<option loop="$menu_list => $key,$val" value="{$val->menu_srl}" selected="selected"|cond="$val->menu_srl == $homepage_config->top_menu">{$val->title}</option>
-				</select>
-				<a href="#_help" class="x_icon-question-sign" data-toggle>{$lang->help}</a>
-				<p id="_help" class="x_help-block" hidden>{$lang->about_config_top_menu}</p>
 			</div>
 		</div>
 	</section>
