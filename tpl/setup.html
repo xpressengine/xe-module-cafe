@@ -37,7 +37,7 @@
 			{@ if($member_config->identifier == 'email_address') $inputType = $lang->email_address; else $inputType = $lang->user_id; }
 			<span class="x_input-append">
 				<select name="admin_list" id="admin_list" multiple="multiple" size="{count($admin_list)?count($admin_list):1}">
-					<option loop="$admin_list => $key,$val" value="{$val->user_id}">{$val->nick_name}(<!--@if($member_config->identifier == 'email_address')-->{$val->email_address}<!--@else-->{$val->user_id}<!--@end-->)</option>
+					<option loop="$admin_list => $key,$val" value="<!--@if($member_config->identifier == 'email_address')-->{$val->email_address}<!--@else-->{$val->user_id}<!--@end-->">{$val->nick_name}(<!--@if($member_config->identifier == 'email_address')-->{$val->email_address}<!--@else-->{$val->user_id}<!--@end-->)</option>
 				</select>
 				<button type="button" onclick="doHomepageDeleteAdmin()" class="x_btn">{$lang->cmd_delete}</button>
 			</span>
