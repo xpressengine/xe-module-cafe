@@ -95,7 +95,6 @@
             }
 
             $homepage_info = $oModuleModel->getModuleConfig('homepage');
-            if($homepage_info->use_rss == 'Y') Context::set('rss_url',getUrl('','mid',$this->module_info->mid,'act','rss'));
 
             $this->setTemplateFile('index');
         }
@@ -110,31 +109,6 @@
             $this->setTemplateFile('create');
         }
 
-        /**
-         * @brief rss
-         **/
-        function rss() {
-            $oRss = &getView('rss');
-            $oDocumentModel = &getModel('document');
-            $oModuleModel = &getModel('module');
-
-            $homepage_info = $oModuleModel->getModuleConfig('homepage');
-            if($homepage_info->use_rss != 'Y') return new Object(-1,'msg_rss_is_disabled');
-
-            $output = executeQueryArray('homepage.getRssList', $args);
-            if($output->data) {
-                foreach($output->data as $key => $val) {
-                    unset($obj);
-                    $obj = new DocumentItem(0);
-                    $obj->setAttribute($val);
-                    $document_list[] = $obj;
-                }
-            }
-
-            $oRss->rss($document_list, $homepage_info->browser_title);
-            $this->setTemplatePath($oRss->getTemplatePath());
-            $this->setTemplateFile($oRss->getTemplateFile());
-        }
 		function dispHomepageManage()
 		{
 			header('location:'.getNotEncodedUrl('act','dispHomepageAdminSiteManage'));

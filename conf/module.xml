@@ -35,7 +35,6 @@
         <action name="dispHomepageIndex" type="view" index="true" />
         <action name="dispHomepageManage" type="view" />
         <action name="dispHomepageCreate" type="view" />
-        <action name="rss" type="view" />
 
         <action name="dispHomepageAdminSiteManage" type="view" />
         <action name="dispHomepageAdminSiteMemberGroupManage" type="view" />

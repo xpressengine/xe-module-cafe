@@ -25,7 +25,6 @@
             $args->default_layout = $vars->default_layout;
             $args->default_mlayout = $vars->default_mlayout;
             $args->enable_change_layout = $vars->enable_change_layout;
-            $args->use_rss = $vars->use_rss;
 
 			// for mobile skin - 12.05.31
 			$args->use_mobile = $vars->use_mobile;
@@ -394,7 +393,6 @@
 			$args->default_layout = $homepage_config->default_layout;
 			$args->default_mlayout = $homepage_config->default_mlayout;
 			$args->enable_change_layout = $homepage_config->enable_change_layout;
-			$args->use_rss = $homepage_config->use_rss;
 
 			$args->use_mobile = $homepage_config->use_mobile;
 			$args->mskin = $homepage_config->mskin;
