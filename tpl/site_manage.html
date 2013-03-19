@@ -219,6 +219,10 @@
 	</div>
 </section>
 <iframe name="hiddenIframe" src="about:blank" hidden></iframe>
+<script>
+<!--//#content가 있어야 언어 선택기 출력 가능 -->
+if(!jQuery('#content').length) jQuery('.x').parent().attr('id','content');
+</script>
 <!--@if($use_colorpicker)-->
 	<!--%load_js_plugin("ui.colorpicker")-->
 <!--@end-->
