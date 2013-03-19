@@ -318,42 +318,47 @@ class homepageController extends homepage
 
 	function procHomepageInsertGroup() 
 	{
+		if(!$this->site_srl) return new Object(-1,'msg_invalid_request');
 		$vars = Context::getRequestVars();
-		if(is_array($vars->group_titles))
-		{
-			foreach($vars->group_titles AS $key=>$value)
-			{
-				if(!$value)
-				{
-					return new Object(-1,'msg_insert_group_name');
-				}
-			}
-		}
 
 		$oMemberModel = &getModel('member');
 		$oModuleController = &getController('module');
-
-		// group data save
 		$oMemberAdminController = &getAdminController('member');
+		
+		$defaultGroup = $oMemberModel->getDefaultGroup($this->site_srl);
+		$defaultGroupSrl = $defaultGroup->group_srl;
 		$group_srls = $vars->group_srls;
 
 		foreach($group_srls as $order=>$group_srl)
 		{
-			unset($update_args);
+			$isInsert = false;
+			$update_args = new stdClass();
 			$update_args->site_srl = $this->site_srl;
 			$update_args->title = $vars->group_titles[$order];
-			$update_args->is_default = ($vars->defaultGroup == $group_srl)?'Y':'N';
 			$update_args->description = $vars->descriptions[$order];
 			$update_args->list_order = $order + 1;
-			if(is_numeric($group_srl))
-			{
+
+			if(!$update_args->title) continue;
+			if(is_numeric($group_srl)) {
 				$update_args->group_srl = $group_srl;
 				$output = $oMemberAdminController->updateGroup($update_args);
 			}
-			else
+			else {
+				$update_args->group_srl = getNextSequence();
 				$output = $oMemberAdminController->insertGroup($update_args);
+			}
+			if($vars->defaultGroup == $group_srl) {
+				$defaultGroupSrl = $update_args->group_srl;
+			}
 		}
-		$this->setMessage('success_updated');
+
+		//set default group
+		$default_args = $oMemberModel->getGroup($defaultGroupSrl);
+		$default_args->is_default = 'Y';
+		$default_args->group_srl = $defaultGroupSrl;
+		$output = $oMemberAdminController->updateGroup($default_args);
+
+		$this->setMessage(Context::getLang('success_updated').' ('.Context::getLang('msg_insert_group_name_detail').')');
 		$returnUrl = Context::get('success_return_url') ? Context::get('success_return_url') : getNotEncodedUrl('', 'mid', Context::get('mid'), 'act', 'dispHomepageAdminSiteMemberGroupManage');
 		$this->setRedirectUrl($returnUrl);
 	}
