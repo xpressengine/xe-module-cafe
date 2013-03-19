@@ -114,5 +114,107 @@
 			Context::close();
 			exit();
 		}
+
+		/**
+		 * 카페 내 통합검색
+		 * @return void
+		 */
+		function dispHomepageIS() {
+			$oFile = &getClass('file');
+			$oModuleModel = &getModel('module');
+
+			$vid = Context::get('vid');
+			$site_info = $oModuleModel->getSiteInfoByDomain($vid);
+
+			if(!$vid || !$site_info->site_srl) return new Object(-1,'msg_invalid_request');
+
+			//permission
+
+			$config = $oModuleModel->getModuleConfig('integration_search');
+			if(!$config->skin) $config->skin = 'default';
+			$template_path = sprintf('./modules/integration_search/skins/%s', $config->skin);
+			$config_parse = explode('|@|', $config->skin);
+
+
+			$module_srl_list = array();
+			$output_module_list = $oModuleModel->getModuleListByInstance($site_info->site_srl);
+			$include_module_list = $output_module_list->data;
+			if(is_array($include_module_list)) {
+				$target = 'include';
+				foreach($include_module_list as $val) {
+					array_push($module_srl_list,$val->module_srl);
+				}
+			}
+
+			// Template path
+			$this->setTemplatePath($template_path);
+			Context::set('module_info', unserialize($config->skin_vars));
+
+			// Set a variable for search keyword
+			$is_keyword = Context::get('is_keyword');
+			// Set page variables
+			$page = (int)Context::get('page');
+			if(!$page) $page = 1;
+			// Search by search tab
+			$where = Context::get('where');
+			// Create integration search model object 
+			if($is_keyword)
+			{
+				$oIS = &getModel('integration_search');
+				switch($where)
+				{
+					case 'document' :
+						$search_target = Context::get('search_target');
+						if(!in_array($search_target, array('title','content','title_content','tag'))) $search_target = 'title';
+						Context::set('search_target', $search_target);
+
+						$output = $oIS->getDocuments($target, $module_srl_list, $search_target, $is_keyword, $page, 10);
+						Context::set('output', $output);
+						$this->setTemplateFile("document", $page);
+						break;
+					case 'comment' :
+						$output = $oIS->getComments($target, $module_srl_list, $is_keyword, $page, 10);
+						Context::set('output', $output);
+						$this->setTemplateFile("comment", $page);
+						break;
+					case 'trackback' :
+						$search_target = Context::get('search_target');
+						if(!in_array($search_target, array('title','url','blog_name','excerpt'))) $search_target = 'title';
+						Context::set('search_target', $search_target);
+
+						$output = $oIS->getTrackbacks($target, $module_srl_list, $search_target, $is_keyword, $page, 10);
+						Context::set('output', $output);
+						$this->setTemplateFile("trackback", $page);
+						break;
+					case 'multimedia' :
+						$output = $oIS->getImages($target, $module_srl_list, $is_keyword, $page,20);
+						Context::set('output', $output);
+						$this->setTemplateFile("multimedia", $page);
+						break;
+					case 'file' :
+						$output = $oIS->getFiles($target, $module_srl_list, $is_keyword, $page, 20);
+						Context::set('output', $output);
+						$this->setTemplateFile("file", $page);
+						break;
+					default :
+						$output['document'] = $oIS->getDocuments($target, $module_srl_list, 'title', $is_keyword, $page, 5);
+						$output['comment'] = $oIS->getComments($target, $module_srl_list, $is_keyword, $page, 5);
+						$output['trackback'] = $oIS->getTrackbacks($target, $module_srl_list, 'title', $is_keyword, $page, 5);
+						$output['multimedia'] = $oIS->getImages($target, $module_srl_list, $is_keyword, $page, 5);
+						$output['file'] = $oIS->getFiles($target, $module_srl_list, $is_keyword, $page, 5);
+						Context::set('search_result', $output);
+						Context::set('search_target', 'title');
+						$this->setTemplateFile("index", $page);
+						break;
+				}
+			}
+			else
+			{
+				$this->setTemplateFile("no_keywords");
+			}
+
+			$security = new Security();
+			$security->encodeHTML('is_keyword', 'search_target', 'where', 'page');
+		}
 	}
 ?>

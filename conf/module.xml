@@ -41,6 +41,7 @@
         <action name="dispHomepageAdminSiteComponent" type="view" />
         <action name="dispHomepageAdminSiteCounter" type="view" />
         <action name="dispHomepageAdminSiteMidSetup" type="view" />
+        <action name="dispHomepageIS" type="view" />
 
         <action name="getHomepageMenuItem" type="model" />
         <action name="getHomepageMenuTplInfo" type="model" />
