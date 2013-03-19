@@ -538,6 +538,12 @@
             // 기본 레이아웃, 레이아웃 변경, 허용 서비스 변경
             $this->procHomepageAdminInsertConfig();
 
+			// 도메인 변경된 경우 캐시파일 재생성
+			if($homepage_info->domain != $args->domain && $homepage_info->first_menu_srl) {
+				$oMenuAdminController = &getAdminController('menu');
+				$oMenuAdminController->makeXmlFile($homepage_info->first_menu_srl);
+			}
+
 			$this->setMessage('success_updated');
         }
 
