@@ -45,7 +45,7 @@
         <action name="getHomepageMenuItem" type="model" />
         <action name="getHomepageMenuTplInfo" type="model" />
 
-        <action name="procHomepageCafeCreation" type="controller" />
+        <action name="procHomepageCafeCreation" type="controller" ruleset="cafeCreation" />
         <action name="procHomepageChangeLayout" type="controller" />
         <action name="procHomepageInsertMenuItem" type="controller" />
         <action name="procHomepageDeleteMenuItem" type="controller" />

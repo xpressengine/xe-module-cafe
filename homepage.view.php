@@ -105,7 +105,6 @@
         function dispHomepageCreate() {
             $oHomepageModel = &getModel('homepage');
             if(!$oHomepageModel->isCreationGranted()) return new Object(-1,'msg_not_permitted');
-            Context::addJsFilter($this->module_path.'tpl/filter', 'cafe_creation.xml');
             $this->setTemplateFile('create');
         }
 

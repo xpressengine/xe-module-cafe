@@ -258,7 +258,7 @@
 .tcb,
 .tcb a,
 .tcb button,
-.tcb input{ position:relative; display:inline-block; border:0; background-color:transparent; background-image:url(./img/buttonTC.gif); background-repeat:no-repeat; text-decoration:none !important; vertical-align:middle; cursor:pointer; overflow:visible; text-align:center;}
+.tcb input{ position:relative; display:inline-block; border:0; background-color:transparent; background-image:url(./img/buttonTC.gif); background-repeat:no-repeat; text-decoration:none !important; vertical-align:middle; cursor:pointer; overflow:visible; text-align:center; margin:0}
 
 .tcb{ margin-right:2px;}
 .tcb a,

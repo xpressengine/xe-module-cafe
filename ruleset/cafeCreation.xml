@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ruleset version="1.5.0">
+	<fields>
+		<field name="cafe_id" required="true" length="3:12" filter="alpha_number" />
+		<field name="cafe_title" length="4:20" />
+		<field name="cafe_description" length="10:200" rule="alpha_number" />
+	</fields>
+</ruleset>

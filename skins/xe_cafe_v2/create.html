@@ -1,5 +1,4 @@
 <!--%import("./style.css")-->
-
 <!--@if($module_info->title)-->
 <div class="cafeHeader">
     <div class="cafeTitle">
@@ -11,7 +10,9 @@
     <!--@end-->
 </div>
 <!--@end-->
-
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
 <div class="cafeBody cafe">
 
 	<div class="cafeContent">
@@ -20,7 +21,8 @@
 			<h2 class="h2">{$lang->cmd_make_cafe}</h2>
 		</div>
 			
-        <form action="./" method="post" onsubmit="return procFilter(this, cafe_creation);" class="cafeCreation">
+		<form action="./" method="post" class="cafeCreation" ruleset="cafeCreation" class="cafeCreation">
+			<input type="hidden" name="act" value="procHomepageCafeCreation" />
 			<fieldset>
 				<table border="1" cellspacing="0">
 					<tr>
