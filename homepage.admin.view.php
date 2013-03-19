@@ -253,6 +253,7 @@
          **/
         function dispHomepageAdminSiteMemberManage() {
             $oMemberModel = &getModel('member');
+			$oModuleModel = &getModel('module');
 
             // 회원 그룹을 구함
             $group_list = $oMemberModel->getGroups($this->site_srl);
@@ -264,6 +265,12 @@
             if(!isset($group_list[$args->selected_group_srl])) {
                 $args->selected_group_srl = implode(',',array_keys($group_list));
             }
+
+			//로그인 방식 확인
+			$config = $oModuleModel->getModuleConfig('member');
+			$identifier = ($config->identifier) ? $config->identifier : 'email_address';
+			Context::set('identifier',$identifier);
+
             $search_target = trim(Context::get('search_target'));
             $search_keyword = trim(Context::get('search_keyword'));
             if($search_target && $search_keyword) {

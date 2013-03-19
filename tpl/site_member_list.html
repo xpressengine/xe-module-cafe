@@ -19,7 +19,7 @@
 			<tr>
 				<th scope="col">{$lang->no}</th>
 				<th scope="col">{$lang->nick_name}</th>
-				<th scope="col">{$lang->user_id}</th>
+				<th scope="col" cond="$identifier != 'email_address'">{$lang->user_id}</th>
 				<th scope="col">{$lang->user_name}</th>
 				<th scope="col">{$lang->group}</th>
 				<th scope="col">{$lang->cafe_signup_date}</th>
@@ -31,7 +31,7 @@
 			<tr loop="$member_list => $no,$val">
 				<td>{$no}</td>
 				<td><a href="#popup_menu_area" class="member_{$val->member_srl}">{htmlspecialchars($val->nick_name)}</span></td>
-				<td>{htmlspecialchars($val->user_id)}</td>
+				<td cond="$identifier != 'email_address'">{htmlspecialchars($val->user_id)}</td>
 				<td>{htmlspecialchars($val->user_name)}</td>
 				<td>
 					<!--@if($members_groups[$val->member_srl])-->
@@ -99,6 +99,7 @@
 	</select>
 	<select name="search_target">
 		<option value="">{$lang->search_target}</option>
+		<option cond="$identifier != 'email_address'" value="user_id" selected="selected"|cond="$search_target=='user_id'">{$lang->user_id}</option>
 		<option loop="$lang->search_target_list => $key,$val" value="{$key}" selected="selected"|cond="$search_target==$key">{$val}</option>
 	</select>
 	<span class="x_input-append">
