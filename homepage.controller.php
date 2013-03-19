@@ -28,18 +28,6 @@ class homepageController extends homepage
             $this->selected_layout = $oLayoutModel->getLayout($this->homepage_info->layout_srl);
         }
 
-        function procHomepageChangeLanguage() {
-            $oModuleController = &getController('module');
-
-            $lang_code = Context::get('language');
-            if(!$lang_code) return;
-            $args->site_srl = $this->site_module_info->site_srl;
-            $args->index_module_srl= $this->site_module_info->index_module_srl;
-            $args->domain = $this->site_module_info->domain;
-            $args->default_language = $lang_code;
-            return $oModuleController->updateSite($args);
-        }
-
         function procHomepageCafeCreation() {
             global $lang;
             $oHomepageAdminController = &getAdminController('homepage');
@@ -413,29 +401,27 @@ class homepageController extends homepage
             $this->setMessage('success_registed');
         }
 
-        function procHomepageChangeIndex() {
-            $index_mid = Context::get('index_mid');
-            if(!$index_mid) return new Object(-1,'msg_invalid_request');
-            $args->index_module_srl = $index_mid;
-            $args->domain = $this->homepage_info->domain;
-            $args->site_srl= $this->site_srl;
 
-            $oModuleController = &getController('module');
-            $output = $oModuleController->updateSite($args);
-            return $output;
-        }
+		function procHomepageUpdateSiteConfig()
+		{
+			$output = $this->updateCafeInfo();
+			if(!$output->toBool()) return $output;
 
-        function procHomepageInsertCafeBanner() {
-            global $lang;
+			$this->updateSiteInfo();
+			if(!$output->toBool()) return $output;
+
+			$this->setRedirectUrl(Context::get('error_return_url'), $output);
+		}
+
+        function updateCafeInfo() {
+			global $lang;
             $oHomepageModel = &getModel('homepage');
             $site_srl = Context::get('site_srl');
             if(!$site_srl) return new Object(-1,'msg_invalid_request');
 
             $title = Context::get('cafe_title');
             if(!$title) return new Object(-1,sprintf($lang->filter->isnull,$lang->cafe_title));
-
-            $description = Context::get('cafe_description');
-            if(!$description) return new Object(-1,sprintf($lang->filter->isnull,$lang->cafe_description));
+			$description = Context::get('cafe_description');
 
             // 홈페이지 제목/내용 변경
             $homepage_info = $oHomepageModel->getHomepageInfo($site_srl);
@@ -458,16 +444,23 @@ class homepageController extends homepage
 				FileHandler::createImageFile($cafe_banner['tmp_name'], $banner_src,100,100,'jpg','crop');
 			}
 
-            $this->setTemplatePath($this->module_path.'tpl');
-            $this->setTemplateFile('redirect.html');
+			return $output;
         }
 
-		function procHomepageUpdateSiteConfig()
-		{
-			$this->procHomepageInsertCafeBanner();
-			$this->procHomepageChangeIndex();
-			$this->procHomepageChangeLanguage();
-		}
+        function updateSiteInfo() {
+            $index_mid = Context::get('index_mid');
+            $lang_code = Context::get('language');
+            
+			if(!$index_mid || !$lang_code) return new Object(-1,'msg_invalid_request');
+
+            $args->index_module_srl = $index_mid;
+            $args->default_language = $lang_code;
+            $args->domain = $this->homepage_info->domain;
+            $args->site_srl= $this->site_srl;
+            $oModuleController = &getController('module');
+            $output = $oModuleController->updateSite($args);
+            return $output;
+        }
 		function procHomepageUpdateLayoutConfig()
 		{
 			if(Context::get('layout')) $this->procHomepageChangeLayout();

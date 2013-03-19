@@ -16,7 +16,6 @@
 
         <permission action="procHomepageCafeCreation" target="member" />
         <permission action="procHomepageChangeLayout" target="manager" />
-        <permission action="procHomepageChangeLanguage" target="manager" />
         <permission action="procHomepageInsertMenuItem" target="manager" />
         <permission action="procHomepageDeleteMenuItem" target="manager" />
         <permission action="procHomepageMenuItemMove" target="manager" />
@@ -27,7 +26,6 @@
         <permission action="procHomepageUpdateMemberGroup" target="manager" />
         <permission action="procHomepageDeleteMember" target="manager" />
         <permission action="procHomepageUpdateBoardSkin" target="manager" />
-        <permission action="procHomepageChangeIndex" target="manager" />
         <permission action="procHomepageUpdateSiteConfig" target="manager" />
         <permission action="procHomepageUpdateLayoutConfig" target="manager" />
     </permissions>
@@ -49,7 +47,6 @@
 
         <action name="procHomepageCafeCreation" type="controller" />
         <action name="procHomepageChangeLayout" type="controller" />
-        <action name="procHomepageChangeLanguage" type="controller" />
         <action name="procHomepageInsertMenuItem" type="controller" />
         <action name="procHomepageDeleteMenuItem" type="controller" />
         <action name="procHomepageMenuItemMove" type="controller" />
@@ -59,8 +56,6 @@
         <action name="procHomepageInsertGroup" type="controller" />
         <action name="procHomepageDeleteMember" type="controller" />
         <action name="procHomepageUpdateMemberGroup" type="controller" />
-        <action name="procHomepageChangeIndex" type="controller" />
-        <action name="procHomepageInsertCafeBanner" type="controller" />
         <action name="procHomepageUpdateSiteConfig" type="controller" ruleset="updateSiteConfig" />
         <action name="procHomepageUpdateLayoutConfig" type="controller" ruleset="updateLayout" />
 

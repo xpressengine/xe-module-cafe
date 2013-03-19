@@ -3,7 +3,6 @@
 	<fields>
 		<field name="site_srl" required="true" rule="number" />
 		<field name="cafe_title" required="true" length="1:255" />
-		<field name="cafe_description" required="true" />
 		<field name="index_mid" rule="number" />
 		<field name="layout_srl" required="true" rule="number" />
 	</fields>
