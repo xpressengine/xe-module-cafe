@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+a{cursor:pointer}
 /* header */
 .text_today{ margin:0 0 18px 0; font-size:14px; font-family:Arial}
 .text_today span{ color:#2388c7; margin-right:7px;}
