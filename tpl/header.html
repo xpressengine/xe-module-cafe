@@ -4,7 +4,7 @@
 	<h1>
 		{$lang->cafe_management}
 		<a href="#aboutModule" data-toggle class="x_icon-question-sign">{$lang->help}</a>
-		<span class="path" cond="$homepage_info">&gt; <a href="{getFullSiteUrl($homepage_info->domain,'', 'act','dispHomepageManage')}" target="_blank">{$homepage_info->title}</a></span>
+		<span class="path" cond="$homepage_info">&gt; <a href="{getFullSiteUrl($homepage_info->domain,'', 'act','dispHomepageManage')}" target="_blank"|cond="$module=='admin'">{$homepage_info->title}</a></span>
 	</h1>
 </div>
 <p class="x_alert x_alert-info" id="aboutModule" hidden>{nl2br($lang->about_cafe)}</p>
