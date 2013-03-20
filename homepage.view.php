@@ -35,8 +35,9 @@
 
             // 카페 목록을 구함
             $cafe_srls = array();
-            $page = Context::get('page');
-            $output = $oHomepageAdminModel->getHomepageList($page);
+			$args = new stdClass();
+            $args->page = Context::get('page');
+            $output = $oHomepageAdminModel->getHomepageList($args);
             if($output->data && count($output->data)) {
                 foreach($output->data as $key => $val) {
                     $banner_src = 'files/attach/cafe_banner/'.$val->site_srl.'.jpg';

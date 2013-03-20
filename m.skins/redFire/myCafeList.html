@@ -1,6 +1,6 @@
 <!--#include("_header.html")-->
-			<p style="text-align:center; margin-top:10px" cond="!$my_cafes&&$is_logged">You do not have any joined cafe site yet</p>
-			<p style="text-align:center; margin-top:10px" cond="!$is_logged">Please sign in first</p>
+			<p style="text-align:center; padding:10px 0;margin:0" cond="!$my_cafes&&$is_logged">You do not have any joined cafe site yet</p>
+			<p style="text-align:center; padding:10px 0;margin:0" cond="!$is_logged">Please sign in first</p>
 			<!--@if(count($my_cafes))-->
 				<ul class="cafe_lst list">
 				<!--@foreach($my_cafes as $val)-->

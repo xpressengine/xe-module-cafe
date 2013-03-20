@@ -23,7 +23,8 @@ background:-moz-linear-gradient(top,#dedede,#d1d1d1);
 background:-ms-linear-gradient(top,#dedede,#d1d1d1);
 background:-o-linear-gradient(top,#dedede,#d1d1d1);
 background:linear-gradient(top,#dedede,#d1d1d1);}
-.mod_head .srch fieldset>span{display:block;height:20px;position:relative;margin:7px 10px 6px;padding:3px 15px;border:1px solid #2f444c;border-radius:28px/25px;background-color:#fff;box-shadow:inset 3px 3px 5px rgba(118,118,118,.75)}
+.mod_head .srch fieldset {margin:0;padding:0}
+.mod_head .srch fieldset>span{display:block;height:20px;position:relative;margin:4px 10px 6px;padding:3px 15px;border:1px solid #2f444c;border-radius:28px/25px;background-color:#fff;box-shadow:inset 3px 3px 5px rgba(118,118,118,.75)}
 .mod_head .srch fieldset legend{display:none}
 .searchkey{width:95%;height:20px;line-height:20px;padding-left:12px;border:none;background:url('../img/btn_srch.gif') no-repeat 0 5px;background-size:13px 13px;font-size:13px;-webkit-appearance:none;outline:none}
 .btn_cancel{display:none;overflow:hidden;position:absolute;top:6px;right:15px;width:13px;height:13px;border:none;background:url('../img/btn_cls.gif') no-repeat 0 0;background-size:13px 13px;text-indent:-9999em;vertical-align:middle}
