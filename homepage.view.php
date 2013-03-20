@@ -122,22 +122,20 @@
 		function dispHomepageIS() {
 			$oFile = &getClass('file');
 			$oModuleModel = &getModel('module');
+			$oHomepageModel = &getModel('homepage');
 
 			$vid = Context::get('vid');
 			$site_info = $oModuleModel->getSiteInfoByDomain($vid);
-
-			if(!$vid || !$site_info->site_srl) return new Object(-1,'msg_invalid_request');
-
-			//permission
-
-			$config = $oModuleModel->getModuleConfig('integration_search');
-			if(!$config->skin) $config->skin = 'default';
-			$template_path = sprintf('./modules/integration_search/skins/%s', $config->skin);
-			$config_parse = explode('|@|', $config->skin);
+			
+			//site_srl 없으면 hub로 보고 통합검색 제공
+			if($site_info->site_srl) {
+				$site_info = $oHomepageModel->getHomepageInfo($site_info->site_srl);
+				if($site_info->site_srl) $args->site_srl = $site_info->site_srl;
+			}
 
 
 			$module_srl_list = array();
-			$output_module_list = $oModuleModel->getModuleListByInstance($site_info->site_srl);
+			$output_module_list = executeQueryArray('homepage.getModuleListCafe',$args);
 			$include_module_list = $output_module_list->data;
 			if(is_array($include_module_list)) {
 				$target = 'include';
@@ -145,10 +143,6 @@
 					array_push($module_srl_list,$val->module_srl);
 				}
 			}
-
-			// Template path
-			$this->setTemplatePath($template_path);
-			Context::set('module_info', unserialize($config->skin_vars));
 
 			// Set a variable for search keyword
 			$is_keyword = Context::get('is_keyword');
@@ -204,7 +198,7 @@
 						$output['file'] = $oIS->getFiles($target, $module_srl_list, $is_keyword, $page, 5);
 						Context::set('search_result', $output);
 						Context::set('search_target', 'title');
-						$this->setTemplateFile("index", $page);
+						$this->setTemplateFile("search_index", $page);
 						break;
 				}
 			}

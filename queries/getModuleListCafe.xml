@@ -1,0 +1,13 @@
+<query id="getModuleListCafe" action="select">
+    <tables>
+        <table name="homepages" />
+        <table name="modules" />
+    </tables>
+    <columns>
+        <column name="modules.module_srl" alias="module_srl" />
+    </columns>
+	<conditions>
+		<condition operation="equal" column="homepages.site_srl" default="modules.site_srl" filter="number" />
+		<condition operation="equal" column="homepages.site_srl" var="site_srl" filter="number" pipe="and" />
+	</conditions>
+</query>

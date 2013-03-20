@@ -177,6 +177,10 @@
 			$oModuleController->replaceDefinedLangCode($tpl);
 			$this->add('tpl',$tpl);
 		}
+
+		function getAllModuleList() {
+
+		}
     }
 
 ?>
