@@ -5,7 +5,8 @@
 
 	<ul class="doc_list" id="siteNewestDocsUl">
 		<li loop="$siteDocuments=>$key,$doc">
-			<dl class="cafe_info">
+		<div class="cafe_info">
+			<dl>
 				<dt><a href="{getUrl('','document_srl', $doc->document_srl)}">{cut_str($doc->title,30)}</a></dt>
 				<dd>
 					<p class="desc_txt">{cut_str(strip_tags($doc->content),35);}</p>
@@ -19,6 +20,7 @@
 				<dd><strong class="author">{$doc->nick_name}</strong><span class="date">{zdate($doc->regdate,"Y-m-d")}</span><span class="time">{zdate($doc->regdate,"H:i:s")}</span></dd>
 			</dl>
 			<div class="comment_num"><a href="#">{$doc->comment_count}</a></div>
+		</div>
 		</li>
 	</ul>
 	<div class="view_more">
