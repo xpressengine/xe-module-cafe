@@ -197,6 +197,10 @@ class homepageController extends homepage
                     break;
                 case 'update' :
                         $source_menu_info = $oMenuAdminModel->getMenuItemInfo($args->menu_item_srl);
+						$root_menu_info = $oMenuAdminModel->getMenu($source_menu_info->menu_srl);
+						if($this->site_srl != $root_menu_info->site_srl) {
+                        	return new Object(-1,'msg_invalid_request');
+						}
                         $output = executeQuery('menu.updateMenuItem', $args);
                         if(!$output->toBool()) return $output;
 
