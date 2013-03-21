@@ -3,6 +3,6 @@
 	<fields>
 		<field name="cafe_id" required="true" length="3:12" filter="alpha_number" />
 		<field name="cafe_title" length="4:20" />
-		<field name="cafe_description" length="10:200" rule="alpha_number" />
+		<field name="cafe_description" length="10:200" />
 	</fields>
 </ruleset>
