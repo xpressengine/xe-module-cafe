@@ -112,8 +112,8 @@ class homepageController extends homepage
 
         function procHomepageInsertMenuItem() {
             global $lang;
-
-            $oMenuAdminModel = &getAdminModel('menu');
+            
+			$oMenuAdminModel = &getAdminModel('menu');
             $oMenuAdminController = &getAdminController('menu');
             $oModuleController = &getController('module');
             $oModuleModel = &getModel('module');
@@ -178,7 +178,7 @@ class homepageController extends homepage
                 $module_srl = $output->get('module_srl');
             }
 
-            // 변수를 다시 정리 (form문의 column과 DB column이 달라서)
+            // 변수 정리 (form문의 column과 DB column이 달라서)
             $args->menu_srl = $source_args->menu_srl;
             $args->menu_item_srl = $source_args->menu_item_srl;
             $args->parent_srl = $source_args->parent_srl;
@@ -187,11 +187,7 @@ class homepageController extends homepage
             else $args->url = $module_id;
             $args->open_window = $source_args->menu_open_window;
             $args->expand = $source_args->menu_expand;
-            $args->normal_btn = $source_args->normal_btn;
-            $args->hover_btn = $source_args->hover_btn;
-            $args->active_btn = $source_args->active_btn;
             $args->group_srls = $source_args->group_srls;
-
             switch($mode) {
                 case 'insert' :
                         $args->menu_item_srl = getNextSequence();
@@ -220,14 +216,50 @@ class homepageController extends homepage
                     break;
             }
 
-            // 해당 메뉴의 정보를 구함
-            $menu_info = $oMenuAdminModel->getMenu($args->menu_srl);
-            $menu_title = $menu_info->title;
+			//버튼 업로드
+            $args->normal_btn = $source_args->normal_btn;
+            $args->hover_btn = $source_args->hover_btn;
+            $args->active_btn = $source_args->active_btn;
+			
+			$args->menu_normal_btn = $source_args->menu_normal_btn;
+			$args->menu_hover_btn = $source_args->menu_hover_btn;
+			$args->menu_active_btn = $source_args->menu_active_btn;
+			$btnOutput = $oMenuAdminController->_uploadButton($args);
+			if($btnOutput['normal_btn'])
+			{
+				$args->normal_btn = $btnOutput['normal_btn'];
+			}
+			if($btnOutput['hover_btn'])
+			{
+				$args->hover_btn = $btnOutput['hover_btn'];
+			}
+			if($btnOutput['active_btn'])
+			{
+				$args->active_btn = $btnOutput['active_btn'];
+			}
 
-            // XML 파일을 갱신하고 위치을 넘겨 받음
+			// Button delete check
+			if(!$btnOutput['normal_btn'] && $source_args->isNormalDelete == 'Y')
+			{
+				$args->normal_btn = '';
+			}
+			if(!$btnOutput['hover_btn'] && $source_args->isHoverDelete == 'Y')
+			{
+				$args->hover_btn = '';
+			}
+			if(!$btnOutput['active_btn'] && $source_args->isActiveDelete == 'Y')
+			{
+				$args->active_btn = '';
+			}
+
+			$output = executeQuery('menu.updateMenuItem', $args);
+
+			// XML 파일을 갱신하고 위치을 넘겨 받음
             $xml_file = $oMenuAdminController->makeXmlFile($args->menu_srl);
 
-            $this->add('xml_file', $xml_file);
+			$this->setMessage('success_updated');
+			$returnUrl = Context::get('success_return_url') ? Context::get('success_return_url') : getNotEncodedUrl('', 'mid', Context::get('mid'), 'act', 'dispHomepageAdminSiteTopMenu');
+			$this->setRedirectUrl($returnUrl);
         }
 
         function procHomepageDeleteMenuItem() {
@@ -256,34 +288,6 @@ class homepageController extends homepage
             $this->add('xml_file', $oMenuAdminController->get('xml_file'));
 
             if($module_info && $module_info->module_srl) $output = $oModuleController->deleteModule($module_info->module_srl);
-        }
-
-        function procHomepageMenuUploadButton() {
-            $menu_srl = Context::get('menu_srl');
-            $menu_item_srl = Context::get('menu_item_srl');
-            $target = Context::get('target');
-            $target_file = Context::get($target);
-
-            // 필수 요건이 없거나 업로드된 파일이 아니면 오류 발생
-            if(!$menu_srl || !$menu_item_srl || !$target_file || !is_uploaded_file($target_file['tmp_name']) || !preg_match('/\.(gif|jpeg|jpg|png)/i',$target_file['name'])) {
-                Context::set('error_messge', Context::getLang('msg_invalid_request'));
-
-            // 요건을 만족하고 업로드된 파일이면 지정된 위치로 이동
-            } else {
-                $tmp_arr = explode('.',$target_file['name']);
-                $ext = $tmp_arr[count($tmp_arr)-1];
-
-                $path = sprintf('./files/attach/menu_button/%d/', $menu_srl);
-                $filename = sprintf('%s%d.%s.%s', $path, $menu_item_srl, $target, $ext);
-
-                if(!is_dir($path)) FileHandler::makeDir($path);
-
-                move_uploaded_file($target_file['tmp_name'], $filename);
-                Context::set('filename', $filename);
-            }
-
-            $this->setTemplatePath('./modules/menu/tpl');
-            $this->setTemplateFile('menu_file_uploaded');
         }
 
         function procHomepageDeleteButton() {

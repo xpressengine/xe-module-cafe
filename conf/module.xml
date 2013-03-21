@@ -19,7 +19,6 @@
         <permission action="procHomepageInsertMenuItem" target="manager" />
         <permission action="procHomepageDeleteMenuItem" target="manager" />
         <permission action="procHomepageMenuItemMove" target="manager" />
-        <permission action="procHomepageMenuUploadButton" target="manager" />
         <permission action="procHomepageDeleteButton" target="manager" />
         <permission action="procHomepageDeleteGroup" target="manager" />
         <permission action="procHomepageInsertGroup" target="manager" />
@@ -48,10 +47,9 @@
 
         <action name="procHomepageCafeCreation" type="controller" ruleset="cafeCreation" />
         <action name="procHomepageChangeLayout" type="controller" />
-        <action name="procHomepageInsertMenuItem" type="controller" />
+        <action name="procHomepageInsertMenuItem" type="controller" ruleset="insertMenuItem" />
         <action name="procHomepageDeleteMenuItem" type="controller" />
         <action name="procHomepageMenuItemMove" type="controller" />
-        <action name="procHomepageMenuUploadButton" type="controller" />
         <action name="procHomepageDeleteButton" type="controller" />
         <action name="procHomepageDeleteGroup" type="controller" />
         <action name="procHomepageInsertGroup" type="controller" />

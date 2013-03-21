@@ -9,14 +9,18 @@
 	<div class="x_control-group">
 		<label class="x_control-label" for="module_type">{$lang->module_type}</label>
 		<div class="x_controls">
-			{@$module_type_disabled = ($mode == 'update')?'disabled="disabled"':''}
-			<select name="module_type" id="module_type" onchange="changeMenuType(this)" {$module_type_disabled}>
+			<!--@if($mode != 'update')-->
+			<select name="module_type" id="module_type" onchange="changeMenuType(this)">
 				<option value=""></option>
 				<!--@foreach($homepage_config->allow_service as $k => $v)-->
 				<option value="{$k}" <!--@if($k == $item_info->module_type)-->selected="selected"<!--@end-->>{$k}</option>
 				<!--@end-->
 				<option value="url" <!--@if($item_info->module_type == 'url')-->selected="selected"<!--@end-->>{$lang->url}</option>
 			</select>
+			<!--@else-->
+			<input type="hidden" name="module_type" value="{$item_info->module_type}" />
+			<p>{$item_info->module_type}</p>
+			<!--@end-->
 		</div>
 	</div>
 {@$url_form_hide = (!$item_info->module_type || $item_info->module_type != 'url')?'style="display:none"':''}
@@ -63,33 +67,39 @@
 	<div class="x_control-group">
 		<label class="x_control-label" for="">{$lang->menu_img_btn}</label>
 		<div class="x_controls">
+			<p>{$lang->about_imgbtn}</p>
 			<div>
-				<strong>{$lang->menu_normal_btn} : </strong>
-				<div id="menu_normal_btn_zone" <!--@if(!$item_info->normal_btn)-->style="display:none;"<!--@end-->>
-					<img src="" alt="" id="menu_normal_btn_img" /><br />
-					<a href="#" onclick="doDeleteButton('menu_normal_btn');return false;" class="button"><span>{$lang->cmd_delete}</span></a>
+				<strong>{$lang->menu_normal_btn}</strong>
+				<img class="_thumbnail" src="{$item_info->normal_btn}" alt="{$lang->about_menu_normal_btn}" cond="$item_info->normal_btn">
+				<div class="btnBoth">
+					<input name="isNormalDelete" type="checkbox" value="Y" />{$lang->cmd_delete}
+					<input type="file" title="{$lang->menu_change_btn}/{$lang->menu_upload_btn}" name="menu_normal_btn" value="{$lang->menu_upload_btn}">
 				</div>
-				<input type="file" name="menu_normal_btn" value="" onchange="doHomepageMenuUploadButton(this); return false;"/>
 			</div>
+			<br />
 			<div>
-				<strong>{$lang->menu_hover_btn} : </strong>
-				<div id="menu_hover_btn_zone") <!--@if(!$item_info->hover_btn)-->style="display:none;"<!--@end-->>
-					<img src="" alt="" id="menu_hover_btn_img" /><br />
-					<a href="#" onclick="doDeleteButton('menu_hover_btn');return false;" class="button"><span>{$lang->cmd_delete}</span></a>
+				<strong>{$lang->menu_hover_btn}</strong>
+				<img class="_thumbnail" src="{$item_info->hover_btn}" alt="{$lang->about_menu_hover_btn}" cond="$item_info->hover_btn">
+				<div class="btnBoth">
+					<input name="isHoverDelete" type="checkbox" value="Y" />{$lang->cmd_delete}
+					<input type="file" title="{$lang->menu_change_btn}/{$lang->menu_upload_btn}" name="menu_hover_btn">
 				</div>
-				<input type="file" name="menu_hover_btn" value="" onchange="doHomepageMenuUploadButton(this); return false;"/>
 			</div>
+			<br />
 			<div>
 				<strong>{$lang->menu_active_btn}</strong>
-				<div id="menu_active_btn_zone" <!--@if(!$item_info->active_btn)-->style="display:none;"<!--@end-->>
-					<img src="" alt="" id="menu_active_btn_img" /><br />
-					<a href="#" onclick="doDeleteButton('menu_active_btn');return false;" class="button"><span>{$lang->cmd_delete}</span></a>
+				<p class="noImg">{$lang->menu_no_img_btn}</p>
+				<img class="_thumbnail" src="{$item_info->active_btn}" alt="{$lang->about_menu_active_btn}" cond="$item_info->active_btn">
+				<div class="btnBoth">
+					<input name="isActiveDelete" type="checkbox" value="Y" />{$lang->cmd_delete}
+					<input type="file" title="{$lang->menu_change_btn}/{$lang->menu_upload_btn}" name="menu_active_btn">
 				</div>
-				<input type="file" name="menu_active_btn" value="" onchange="doHomepageMenuUploadButton(this); return false;"/>
 			</div>
-			<p>{$lang->about_menu_image_button}</p>
+		</div>
+		<div>
 		</div>
 	</div>
+<iframe name="submitTarget" src="about:_blank" style="position:absolute; top:-10000px; left:-10000px; width:1025px;height:769px"></iframe>
 <script>
 	jQuery('.lang_code').xeApplyMultilingualUI();
 </script>

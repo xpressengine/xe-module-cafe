@@ -62,7 +62,13 @@
 	<div cond="$selected_layout->path" class="x_control-group">
 		<label class="x_control-label">{$lang->path}</label>
 		<div class="x_controls" style="padding-top:5px">
+			<!--@if($homepage_config->enable_change_layout == 'Y')-->
+			<select name="layout" id="layout">
+				<option loop="$layout_list => $key,$val" value="{$val->layout}" selected="selected"|cond="$selected_layout->layout == $val->layout"><!--@if($val->title)-->{$val->title}({$val->layout})<!--@else-->{$val->layout}<!--@end--></option>
+			</select>
+			<!--@else-->
 			{$selected_layout->path}
+			<!--@end-->
 		</div>
 	</div>
 	<div cond="$selected_layout->description" class="x_control-group">
