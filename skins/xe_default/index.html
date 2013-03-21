@@ -19,7 +19,7 @@
         <!--@if($module_info->intro_title)-->
         <div class="intro">
             <h3>{$module_info->intro_title}</h3>
-            <img src="{$module_info->intro_image}" alt="" align="left" />
+            <img src="{$module_info->intro_image}" alt="" align="left" cond="$module_info->intro_image" />
             {nl2br($module_info->intro_description)}
             <span class="url"><a href="{$module_info->intro_url}" onclick="window.open(this.href); return false;">{$module_info->intro_url}</a></span>
         </div>
