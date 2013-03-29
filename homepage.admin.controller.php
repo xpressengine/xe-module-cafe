@@ -604,7 +604,7 @@
             $mid_list = $oModuleModel->getMidList($args);
             foreach($mid_list as $key => $val) {
                 $module_srl = $val->module_srl;
-                $oModuleController->deleteModule($module_srl);
+                $oModuleController->deleteModule($module_srl,$site_srl);
             }
 
             // 사용자 정의 언어 제거
