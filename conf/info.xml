@@ -14,8 +14,8 @@
     <description xml:lang="zh-CN">提供一种在XE内迅速建立子站点的功能。</description>
     <description xml:lang="zh-TW">使 XE 擁有建立及管理網站的功能。</description>
     <description xml:lang="jp">XEソリューションでCafeを運営・管理する機能を提供します。</description>
-    <version>1.7.0</version>
-    <date>2013-03-18</date>
+    <version>1.7.0.1</version>
+    <date>2013-04-10</date>
     <category>package</category>
 
     <author email_address="developers@xpressengine.com" link="http://xpressengine.com/">
