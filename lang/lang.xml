@@ -887,9 +887,17 @@
 		<value xml:lang="en"><![CDATA[Select top menu.]]></value>
 		<value xml:lang="tr"><![CDATA[En yukarıdaki menü seçilir.]]></value>
 	</item>
+	<item name="about_cafe_menu_name">
+		<value xml:lang="ko"><![CDATA[http://주소/?mid=모듈이름. 영문+[영문+숫자+_] 만 가능. 최대 40 글자. 생략시 임의의 값을 사용하며 생성 후 수정이 불가능합니다.]]></value>
+	</item>
 	<item name="msg_not_export_index_module">
 		<value xml:lang="ko"><![CDATA[카페의 초기화면 모듈은 내보낼 수 없습니다.]]></value>
 		<value xml:lang="en"><![CDATA[You can not export module that is index page of cafe.]]></value>
 		<value xml:lang="tr"><![CDATA[Cafenin giriş ekranındaki modülün değiştirilmesi mümkün değildir.]]></value>
+	</item>
+	<item name="menu_mid">
+		<value xml:lang="ko"><![CDATA[메뉴 ID]]></value>
+		<value xml:lang="en"><![CDATA[Menu ID]]></value>
+		<value xml:lang="tr"><![CDATA[Menu ID]]></value>
 	</item>
 </lang>

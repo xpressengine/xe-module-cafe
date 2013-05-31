@@ -139,6 +139,7 @@ class homepageController extends homepage
                 if(!$module_type) return new Object(-1, 'msg_module_type_setting');
             }
             $browser_title = trim(Context::get('menu_name'));
+			$menu_mid = Context::get('menu_mid');
             $url = trim(Context::get('url'));
             $module_id = trim(Context::get('module_id'));
 
@@ -160,18 +161,22 @@ class homepageController extends homepage
                 // 모듈 등록
                 $idx = $module_count+1;
                 $args->site_srl = $this->site_srl;
-                $args->mid = $module_type.'_'.$idx;
+				if($menu_mid) $args->mid = $menu_mid;
+				else $args->mid = $module_type.'_'.$idx;
                 $args->browser_title = $browser_title;
                 $args->layout_srl = $this->selected_layout->layout_srl;
                 $args->module = $module_type;
 				if($args->module == 'page') $args->page_type = 'WIDGET';
                 $args->menu_srl = $source_args->menu_srl;
                 $output = $oModuleController->insertModule($args);
-                while(!$output->toBool()) {
-                    $idx++;
-                    $args->mid = $module_type.'_'.$idx;
-                    $output = $oModuleController->insertModule($args);
-                }
+				if(!$output->toBool() && !$menu_mid) 
+				{
+					while(!$output->toBool()) {
+						$idx++;
+						$args->mid = $module_type.'_'.$idx;
+						$output = $oModuleController->insertModule($args);
+					}
+				}
                 if(!$output->toBool()) return $output;
                 $module_id = $args->mid;
 

@@ -103,8 +103,11 @@ function changeMenuType(obj) {
     var sel = obj.options[obj.selectedIndex].value;
     if(sel == 'url') {
         jQuery('#urlForm').css("display","table-row");
+        jQuery('#menuMidForm').css("display","none");
+		jQuery('input[name=menu_mid]').val('');
     } else {
         jQuery('#urlForm').css("display","none");
+        jQuery('#menuMidForm').css("display","table-row");
     }
 
 }

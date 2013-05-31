@@ -3,5 +3,6 @@
 	<fields>
 		<field name="module_type" required="true" length="1:80" />
 		<field name="menu_name" required="true" length="1:120" />
+		<field name="menu_mid" rule="alpha_number" length="1:40" />
 	</fields>
 </ruleset>

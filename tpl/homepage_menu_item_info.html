@@ -23,6 +23,13 @@
 			<!--@end-->
 		</div>
 	</div>
+	<div class="x_control-group">
+		<label class="x_control-label" for="menu_name">{$lang->menu_name}</label>
+		<div class="x_controls">
+			<input type="text" name="menu_name" id="menu_name" value="{htmlspecialchars($item_info->name)}" class="lang_code" />
+			<p>{$lang->about_langcode}</p>
+		</div>
+	</div>
 {@$url_form_hide = (!$item_info->module_type || $item_info->module_type != 'url')?'style="display:none"':''}
 	<div class="x_control-group" id="urlForm" {$url_form_hide}>
 		<label class="x_control-label" for="menu_url">{$lang->url}</label>
@@ -31,11 +38,15 @@
 			<p>{$lang->about_menu_item_url}</p>
 		</div>
 	</div>
-	<div class="x_control-group">
-		<label class="x_control-label" for="menu_name">{$lang->menu_name}</label>
+	<div class="x_control-group" id="menuMidForm">
+		<label class="x_control-label" for="menu_mid">{$lang->menu_mid}</label>
 		<div class="x_controls">
-			<input type="text" name="menu_name" id="menu_name" value="{htmlspecialchars($item_info->name)}" class="lang_code" />
-			<p>{$lang->about_langcode}</p>
+			<!--@if($item_info->module_id)-->
+			{$item_info->module_id}
+			<!--@else-->
+			<input type="text" name="menu_mid" id="menu_mid" value="{$item_info->module_id}" />
+			<!--@end-->
+			<p>{$lang->about_cafe_menu_name}</p>
 		</div>
 	</div>
 	<div class="x_control-group">
