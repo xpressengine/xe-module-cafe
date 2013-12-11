@@ -68,7 +68,7 @@
 		<div class="x_controls">
 			<!--@foreach($group_list as $key=>$val)-->
 			<label class="x_inline" for="group_{$key}">
-				<input type="checkbox" name="group_srls" value="{$key}" id="group_{$key}" <!--@if(is_array($item_info->group_srls)&&in_array($key, $item_info->group_srls))-->checked="checked"<!--@end-->/>
+				<input type="checkbox" name="group_srls[]" value="{$key}" id="group_{$key}" <!--@if(is_array($item_info->group_srls)&&in_array($key, $item_info->group_srls))-->checked="checked"<!--@end-->/>
 				{$val->title}
 			</label>
 			<!--@end-->

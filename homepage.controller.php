@@ -130,7 +130,7 @@ class homepageController extends homepage
             unset($source_args->url);
             if($source_args->menu_open_window!="Y") $source_args->menu_open_window = "N";
             if($source_args->menu_expand !="Y") $source_args->menu_expand = "N";
-            $source_args->group_srls = str_replace('|@|',',',$source_args->group_srls);
+            $source_args->group_srls = join(',',$source_args->group_srls);
             $source_args->parent_srl = (int)$source_args->parent_srl;
 
             $module_type = Context::get('module_type');
