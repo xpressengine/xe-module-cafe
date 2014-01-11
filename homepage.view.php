@@ -27,11 +27,11 @@
          * @brief 카페 메인 출력
          **/
         function dispHomepageIndex() {
-            $oHomepageAdminModel = &getAdminModel('homepage');
-            $oHomepageModel = &getModel('homepage');
-            $oModuleModel = &getModel('module');
-            $oDocumentModel = &getModel('document');
-            $oCommentModel = &getModel('comment');
+            $oHomepageAdminModel = getAdminModel('homepage');
+            $oHomepageModel = getModel('homepage');
+            $oModuleModel = getModel('module');
+            $oDocumentModel = getModel('document');
+            $oCommentModel = getModel('comment');
 
             // 카페 목록을 구함
             $cafe_srls = array();
@@ -104,7 +104,7 @@
          * @brief 홈페이지 생성
          **/
         function dispHomepageCreate() {
-            $oHomepageModel = &getModel('homepage');
+            $oHomepageModel = getModel('homepage');
             if(!$oHomepageModel->isCreationGranted()) return new Object(-1,'msg_not_permitted');
             $this->setTemplateFile('create');
         }
@@ -121,9 +121,9 @@
 		 * @return void
 		 */
 		function dispHomepageIS() {
-			$oFile = &getClass('file');
-			$oModuleModel = &getModel('module');
-			$oHomepageModel = &getModel('homepage');
+			$oFile = getClass('file');
+			$oModuleModel = getModel('module');
+			$oHomepageModel = getModel('homepage');
 
 			$vid = Context::get('vid');
 			$site_info = $oModuleModel->getSiteInfoByDomain($vid);
@@ -155,7 +155,7 @@
 			// Create integration search model object 
 			if($is_keyword)
 			{
-				$oIS = &getModel('integration_search');
+				$oIS = getModel('integration_search');
 				switch($where)
 				{
 					case 'document' :

@@ -14,9 +14,9 @@ class homepageController extends homepage
         var $selected_layout = null;
 
         function init() {
-            $oModuleModel = &getModel('module');
-            $oHomepageModel = &getModel('homepage');
-            $oLayoutModel = &getModel('layout');
+            $oModuleModel = getModel('module');
+            $oHomepageModel = getModel('homepage');
+            $oLayoutModel = getModel('layout');
 
             $logged_info = Context::get('logged_info');
             if($this->act != 'procHomepageCafeCreation' && !$oModuleModel->isSiteAdmin($logged_info)) return $this->stop('msg_not_permitted');
@@ -30,12 +30,12 @@ class homepageController extends homepage
 
         function procHomepageCafeCreation() {
             global $lang;
-            $oHomepageAdminController = &getAdminController('homepage');
-            $oHomepageModel = &getModel('homepage');
-            $oModuleModel = &getModel('module');
-            $oModuleController = &getController('module');
-            $oMemberModel = &getModel('member');
-            $oMemberController = &getController('member');
+            $oHomepageAdminController = getAdminController('homepage');
+            $oHomepageModel = getModel('homepage');
+            $oModuleModel = getModel('module');
+            $oModuleController = getController('module');
+            $oMemberModel = getModel('member');
+            $oMemberController = getController('member');
 
             if(!$oHomepageModel->isCreationGranted()) return new Object(-1,'msg_not_permitted');
 
@@ -82,9 +82,9 @@ class homepageController extends homepage
         }
 
         function procHomepageChangeLayout() {
-            $oLayoutModel = &getModel('layout');
-            $oLayoutAdminController = &getAdminController('layout');
-            $oHomepageModel = &getModel('homepage');
+            $oLayoutModel = getModel('layout');
+            $oLayoutAdminController = getAdminController('layout');
+            $oHomepageModel = getModel('homepage');
 
             // 레이아웃 변경 권한 체크
             $homepage_config = $oHomepageModel->getConfig($this->site_srl);
@@ -113,12 +113,12 @@ class homepageController extends homepage
         function procHomepageInsertMenuItem() {
             global $lang;
             
-			$oMenuAdminModel = &getAdminModel('menu');
-            $oMenuAdminController = &getAdminController('menu');
-            $oModuleController = &getController('module');
-            $oModuleModel = &getModel('module');
-            $oHomepageAdminController = &getAdminController('homepage');
-            $oHomepageModel = &getModel('homepage');
+			$oMenuAdminModel = getAdminModel('menu');
+            $oMenuAdminController = getAdminController('menu');
+            $oModuleController = getController('module');
+            $oModuleModel = getModel('module');
+            $oHomepageAdminController = getAdminController('homepage');
+            $oHomepageModel = getModel('homepage');
 
             // 기본 변수 체크
             $source_args = Context::getRequestVars();
@@ -210,12 +210,12 @@ class homepageController extends homepage
                         if(!$output->toBool()) return $output;
 
                         if($module_type != 'url') {
-                            $oModuleModel = &getModel('module');
+                            $oModuleModel = getModel('module');
                             $module_info = $oModuleModel->getModuleInfoByMid($source_menu_info->url, $this->site_srl);
                             if($module_info->mid != $module_id || $module_info->browser_title != $browser_title) {
                                 $module_info->browser_title = $browser_title;
                                 $module_info->mid = $module_id;
-                                $oModuleController = &getController('module');
+                                $oModuleController = getController('module');
                                 $oModuleController->updateModule($module_info);
                             }
                         }
@@ -272,11 +272,11 @@ class homepageController extends homepage
         }
 
         function procHomepageDeleteMenuItem() {
-            $oModuleModel = &getModel('module');
-            $oMenuAdminModel = &getAdminModel('menu');
-            $oMenuAdminController = &getAdminController('menu');
-            $oHomepageModel = &getModel('homepage');
-            $oModuleController = &getController('module');
+            $oModuleModel = getModel('module');
+            $oMenuAdminModel = getAdminModel('menu');
+            $oMenuAdminController = getAdminController('menu');
+            $oHomepageModel = getModel('homepage');
+            $oModuleController = getController('module');
 
             $menu_item_srl = Context::get('menu_item_srl');
             if(!$menu_item_srl) return new Object(-1,'msg_invalid_request');
@@ -317,13 +317,13 @@ class homepageController extends homepage
             $target_srl = Context::get('target_srl');
 
             if(!$menu_srl || !$mode || !$target_srl) return new Object(-1,'msg_invalid_request');
-            $oMenuAdminController = &getAdminController('menu');
+            $oMenuAdminController = getAdminController('menu');
             $xml_file = $oMenuAdminController->moveMenuItem($menu_srl,$parent_srl,$source_srl,$target_srl,$mode);
             $this->add('xml_file', $xml_file);
         }
 
         function procHomepageDeleteGroup() {
-            $oMemberAdminController = &getAdminController('member');
+            $oMemberAdminController = getAdminController('member');
             $group_srl = Context::get('group_srl');
             $output = $oMemberAdminController->deleteGroup($group_srl, $this->site_srl);
             if(!$output->toBool()) return $output;
@@ -334,9 +334,9 @@ class homepageController extends homepage
 		if(!$this->site_srl) return new Object(-1,'msg_invalid_request');
 		$vars = Context::getRequestVars();
 
-		$oMemberModel = &getModel('member');
-		$oModuleController = &getController('module');
-		$oMemberAdminController = &getAdminController('member');
+		$oMemberModel = getModel('member');
+		$oModuleController = getController('module');
+		$oMemberAdminController = getAdminController('member');
 		
 		$defaultGroup = $oMemberModel->getDefaultGroup($this->site_srl);
 		$defaultGroupSrl = $defaultGroup->group_srl;
@@ -392,7 +392,7 @@ class homepageController extends homepage
             $args->site_srl = $this->site_srl;
             $args->member_srl = explode('|@|',Context::get('cart'));
             $args->group_srl = Context::get('group_srl');
-            $oMemberController = &getController('member');
+            $oMemberController = getController('member');
             return $oMemberController->replaceMemberGroup($args);
         }
 
@@ -400,7 +400,7 @@ class homepageController extends homepage
             $module_srl = Context::get('module_srl');
 
             // 현 모듈의 권한 목록을 가져옴
-            $oModuleModel = &getModel('module');
+            $oModuleModel = getModel('module');
             $xml_info = $oModuleModel->getModuleActionXml('board');
             $grant_list = $xml_info->grant;
 
@@ -412,7 +412,7 @@ class homepageController extends homepage
                 $grants = serialize($arr_grant);
             }
 
-            $oModuleController = &getController('module');
+            $oModuleController = getController('module');
             $oModuleController->updateModuleGrant($module_srl, $grants);
 
             $this->add('module_srl',Context::get('module_srl'));
@@ -433,7 +433,7 @@ class homepageController extends homepage
 
         function updateCafeInfo() {
 			global $lang;
-            $oHomepageModel = &getModel('homepage');
+            $oHomepageModel = getModel('homepage');
             $site_srl = Context::get('site_srl');
             if(!$site_srl) return new Object(-1,'msg_invalid_request');
 
@@ -475,7 +475,7 @@ class homepageController extends homepage
             $args->default_language = $lang_code;
             $args->domain = $this->homepage_info->domain;
             $args->site_srl= $this->site_srl;
-            $oModuleController = &getController('module');
+            $oModuleController = getController('module');
             $output = $oModuleController->updateSite($args);
             return $output;
         }
@@ -484,7 +484,7 @@ class homepageController extends homepage
 			if(Context::get('layout')) $this->procHomepageChangeLayout();
             $layout_srl = Context::get('layout_srl');
             if(!$layout_srl || $layout_srl!=$this->selected_layout->layout_srl) exit();
-            $oLayoutAdminController = &getAdminController('layout');
+            $oLayoutAdminController = getAdminController('layout');
             $oLayoutAdminController->procLayoutAdminUpdate();
 			return $this->setRedirectUrl(Context::get('error_return_url'), $output);
 		}
@@ -494,8 +494,8 @@ class homepageController extends homepage
             if(!$site_module_info->site_srl || !$logged_info->member_srl) return new Object();
 
             if($logged_info->is_admin == 'Y' || $logged_info->is_site_admin) {
-                $oHomepageModel = &getModel('homepage');
-                $oMemberController = &getController('member');
+                $oHomepageModel = getModel('homepage');
+                $oMemberController = getController('member');
                 $homepage_info = $oHomepageModel->getHomepageInfo($site_module_info->site_srl);
                 if($homepage_info->site_srl) $oMemberController->addMemberMenu('dispHomepageAdminSiteManage','cmd_cafe_setup');
             }
@@ -530,10 +530,10 @@ class homepageController extends homepage
             Context::set('current_module_info', $current_module_info);
 
 			// 상단 메뉴 설정
-			$oModuleModel = &getModel('module');
+			$oModuleModel = getModel('module');
 			$config = $oModuleModel->getModuleConfig('homepage');
 			if ($config->top_menu){
-				$oMenuModel = &getAdminModel('menu');
+				$oMenuModel = getAdminModel('menu');
 				$menu_info = $oMenuModel->getMenu($config->top_menu);
 				@include $menu_info->php_file;
 				Context::set('cafe_xe_top_menu', $menu);

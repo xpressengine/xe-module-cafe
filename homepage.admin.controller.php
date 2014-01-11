@@ -15,9 +15,9 @@
          **/
         function procHomepageAdminInsertConfig() {
             global $lang;
-            $oModuleController = &getController('module');
-            $oModuleModel = &getModel('module');
-            $oHomepageModel = &getModel('homepage');
+            $oModuleController = getController('module');
+            $oModuleModel = getModel('module');
+            $oHomepageModel = getModel('homepage');
             $vars = Context::getRequestVars();
 			unset($vars->module);
             unset($vars->act);
@@ -113,8 +113,8 @@
 
 		function insertLayout($args,$homepage_info,$layout_type = "P")
 		{
-			$oLayoutModel = &getModel('layout');
-			$oLayoutAdminController = &getAdminController('layout');
+			$oLayoutModel = getModel('layout');
+			$oLayoutAdminController = getAdminController('layout');
 			if($layout_type != 'M')
 				$layout_srl = $homepage_info->layout_srl;
 			else
@@ -198,16 +198,16 @@
         }
 
         function insertHomepage($title, $domain) {
-            $oModuleController = &getController('module');
-            $oModuleAdminController = &getAdminController('module');
-            $oModuleModel = &getModel('module');
-            $oHomepageModel = &getModel('homepage');
-            $oLayoutModel = &getModel('layout');
-            $oLayoutController = &getAdminController('layout');
-            $oMemberAdminController = &getAdminController('member');
-            $oAddonController = &getAdminController('addon');
-            $oEditorController = &getAdminController('editor');
-            $oMenuAdminController = &getAdminController('menu');
+            $oModuleController = getController('module');
+            $oModuleAdminController = getAdminController('module');
+            $oModuleModel = getModel('module');
+            $oHomepageModel = getModel('homepage');
+            $oLayoutModel = getModel('layout');
+            $oLayoutController = getAdminController('layout');
+            $oMemberAdminController = getAdminController('member');
+            $oAddonController = getAdminController('addon');
+            $oEditorController = getAdminController('editor');
+            $oMenuAdminController = getAdminController('menu');
 
             $info->title = $title;
             $info->domain = $domain;
@@ -294,6 +294,12 @@
             $layout_module_args->module_srls = implode(',',$modules);
             $output = executeQuery('layout.updateModuleLayout', $layout_module_args);
 
+            $oCacheHandler = CacheHandler::getInstance('object', null, true);
+            if($oCacheHandler->isSupport())
+            {
+                $oCacheHandler->invalidateGroupKey('site_and_module');
+            }
+
 			//모바일 레이아웃 
 			if($info->mlayout_srl) 
 			{
@@ -316,6 +322,12 @@
             	$layout_module_args->layout_srl = $info->mlayout_srl;
             	$layout_module_args->module_srls = implode(',',$modules);
             	$output = executeQuery('layout.updateModuleLayout', $layout_module_args);
+
+                $oCacheHandler = CacheHandler::getInstance('object', null, true);
+                if($oCacheHandler->isSupport())
+                {
+                    $oCacheHandler->invalidateGroupKey('site_and_module');
+                }
 			}
 
             // 홈페이지 등록
@@ -388,7 +400,7 @@
             $oMenuAdminController->makeXmlFile($info->menu_srl, $info->site_srl);
 
 			//설정 저장
-			$oModuleController = &getController('module');
+			$oModuleController = getController('module');
 			unset($args);
 			$args->default_layout = $homepage_config->default_layout;
 			$args->default_mlayout = $homepage_config->default_mlayout;
@@ -417,7 +429,7 @@
             $args->mlayout_srl = $mlayout_srl;
             $args->skin = 'default';
 
-            $oModuleController = &getController('module');
+            $oModuleController = getController('module');
             $output = $oModuleController->insertModule($args);
 
 			$idx=0;
@@ -442,7 +454,7 @@
             $args->content = $content;
 			$args->page_type = 'WIDGET';
 
-            $oModuleController = &getController('module');
+            $oModuleController = getController('module');
             $output = $oModuleController->insertModule($args);
 
 			$idx=0;
@@ -475,7 +487,7 @@
             $args->title = $title;
 			$args->layout_type = $layout_type;
 
-            $oLayoutAdminController = &getAdminController('layout');
+            $oLayoutAdminController = getAdminController('layout');
             $output = $oLayoutAdminController->insertLayout($args);
             if(!$output->toBool()) return $output;
             return $args->layout_srl;
@@ -508,8 +520,8 @@
         }
 
         function procHomepageAdminUpdateHomepage() {
-            $oHomepageModel = &getModel('homepage');
-            $oModuleController = &getController('module');
+            $oHomepageModel = getModel('homepage');
+            $oModuleController = getController('module');
 
             // 카페이름, 접속방법, 카페관리자 지정
             $args = Context::gets('site_srl','title','homepage_admin','layout_srl');
@@ -540,7 +552,7 @@
 
 			// 도메인 변경된 경우 캐시파일 재생성
 			if($homepage_info->domain != $args->domain && $homepage_info->first_menu_srl) {
-				$oMenuAdminController = &getAdminController('menu');
+				$oMenuAdminController = getAdminController('menu');
 				$oMenuAdminController->makeXmlFile($homepage_info->first_menu_srl);
 			}
 
@@ -551,7 +563,7 @@
             $site_srl = Context::get('site_srl');
             if(!$site_srl) return new Object(-1,'msg_invalid_request');
 
-            $oHomepageModel = &getModel('homepage');
+            $oHomepageModel = getModel('homepage');
             $homepage_info = $oHomepageModel->getHomepageInfo($site_srl);
             if(!$homepage_info->site_srl) return new Object(-1,'msg_invalid_request');
 
@@ -573,34 +585,34 @@
             executeQuery('member.deleteSiteGroup', $args);
 
             // 메뉴 삭제
-            $oMenuAdminController = &getAdminController('menu');
+            $oMenuAdminController = getAdminController('menu');
             $oMenuAdminController->deleteMenu($homepage_info->first_menu_srl);
 
             // 카운터 정보 삭제
-            $oCounterController = &getController('counter');
+            $oCounterController = getController('counter');
             $oCounterController->deleteSiteCounterLogs($site_srl);
 
             // 애드온 삭제
-            $oAddonController = &getController('addon');
+            $oAddonController = getController('addon');
             $oAddonController->removeAddonConfig($site_srl);
 
             // 에디터 컴포넌트 삭제
-            $oEditorController = &getController('editor');
+            $oEditorController = getController('editor');
             $oEditorController->removeEditorConfig($site_srl);
 
             // 레이아웃 삭제
             Context::set('layout_srl', $homepage_info->layout_srl);
-            $oLayoutAdminController = &getAdminController('layout');
+            $oLayoutAdminController = getAdminController('layout');
             $oLayoutAdminController->procLayoutAdminDelete();
 
 			//모바일 레이아웃 삭제
 			Context::set('layout_srl', $homepage_info->mlayout_srl);
-            $oLayoutAdminController = &getAdminController('layout');
+            $oLayoutAdminController = getAdminController('layout');
             $oLayoutAdminController->procLayoutAdminDelete();
 
             // 게시판 & 페이지 삭제
-            $oModuleModel = &getModel('module');
-            $oModuleController =&getController('module');
+            $oModuleModel = getModel('module');
+            $oModuleController =getController('module');
             $mid_list = $oModuleModel->getMidList($args);
             foreach($mid_list as $key => $val) {
                 $module_srl = $val->module_srl;
@@ -615,7 +627,12 @@
                 $lang_cache_file = _XE_PATH_.'files/cache/lang_defined/'.$site_srl.'.'.$key.'.php';
                 FileHandler::removeFile($lang_cache_file);
             }
-
+            
+            $oCacheHandler = CacheHandler::getInstance('object', null, true);
+            if($oCacheHandler->isSupport())
+            {
+                $oCacheHandler->invalidateGroupKey('site_and_module');
+            }
 
             $this->setMessage('success_deleted');
         }
@@ -624,10 +641,10 @@
          * @brief 다른 가상 사이트에서 모듈을 이동
          **/
         function procHomepageAdminImportModule() {
-            $oModuleModel = &getModel('module');
-            $oModuleController = &getController('module');
-            $oHomepageModel = &getModel('homepage');
-            $oMenuAdminController = &getAdminController('menu');
+            $oModuleModel = getModel('module');
+            $oModuleController = getController('module');
+            $oHomepageModel = getModel('homepage');
+            $oMenuAdminController = getAdminController('menu');
 
             $module_srl = Context::get('import_module_srl');
             $site_srl = Context::get('site_srl');
@@ -672,10 +689,10 @@
          * @brief 가상 사이트의 모듈을 기본 사이트로 이동
          **/
         function procHomepageAdminExportModule() {
-            $oModuleModel = &getModel('module');
-            $oModuleController = &getController('module');
-            $oHomepageModel = &getModel('homepage');
-            $oMenuAdminController = &getAdminController('menu');
+            $oModuleModel = getModel('module');
+            $oModuleController = getController('module');
+            $oHomepageModel = getModel('homepage');
+            $oMenuAdminController = getAdminController('menu');
 
             $module_srl = Context::get('export_module_srl');
             if(!$module_srl) return new Object(-1,'msg_invalid_request');
@@ -695,7 +712,7 @@
 			$args->target_mid = $module_info->mid;
 			$output = executeQueryArray('homepage.getMenuItemByMenuSrlAndMid', $args);
 
-			$oMenuAdminController = &getAdminController('menu');
+			$oMenuAdminController = getAdminController('menu');
 			Context::set('menu_srl', $args->target_menu_srl);
 
 			if ($output->data){

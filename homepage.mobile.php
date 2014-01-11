@@ -13,7 +13,7 @@ class homepageMobile extends homepageView {
 
 			$site_srl = Context::get('site_srl');
 			if($site_srl){
-				$oHomepageModel = &getModel('homepage');
+				$oHomepageModel = getModel('homepage');
 				$args->site_srl = $site_srl;
 				$siteInfo = $oHomepageModel->getHomepageInfo($args->site_srl);
 				Context::set('siteInfo', $siteInfo);
@@ -84,7 +84,7 @@ class homepageMobile extends homepageView {
 	}
 
 	function dispHomepageNewestDoc() {
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$args->list_count = 10;
 		$output = executeQueryArray('homepage.getNewestDocuments', $args);
 		if($output->data) {
@@ -116,7 +116,7 @@ class homepageMobile extends homepageView {
 
 	function dispSiteCafeItems() {
 		$vars = Context::getRequestVars();
-		$oHomepageModel = &getModel('homepage');
+		$oHomepageModel = getModel('homepage');
 
 		$args->site_srl = $vars->site_srl;
 		$siteInfo = $oHomepageModel->getHomepageInfo($args->site_srl);
@@ -204,8 +204,8 @@ class homepageMobile extends homepageView {
 	}
 
 	function dispCafeSiteInfo() {
-		$oModuleModel = &getModel('module');
-		$oHomepageModel = &getModel('homepage');
+		$oModuleModel = getModel('module');
+		$oHomepageModel = getModel('homepage');
 
 		$vars = Context::getRequestVars();
 		$siteAminInfo = $oModuleModel->getSiteAdmin($vars->site_srl);
@@ -258,7 +258,7 @@ class homepageMobile extends homepageView {
 	}
 
 	function dispHomepageDocs() {
-		$oDocumentModel = &getModel('document');
+		$oDocumentModel = getModel('document');
 		$vars = Context::getRequestVars();
 		$args->search_keyword = $vars->search_keyword;
 		$output = executeQueryArray('homepage.getHomepageDocuments', $args);

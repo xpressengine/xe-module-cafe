@@ -19,7 +19,7 @@
         function getConfig($site_srl = 0) {
             static $configs = array();
 
-            $oModuleModel = &getModel('module');
+            $oModuleModel = getModel('module');
 
             if(!isset($configs[$site_srl])) {
                 $config = $oModuleModel->getModuleConfig('homepage');
@@ -100,11 +100,11 @@
             $node_srl = Context::get('node_srl');
             if(!$node_srl) return new Object(-1,'msg_invalid_request');
 
-            $oMenuAdminModel = &getAdminModel('menu');
+            $oMenuAdminModel = getAdminModel('menu');
             $menu_info = $oMenuAdminModel->getMenuItemInfo($node_srl);
 
             if(!preg_match('/^http/i',$menu_info->url)) {
-                $oModuleModel = &getModel('module');
+                $oModuleModel = getModel('module');
                 $module_info = $oModuleModel->getModuleInfoByMid($menu_info->url, $this->site_srl);
                 if($module_info->mid == $menu_info->url) {
                     $menu_info->module_type = $module_info->module;
@@ -126,14 +126,14 @@
 			$mode = Context::get('mode');
 
             // 홈페이지 정보
-            $oModuleModel = &getModel('module');
+            $oModuleModel = getModel('module');
             // 회원 그룹의 목록을 가져옴
-            $oMemberModel = &getModel('member');
+            $oMemberModel = getModel('member');
             $group_list = $oMemberModel->getGroups($this->site_srl);
             Context::set('group_list', $group_list);
 
             // parent_srl이 있고 menu_item_srl이 없으면 하부 메뉴 추가임
-			$oMenuAdminModel =  &getAdminModel('menu');
+			$oMenuAdminModel =  getAdminModel('menu');
             if($mode == 'insert') {
                 // 상위 메뉴의 정보를 가져옴
                 $parent_info = $oMenuAdminModel->getMenuItemInfo($parent_srl);
@@ -146,7 +146,7 @@
             }
 
             if(!preg_match('/^http/i',$item_info->url)) {
-                $oModuleModel = &getModel('module');
+                $oModuleModel = getModel('module');
                 $module_info = $oModuleModel->getModuleInfoByMid($item_info->url, $this->site_srl);
                 if($module_info->mid == $item_info->url) {
                     $item_info->module_type = $module_info->module;
@@ -173,7 +173,7 @@
             $oTemplate = &TemplateHandler::getInstance();
             $tpl = $oTemplate->compile($this->module_path.'tpl', 'homepage_menu_item_info');
 
-			$oModuleController = &getController('module');
+			$oModuleController = getController('module');
 			$oModuleController->replaceDefinedLangCode($tpl);
 			$this->add('tpl',$tpl);
 		}

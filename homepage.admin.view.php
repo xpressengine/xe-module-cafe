@@ -13,7 +13,7 @@
 
         function init() {
             if(strpos($this->act,'HomepageAdminSite')!==false) {
-				$oModuleModel = &getModel('module');
+				$oModuleModel = getModel('module');
                 // 현재 접속 권한 체크하여 사이트 관리자가 아니면 접근 금지
                 $logged_info = Context::get('logged_info');
                 if(!Context::get('is_logged') || !$oModuleModel->isSiteAdmin($logged_info)) return $this->stop('msg_not_permitted');
@@ -24,7 +24,7 @@
                 if(!$this->site_srl) return $this->stop('msg_invalid_request');
 
                 // 홈페이지 정보를 추출하여 세팅
-                $oHomepageModel = &getModel('homepage');
+                $oHomepageModel = getModel('homepage');
                 $this->homepage_info = $oHomepageModel->getHomepageInfo($this->site_srl);
                 Context::set('homepage_info', $this->homepage_info);
 
@@ -42,7 +42,7 @@
         }
 
         function dispHomepageAdminContent() {
-            $oHomepageAdminModel = &getAdminModel('homepage');
+            $oHomepageAdminModel = getAdminModel('homepage');
 
             // 생성된 카페 목록을 구함
             $args->page = Context::get('page');
@@ -67,10 +67,10 @@
         }
 
         function dispHomepageAdminManage() {
-            $oLayoutModel = &getModel('layout');
-            $oHomepageModel = &getModel('homepage');
-            $oModuleModel = &getModel('module');
-            $oMemberModel = &getModel('member');
+            $oLayoutModel = getModel('layout');
+            $oHomepageModel = getModel('homepage');
+            $oModuleModel = getModel('module');
+            $oMemberModel = getModel('member');
 
             // cafe 전체 설정을 구함
             $homepage_config = $oHomepageModel->getConfig();
@@ -112,7 +112,7 @@
             Context::set('skins', $oModuleModel->getSkins($this->module_path));
 
 			//메뉴 목록을 가져옴 - 11.08.02
-			$oMenuAdminModel = &getAdminModel('menu');
+			$oMenuAdminModel = getAdminModel('menu');
 			$menu_list = $oMenuAdminModel->getMenus();
 			Context::set('menu_list',$menu_list);
 
@@ -121,12 +121,12 @@
         }
 
         function dispHomepageAdminSetup() {
-            $oLayoutModel = &getModel('layout');
-            $oHomepageAdminModel = &getAdminModel('homepage');
-            $oModuleModel = &getModel('module');
-            $oHomepageModel = &getModel('homepage');
+            $oLayoutModel = getModel('layout');
+            $oHomepageAdminModel = getAdminModel('homepage');
+            $oModuleModel = getModel('module');
+            $oHomepageModel = getModel('homepage');
 
-			$oMemberModel = &getModel('member');
+			$oMemberModel = getModel('member');
 			$member_config = $oMemberModel->getMemberConfig();
 			Context::set('member_config', $member_config);
 			
@@ -154,7 +154,7 @@
             }
             Context::set('service_modules', $service_modules);
 
-            $oModuleModel = &getModel('module');
+            $oModuleModel = getModel('module');
             $admin_list = $oModuleModel->getSiteAdmin($site_srl);
             Context::set('admin_list', $admin_list);
 
@@ -163,11 +163,11 @@
 
         function dispHomepageAdminDelete() {
             $site_srl = Context::get('site_srl');
-            $oHomepageModel = &getModel('homepage');
+            $oHomepageModel = getModel('homepage');
             $homepage_info = $oHomepageModel->getHomepageInfo($site_srl);
             Context::set('homepage_info', $homepage_info);
 
-            $oModuleModel = &getModel('module');
+            $oModuleModel = getModel('module');
             $admin_list = $oModuleModel->getSiteAdmin($site_srl);
             Context::set('admin_list', $admin_list);
 
@@ -175,8 +175,8 @@
         }
 
         function dispHomepageAdminSkinSetup() {
-            $oModuleAdminModel = &getAdminModel('module');
-            $oHomepageModel = &getModel('homepage');
+            $oModuleAdminModel = getAdminModel('module');
+            $oHomepageModel = getModel('homepage');
 
             $homepage_config = $oHomepageModel->getConfig(0);
             $skin_content = $oModuleAdminModel->getModuleSkinHTML($homepage_config->module_srl);
@@ -185,8 +185,8 @@
             $this->setTemplateFile('skin_info');
         }
         function dispHomepageAdminMobileSkinSetup() {
-            $oModuleAdminModel = &getAdminModel('module');
-            $oHomepageModel = &getModel('homepage');
+            $oModuleAdminModel = getAdminModel('module');
+            $oHomepageModel = getModel('homepage');
 
             $homepage_config = $oHomepageModel->getConfig(0);
             $skin_content = $oModuleAdminModel->getModuleMobileSkinHTML($homepage_config->module_srl);
@@ -198,10 +198,10 @@
          * @brief 홈페이지 기본 관리
          **/
         function dispHomepageAdminSiteManage() {
-            $oModuleModel = &getModel('module');
-            $oMenuAdminModel = &getAdminModel('menu');
-            $oLayoutModel = &getModel('layout');
-            $oHomepageModel = &getModel('homepage');
+            $oModuleModel = getModel('module');
+            $oMenuAdminModel = getAdminModel('menu');
+            $oLayoutModel = getModel('layout');
+            $oHomepageModel = getModel('homepage');
 
             $homepage_config = $oHomepageModel->getConfig($this->site_srl);
             Context::set('homepage_config', $homepage_config);
@@ -232,7 +232,7 @@
          **/
         function dispHomepageAdminSiteMemberGroupManage() {
             // 멤버모델 객체 생성
-            $oMemberModel = &getModel('member');
+            $oMemberModel = getModel('member');
 
             // group_srl이 있으면 미리 체크하여 selected_group 세팅
             $group_srl = Context::get('group_srl');
@@ -252,8 +252,8 @@
          * @brief 홈페이지 모듈의 회원 관리
          **/
         function dispHomepageAdminSiteMemberManage() {
-            $oMemberModel = &getModel('member');
-			$oModuleModel = &getModel('module');
+            $oMemberModel = getModel('member');
+			$oModuleModel = getModel('module');
 
             // 회원 그룹을 구함
             $group_list = $oMemberModel->getGroups($this->site_srl);
@@ -347,11 +347,11 @@
          * @brief 홈페이지 상단 메뉴 관리
          **/
         function dispHomepageAdminSiteTopMenu() {
-            $oMemberModel = &getModel('member');
-            $oMenuModel = &getAdminModel('menu');
-            $oModuleModel = &getModel('module');
-            $oLayoutModel = &getModel('layout');
-            $oHomepageModel = &getModel('homepage');
+            $oMemberModel = getModel('member');
+            $oMenuModel = getAdminModel('menu');
+            $oModuleModel = getModel('module');
+            $oLayoutModel = getModel('layout');
+            $oHomepageModel = getModel('homepage');
 
             // 메뉴 정보 가져오기
             $menu_srl = $this->homepage_info->first_menu_srl;
@@ -374,13 +374,13 @@
          **/
         function dispHomepageAdminSiteComponent() {
             // 애드온 목록을 가져옴
-            $oAddonModel = &getAdminModel('addon');
+            $oAddonModel = getAdminModel('addon');
             $addon_list = $oAddonModel->getAddonList($this->site_srl);
             Context::set('addon_list', $addon_list);
 			Context::set('addon_count',count($addon_list));
 			
             // 에디터 컴포넌트 목록을 가져옴
-            $oEditorModel = &getModel('editor');
+            $oEditorModel = getModel('editor');
 			 $component_list =  $oEditorModel->getComponentList(false, $this->site_srl);
             Context::set('component_list',$component_list);
             // 표시
@@ -396,7 +396,7 @@
             Context::set('selected_date', $selected_date);
 
             // counter model 객체 생성
-            $oCounterModel = &getModel('counter');
+            $oCounterModel = getModel('counter');
 
             // 전체 카운터 및 지정된 일자의 현황 가져오기
             $status = $oCounterModel->getStatus(array(0,$selected_date),$this->site_srl);
@@ -422,7 +422,7 @@
         function dispHomepageAdminSiteMidSetup() {
             // 현재 site_srl 에 등록된 것들을 가져오기 
             $args->site_srl = $this->site_srl;
-            $oModuleModel = &getModel('module');
+            $oModuleModel = getModel('module');
             $mid_list = $oModuleModel->getMidList($args);
             $installed_module_list = $oModuleModel->getModulesXmlInfo();
             foreach($installed_module_list as $key => $val) {
